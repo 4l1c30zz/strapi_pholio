@@ -39,8 +39,8 @@
             </div>
           </router-link>
           <div class="wrap">
-<a v-if="article.git" class="btn yellow" > {{ article.git }} </a>
-<a v-if="article.live" class="btn yellow" > {{ article.live }} </a>
+<a v-if="article.git" class="btn yellow" :href="article.git" target="_blank"> github > </a>
+<a v-if="article.live" class="btn yellow" :href="article.live" target="_blank"> live > </a>
   </div>
   </div>
     </div>

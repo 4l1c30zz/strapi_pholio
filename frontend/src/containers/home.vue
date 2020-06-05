@@ -91,6 +91,7 @@ export default {
             title
             items{
               url
+              caption
             }
           }
       }

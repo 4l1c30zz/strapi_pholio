@@ -5,6 +5,7 @@
     class="col-3 col-center"
     >
         <img :src="api_url + item.url" class="gallery_image"  />
+        <h4 class="heading">{{item.caption}}</h4>
     </div>
   </div>
 </template>
@@ -30,3 +31,17 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+@import "@/scss/_variables.scss";
+@import "@/scss/_functions.scss";
+@import "@/scss/_mixins.scss";
+.gallery{
+h4{
+background: color(_black);
+color: white;
+width:100%;
+padding: 5px 10px;
+text-align: left;
+}
+}
+</style>
