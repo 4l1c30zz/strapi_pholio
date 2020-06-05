@@ -36,12 +36,18 @@ export default {
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
 .gallery{
-h4{
-background: color(_black);
-color: white;
-width:100%;
-padding: 5px 10px;
-text-align: left;
-}
+  h4{
+  background: color(_black);
+  color: white;
+  width:100%;
+  padding: 5px 10px;
+  text-align: left;
+  }
+  img{
+    width: 100%;
+  height: 30vw;
+  object-fit: cover;
+  object-position: center top;
+  }
 }
 </style>
