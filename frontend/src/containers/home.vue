@@ -2,12 +2,12 @@
 <div id="main">
 
   <div class="about wrap boxed">
-    <h1  v-if="page.title_n_txt.title"  class="heading col-2 glitch-heading"><span>{{ page.title_n_txt.title }}</span></h1>
-    <p  v-if="page.title_n_txt.text"  class="col-2">{{page.title_n_txt.text }}</p>
+    <h1 v-if="page.about.title"  class="heading col-2 glitch-heading"><span>{{ page.about.title }}</span></h1>
+    <p   v-if="page.about.txt"  class="col-2">{{page.about.txt }}</p>
   </div>
 
   <div class="blog wrap boxed">
-    <h2 class="heading col-1">{{ page.title_n_posts.title }}</h2>
+    <h2 v-if="page.title_n_posts.title"   class="heading col-1">{{ page.title_n_posts.title }}</h2>
     <ArticlesList :articles="page.title_n_posts.articles || []"></ArticlesList>
   </div>
 
@@ -55,20 +55,19 @@ export default {
         page(id: $id) {
           id
           Title
-          ...title_n_txt
+          about{
+            id
+            title
+            txt
+          }
           ...title_n_posts
           ...gallery
           ...contact
         }
       }
 
-      fragment title_n_txt on Page {
-        title_n_txt{
-        id
-        title
-        text
-        }
-      }
+
+
       fragment title_n_posts on Page {
         title_n_posts {
           title
@@ -95,6 +94,7 @@ export default {
             }
           }
       }
+
       fragment contact on Page {
         contact {
           title

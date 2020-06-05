@@ -1,8 +1,8 @@
 <template>
-  <div class="gallery wrap">
+  <div class="gallery wrap gal">
     <div
     v-for="item in items" :key="item.url"
-    class="col-3 col-center"
+    class="col-3 col-center i"
     >
         <img :src="api_url + item.url" class="gallery_image"  />
         <h4 class="heading">{{item.caption}}</h4>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+
 export default {
   data: function() {
     return {
@@ -30,6 +31,35 @@ export default {
 
   }
 };
+
+let get_siblings = function(e){
+  let siblings = [];
+  if(!e.parentNode){
+    return siblings;
+  }
+  let sibling = e.parentNode.firstChild;
+  while (sibling) {
+    if(sibling.nodeType == 1 && sibling !== e){
+      siblings.push(sibling);
+    }
+    sibling = sibling.nextSibling;
+  }
+  return siblings;
+}
+
+let single_gal_imgs = document.querySelectorAll('.gal .i');
+console.log("here");
+console.log(single_gal_imgs);
+single_gal_imgs.forEach((single_gal_img)=>{
+  single_gal_img.addEventListener('click',(event)=>{
+    let targ = event.target.closest('.i');
+    targ.classList.toggle('a');
+    let siblings = get_siblings(targ);
+    siblings.forEach((sib) => {
+      sib.classList.remove('a');
+    });
+  });
+});
 </script>
 <style lang="scss">
 @import "@/scss/_variables.scss";

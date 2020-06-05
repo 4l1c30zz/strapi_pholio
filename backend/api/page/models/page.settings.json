@@ -12,11 +12,6 @@
     "Title": {
       "type": "string"
     },
-    "title_n_txt": {
-      "type": "component",
-      "repeatable": false,
-      "component": "basic.title-n-txt"
-    },
     "title_n_posts": {
       "type": "component",
       "repeatable": false,
@@ -31,6 +26,11 @@
       "type": "component",
       "repeatable": false,
       "component": "basic.contact"
+    },
+    "about": {
+      "type": "component",
+      "repeatable": false,
+      "component": "basic.about"
     }
   }
 }

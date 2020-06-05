@@ -1,15 +1,15 @@
 {
-  "collectionName": "components_basic_title_n_txts",
+  "collectionName": "components_basic_abouts",
   "info": {
-    "name": "title_n_txt",
-    "icon": "pencil-alt"
+    "name": "about",
+    "icon": "pen"
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string"
     },
-    "text": {
+    "txt": {
       "type": "richtext"
     }
   }
