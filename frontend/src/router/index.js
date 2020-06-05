@@ -10,7 +10,12 @@ Vue.use(VueRouter)
       name: 'home',
       component: () => import('../containers/home.vue')
     },
-    
+    {
+      path: '/test',
+      name: 'test',
+      component: () => import('../containers/test.vue')
+    },
+
   {
   path: "/article/:id",
     component: () => import('../containers/Article.vue')

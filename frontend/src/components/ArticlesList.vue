@@ -75,6 +75,12 @@ export default {
   text-align:center;
   text-transform: uppercase;
   @extend %flex-start-between;
+  .wrap{
+  padding:0;
+  >a{
+  flex-basis: calc(50% - 40px);
+  }
+  }
   img{
   height:250px;
   object-fit:cover;

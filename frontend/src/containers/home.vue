@@ -55,18 +55,21 @@ export default {
         page(id: $id) {
           id
           Title
-          about{
-            id
-            title
-            txt
-          }
+
           ...title_n_posts
           ...gallery
           ...contact
+          ...about
         }
       }
 
-
+    fragment about on Page{
+      about{
+        id
+        title
+        txt
+        }
+      }
 
       fragment title_n_posts on Page {
         title_n_posts {
