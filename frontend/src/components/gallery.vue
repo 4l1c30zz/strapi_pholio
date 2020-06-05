@@ -2,6 +2,7 @@
   <div class="gallery wrap gal">
     <div
     v-for="item in items" :key="item.url"
+     v-on:click="class_toggle"
     class="col-3 col-center i"
     >
         <img :src="api_url + item.url" class="gallery_image"  />
@@ -18,6 +19,16 @@ export default {
       api_url: process.env.VUE_APP_STRAPI_API_URL
     };
   },
+  methods: {
+   class_toggle: function (event) {
+   let targ = event.target.closest('.i');
+   targ.classList.toggle('a');
+   let siblings = get_siblings(targ);
+   siblings.forEach((sib) => {
+     sib.classList.remove('a');
+   });
+   }
+ },
   props: {
     items: Array
   },
@@ -26,7 +37,7 @@ export default {
       return Math.ceil(this.items.length);
     },
     Items() {
-      return this.items.slice(0);
+      return this.items[0];
     },
 
   }
@@ -47,19 +58,7 @@ let get_siblings = function(e){
   return siblings;
 }
 
-let single_gal_imgs = document.querySelectorAll('.gal .i');
-console.log("here");
-console.log(single_gal_imgs);
-single_gal_imgs.forEach((single_gal_img)=>{
-  single_gal_img.addEventListener('click',(event)=>{
-    let targ = event.target.closest('.i');
-    targ.classList.toggle('a');
-    let siblings = get_siblings(targ);
-    siblings.forEach((sib) => {
-      sib.classList.remove('a');
-    });
-  });
-});
+
 </script>
 <style lang="scss">
 @import "@/scss/_variables.scss";

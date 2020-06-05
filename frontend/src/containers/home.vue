@@ -2,8 +2,8 @@
 <div id="main">
 
   <div class="about wrap boxed">
-    <h1 v-if="page.about.title"  class="heading col-2 glitch-heading"><span>{{ page.about.title }}</span></h1>
-    <p   v-if="page.about.txt"  class="col-2">{{page.about.txt }}</p>
+    <h1 class="heading col-2 glitch-heading"><span>{{ page.about['title'] }}</span></h1>
+    <p   class="col-2">{{page.about['txt'] }}</p>
   </div>
 
   <div class="blog wrap boxed">
@@ -55,21 +55,19 @@ export default {
         page(id: $id) {
           id
           Title
-
+          about{
+            id
+            title
+            txt
+            }
           ...title_n_posts
           ...gallery
           ...contact
-          ...about
+
         }
       }
 
-    fragment about on Page{
-      about{
-        id
-        title
-        txt
-        }
-      }
+
 
       fragment title_n_posts on Page {
         title_n_posts {

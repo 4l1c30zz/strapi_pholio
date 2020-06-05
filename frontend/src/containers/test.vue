@@ -2,23 +2,12 @@
   <div id="main">
     <h1 class="heading"> {{page.title}}</h1>
 
-    <div class="about wrap boxed">
-      <h1 v-if="page.about.title"  class="heading col-2 glitch-heading"><span>{{ page.about.title }}</span></h1>
-      <p   v-if="page.about.txt"  class="col-2">{{page.about.txt }}</p>
-    </div>
 
-    <div class="contact wrap boxed">
-      <h2 class="heading col-1">{{ page.contact.title }}</h2>
-      <a class="mail link col-1" :href="page.contact.email">{{page.contact.email}}</a>
-      <div class="col-1">
-        <a :href="page.contact.git" class="btn btn-default col-2">
-          GitHub
-        </a>
-        <a :href="page.contact.insta" class="btn btn-default col-2">
-          Instagram
-        </a>
+      <div class="about wrap boxed">
+        <h1 class="heading col-2 glitch-heading"><span>{{ page.about['title'] }}</span></h1>
+        <p class="col-2">{{page.about['txt'] }}</p>
       </div>
-    </div>
+
   </div>
 </template>
 
@@ -40,26 +29,15 @@ export default {
         page(id: $id) {
           id
           Title
-          ...contact
-          ...about
+          about{
+            id
+            title
+            txt
+            }
+
         }
       }
 
-      fragment about on Page{
-        about{
-          id
-          title
-          txt
-          }
-        }
-      fragment contact on Page {
-        contact {
-          title
-          email
-          git
-          insta
-        }
-      }
       `,
       variables() {
         return {
