@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_basic_contacts",
+  "info": {
+    "name": "contact",
+    "icon": "envelope"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "git": {
+      "type": "string"
+    },
+    "insta": {
+      "type": "string"
+    }
+  }
+}

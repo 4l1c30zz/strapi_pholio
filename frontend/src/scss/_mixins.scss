@@ -1,0 +1,35 @@
+@mixin cont_width{
+  max-width: $cont_width;
+  width: 100%;
+  margin: 0 auto;
+}
+%flex-center-between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+%flex-start-between{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+%flex-center-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+%flex-center-end{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+}
+%flex-center-center-column{
+  display: flex;
+
+  align-content:  center;
+  flex-direction: column;
+}

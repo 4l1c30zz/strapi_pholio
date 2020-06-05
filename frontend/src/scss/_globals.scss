@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Subrayada:400,700&display=swap');
+body {
+    font: font_weight(regular) font_size(f16) font(base_font);
+    color: color(_gray);
+
+}
+h1{
+  font-size: font_size(f100);
+}
+h2{
+  font-size: font_size(f80);
+}
+h3{
+    font-size: font_size(f25);
+}
+h4{
+    font-size: font_size(f20);
+}
+header{
+  @extend %flex-center-center;
+}
+.heading,
+.btn,
+ a {
+    font-weight: font_weight(bolder);
+    font-family: font(lined_font);
+    text-align: center;
+}
+p{
+  font-weight: font_weight(regular);
+  font-family: font(base_font);
+  text-transform: none;
+}
+#app {
+  @extend %flex-center-center-column;
+    max-width: 100%;
+}
+.logo {
+    flex-basis: 30%;
+    text-align: left;
+    svg {
+        max-width: 90px;
+        margin: 0 auto;
+    }
+    path {
+        fill: black;
+        stroke: black;
+    }
+}
+
+.wrap {
+    @extend %flex-center-between;
+    width: 100%;
+    padding: 10px;
+    &.boxed {
+        @include cont_width;
+    }
+    > div{
+      &.col-center{
+        @extend %flex-center-center;
+        margin: 10px;
+      }
+    }
+    .col-1 {
+        flex-basis: 100%;
+    }
+    .col-2 {
+        flex-basis: calc(50% - 20px);
+    }
+    .col-3 {
+        flex-basis: calc(33.33% - 20px);
+    }
+    .col-4 {
+        flex-basis: calc(25% - 20px);
+    }
+    .col-5 {
+        flex-basis: calc(20% -20px);
+    }
+}
+.btn{
+  padding: 10px;
+  background: color(_black);
+  color: white;
+  margin: 10px;
+}
+#morph {
+    position: absolute;
+}

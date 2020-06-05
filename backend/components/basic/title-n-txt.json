@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_basic_title_n_txts",
+  "info": {
+    "name": "title_n_txt",
+    "icon": "pencil-alt"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

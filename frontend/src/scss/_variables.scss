@@ -1,0 +1,42 @@
+
+$fonts: (
+  "base_font": "Montserrat",
+  "lined_font": "Montserrat Subrayada"
+);
+
+$font_sizes: (
+"f14": 14px,
+"f16": 16px,
+"f18" : 18px,
+"f20": 20px,
+"f25": 25px,
+"f30": 30px,
+"f80": 80px,
+"f100": 100px,
+"f120": 120px,
+);
+
+$font_weights: (
+"light" : 300,
+"regular" : 400,
+"medium" : 500,
+"bold": 600,
+"bolder": 700,
+"boldest": 900,
+);
+$line_heights: (
+"_minimal": 1em,
+"_default": 1.2em,
+);
+$colors: (
+  "_gray": #1a181b,
+  "_black": #000300,
+  "_white": #fff,
+  "_magenta": #EC008C,
+  "_yellow": #faff00,
+  "_blue": #02a9ea,
+);
+
+$inner_padd: 10px;
+$cont_width: 1200px;
+$trans_default: all 0.3s ease;

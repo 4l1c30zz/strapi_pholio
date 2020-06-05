@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "name": "page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "title_n_txt": {
+      "type": "component",
+      "repeatable": false,
+      "component": "basic.title-n-txt"
+    },
+    "title_n_posts": {
+      "type": "component",
+      "repeatable": false,
+      "component": "basic.title-n-posts"
+    },
+    "gallery": {
+      "type": "component",
+      "repeatable": false,
+      "component": "basic.gallery"
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "basic.contact"
+    }
+  }
+}

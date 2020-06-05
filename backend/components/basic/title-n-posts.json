@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_basic_title_n_posts",
+  "info": {
+    "name": "title_n_posts",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "articles": {
+      "collection": "articles"
+    }
+  }
+}
