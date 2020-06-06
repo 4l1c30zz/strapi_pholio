@@ -1,8 +1,8 @@
 
   <template>
   <div class="gallery wrap boxed">
-    <h2 class="heading col-1">{{ item.title }}</h2>
-      <gallerySingle :items="item.items || []"></gallerySingle>
+    <h2 class="heading col-1">{{ items.title }}</h2>
+      <gallerySingle :items="items.items || []"></gallerySingle>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
      gallerySingle
   },
   props: {
-    item: Object
+    items: Array
   },
   computed: {
     ItemsCount() {
