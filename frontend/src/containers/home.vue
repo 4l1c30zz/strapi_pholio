@@ -2,15 +2,13 @@
 <div id="main">
 
   <about :item="page.about || []"></about>
+  <posts :item="page.title_n_posts || []"></posts>
 
-  <div class="blog wrap boxed">
-    <h2 v-if="page.title_n_posts.title"   class="heading col-1">{{ page.title_n_posts.title }}</h2>
-    <ArticlesList :articles="page.title_n_posts.articles || []"></ArticlesList>
-  </div>
+
 
   <div class="gallery wrap boxed">
     <h2 class="heading col-1">{{ page.gallery.title }}</h2>
-      <gallery :items="page.gallery.items || []"></gallery>
+      <gallerySingle :items="page.gallery.items || []"></gallerySingle>
   </div>
 
   <contact :item="page.contact || []"></contact>
@@ -21,9 +19,9 @@
 
 <script>
 import gql from "graphql-tag";
-import ArticlesList from "../components/ArticlesList";
-import gallery from "../components/gallery";
+import gallerySingle from "../components/gallery-single";
 import about from "../components/about";
+import posts from "../components/posts";
 import contact from "../components/contact";
 
 export default {
@@ -35,9 +33,9 @@ export default {
     };
   },
   components: {
-    ArticlesList,
-    gallery,
     about,
+    posts,
+    gallerySingle,
     contact
   },
   apollo: {
