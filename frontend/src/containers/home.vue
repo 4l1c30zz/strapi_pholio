@@ -13,18 +13,8 @@
       <gallery :items="page.gallery.items || []"></gallery>
   </div>
 
-  <div class="contact wrap boxed">
-  <h2 class="heading col-1">{{ page.contact.title }}</h2>
-  <a class="mail link col-1" :href="page.contact.email">{{page.contact.email}}</a>
-  <div class="col-1">
-  <a :href="page.contact.git" class="btn btn-default col-2">
-  GitHub
-  </a>
-  <a :href="page.contact.insta" class="btn btn-default col-2">
-  Instagram
-  </a>
-  </div>
-  </div>
+  <contact :item="page.contact || []"></contact>
+
 
 </div>
 </template>
@@ -34,6 +24,8 @@ import gql from "graphql-tag";
 import ArticlesList from "../components/ArticlesList";
 import gallery from "../components/gallery";
 import about from "../components/about";
+import contact from "../components/contact";
+
 export default {
   data() {
     return {
@@ -45,7 +37,8 @@ export default {
   components: {
     ArticlesList,
     gallery,
-    about
+    about,
+    contact
   },
   apollo: {
     page: {

@@ -1,8 +1,17 @@
-<template>
-<div class="about wrap boxed">
-  <h1 class="heading col-2 glitch-heading"><span>{{ item.title }}</span></h1>
-  <p   class="col-2">{{ item.txt }}</p>
-</div>
+
+  <template>
+  <div class="contact wrap boxed">
+  <h2 class="heading col-1">{{ item.title }}</h2>
+  <a class="mail link col-1" :href="item.email">{{item.email}}</a>
+  <div class="col-1">
+  <a :href="item.git" class="btn btn-default col-2">
+  GitHub
+  </a>
+  <a :href="item.insta" class="btn btn-default col-2">
+  Instagram
+  </a>
+  </div>
+  </div>
 </template>
 
 <script>
