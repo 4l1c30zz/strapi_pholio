@@ -1,10 +1,7 @@
 <template>
 <div id="main">
 
-  <div class="about wrap boxed">
-    <h1 class="heading col-2 glitch-heading"><span>{{ page.about['title'] }}</span></h1>
-    <p   class="col-2">{{page.about['txt'] }}</p>
-  </div>
+  <about :item="page.about || []"></about>
 
   <div class="blog wrap boxed">
     <h2 v-if="page.title_n_posts.title"   class="heading col-1">{{ page.title_n_posts.title }}</h2>
@@ -36,6 +33,7 @@
 import gql from "graphql-tag";
 import ArticlesList from "../components/ArticlesList";
 import gallery from "../components/gallery";
+import about from "../components/about";
 export default {
   data() {
     return {
@@ -46,7 +44,8 @@ export default {
   },
   components: {
     ArticlesList,
-    gallery
+    gallery,
+    about
   },
   apollo: {
     page: {
@@ -55,11 +54,7 @@ export default {
         page(id: $id) {
           id
           Title
-          about{
-            id
-            title
-            txt
-            }
+        ...about
           ...title_n_posts
           ...gallery
           ...contact
@@ -67,7 +62,14 @@ export default {
         }
       }
 
-
+      fragment about on Page {
+        about {
+          __typename
+          id
+          title
+          txt
+        }
+      }
 
       fragment title_n_posts on Page {
         title_n_posts {

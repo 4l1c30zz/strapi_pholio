@@ -21,12 +21,12 @@ export default {
   },
   methods: {
    class_toggle: function (event) {
-   let targ = event.target.closest('.i');
-   targ.classList.toggle('a');
-   let siblings = get_siblings(targ);
-   siblings.forEach((sib) => {
-     sib.classList.remove('a');
-   });
+     let targ = event.target.closest('.i');
+     targ.classList.toggle('a');
+     let siblings = get_siblings(targ);
+     siblings.forEach((sib) => {
+       sib.classList.remove('a');
+     });
    }
  },
   props: {
@@ -37,7 +37,7 @@ export default {
       return Math.ceil(this.items.length);
     },
     Items() {
-      return this.items[0];
+      return this.items.slice(0);
     },
 
   }

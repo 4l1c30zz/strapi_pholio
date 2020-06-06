@@ -14,7 +14,12 @@ const cache = new InMemoryCache();
 // Create the apollo client
 const apolloClient = new ApolloClient({
   link: httpLink,
-  cache
+  cache,
+  defaultOptions: {
+    query: {
+      fetchPolicy: 'network-only'
+    }
+}
 });
 
 export default apolloClient;

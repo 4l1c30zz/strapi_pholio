@@ -2,7 +2,6 @@
   <div id="main">
     <h1 class="heading"> {{page.title}}</h1>
 
-
       <div class="about wrap boxed">
         <h1 class="heading col-2 glitch-heading"><span>{{ page.about['title'] }}</span></h1>
         <p class="col-2">{{page.about['txt'] }}</p>
@@ -29,12 +28,15 @@ export default {
         page(id: $id) {
           id
           Title
-          about{
-            id
-            title
-            txt
-            }
+            ...about
+        }
+      }
 
+      fragment about on Page {
+      about{
+        id
+        title
+        txt
         }
       }
 
