@@ -6,10 +6,7 @@
 
 
 
-  <div class="gallery wrap boxed">
-    <h2 class="heading col-1">{{ page.gallery.title }}</h2>
-      <gallerySingle :items="page.gallery.items || []"></gallerySingle>
-  </div>
+<gallery :item="page.gallery || []"></gallery>
 
   <contact :item="page.contact || []"></contact>
 
@@ -19,10 +16,10 @@
 
 <script>
 import gql from "graphql-tag";
-import gallerySingle from "../components/gallery-single";
 import about from "../components/about";
 import posts from "../components/posts";
 import contact from "../components/contact";
+import gallery from "../components/gallery";
 
 export default {
   data() {
@@ -35,8 +32,8 @@ export default {
   components: {
     about,
     posts,
-    gallerySingle,
-    contact
+    contact,
+    gallery
   },
   apollo: {
     page: {
