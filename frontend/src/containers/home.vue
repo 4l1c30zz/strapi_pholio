@@ -75,62 +75,46 @@ export default {
   apollo: {
     page: {
       query: gql`
-      query Pages($id: ID = 1) {
-        page(id: $id) {
-          id
-          Title
-        ...about
-          ...title_n_posts
-          ...gallery
-          ...contact
-        }
-      }
-
-      fragment about on Page {
-        about {
-          __typename
-          id
-          title
-          txt
-        }
-      }
-
-      fragment title_n_posts on Page {
-        title_n_posts {
-          title
-          articles {
-          id
-            tiitle
-            tech
-            git
-            live
-            image {
-              url
+        query Pages($id: ID = 1) {
+          page(id: $id) {
+            id
+            Title
+            about {
+              id
+              title
+              txt
+            }
+            title_n_posts {
+              title
+              articles {
+                id
+                tiitle
+                tech
+                git
+                live
+                image {
+                  url
+                }
+              }
+            }
+            gallery {
+              id
+              __typename
+              title
+              items {
+                url
+                caption
+              }
+            }
+            contact {
+              title
+              email
+              git
+              insta
             }
           }
         }
-      }
 
-      fragment gallery on Page {
-          gallery{
-          id
-          __typename
-            title
-            items{
-              url
-              caption
-            }
-          }
-      }
-
-      fragment contact on Page {
-        contact {
-          title
-          email
-          git
-          insta
-        }
-      }
 
       `,
       variables() {
