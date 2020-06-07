@@ -1,47 +1,50 @@
 <template>
-  <div class="wrap blog">
+
+<div class="wrap blog">
   <div
   v-for="article in Articles"
   v-on:click="post_tech_slice"
   class=" col-3 col-center"
   :key="article.id"
   >
-      <!--    <router-link
-            :to="{ path: '/article/' + article.id }"
-          > -->
-            <div class="inner">
-              <div class="media">
-                <img :src="api_url + article.image.url" />
-              </div>
-              <div class="body">
-                <span
-                  v-if="article.category"
-                  class="category tiny uppercase"
-                >
-                  {{ article.category.name }}
-                </span>
-                <h3
-                v-if="article.tiitle"
-                class="heading "
-                >
-                  {{ article.tiitle }}
-                </h3>
-                <p  v-on:click="post_tech_slice"
-
-                v-if="article.tech"
-                class="tech medium normal"
-                >
-                  {{ article.tech }}
-                </p>
-            </div>
-            </div>
-         <!-- </router-link> -->
-          <div class="wrap">
-<a v-if="article.git" class="btn yellow" :href="article.git" target="_blank"> github > </a>
-<a v-if="article.live" class="btn yellow" :href="article.live" target="_blank"> live > </a>
-  </div>
-  </div>
+    <div class="inner">
+      <div class="media">
+       <img :src="api_url + article.image.url" />
+      </div>
+      <div class="body">
+        <span
+        v-if="article.category"
+        class="category tiny uppercase"
+        >
+          {{ article.category.name }}
+        </span>
+        <h3
+        v-if="article.tiitle"
+        class="heading"
+        >
+         {{ article.tiitle }}
+        </h3>
+        <p  
+        v-if="article.tech"
+        class="tech medium normal"
+        >
+         {{ article.tech }}
+        </p>
+        <router-link
+        :to="{ path: '/article/' + article.id }"
+        class="more"
+        > 
+          more
+        </router-link>
+      </div>
     </div>
+    <div class="wrap">
+    <a v-if="article.git" class="btn yellow" :href="article.git" target="_blank"> github > </a>
+    <a v-if="article.live" class="btn yellow" :href="article.live" target="_blank"> live > </a>
+    </div>
+  </div>
+</div>
+
 </template>
 
 <script>
@@ -52,44 +55,43 @@ export default {
       api_url: process.env.VUE_APP_STRAPI_API_URL,
     };
   },
-    methods: {
-      post_tech_slice: function (event) {
-        let targ = event.target.closest('.body > .tech');
-        let post_tech = targ.innerHTML;
+  methods: {
+    post_tech_slice: function (event) {
+      let targ = event.target.closest('.body > .tech');
+      let post_tech = targ.innerHTML;
 
-        let post_tech_arr = post_tech.split(" ");
-        let post_tech_items = post_tech_arr.filter((el)=>{
-         return el ;
-        });
-        let  html = '';
-        for (var i = 0; i < post_tech_items.length; i++){ 
-         html += '<span>' + post_tech_items[i] + '</span>';
-        }
-        targ.innerHTML = html;
-        console.log(html);
+      let post_tech_arr = post_tech.split(" ");
+      let post_tech_items = post_tech_arr.filter((el)=>{
+       return el ;
+      });
+      let  html = '';
+      for (var i = 0; i < post_tech_items.length; i++){ 
+        html += '<span>' + post_tech_items[i] + '</span>';
       }
- },
+      targ.innerHTML = html;
+      console.log(html);
+    }
+  },
 
   props: {
     articles: Array
   },
 
   computed: {
-
     ArticlesCount() {
       return Math.ceil(this.articles.length);
     },
 
     Articles() {
-      return this.articles.slice(0);  
+     return this.articles.slice(0);  
     },
 
   }
 
 };
 
-
 </script>
+
 <style lang="scss">
 @import "@/scss/_variables.scss";
 @import "@/scss/_functions.scss";
