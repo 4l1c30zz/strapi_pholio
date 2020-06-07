@@ -45,8 +45,6 @@
 </template>
 
 <script>
-import Vue from 'vue'; // es6 syntax
-    window.Vue = Vue;
 
 export default {
   data: function() {
@@ -55,34 +53,35 @@ export default {
     };
   },
     methods: {
-   post_tech_slice: function (event) {
-  let targ = event.target.closest('.body > .tech');
- let post_tech = targ.innerHTML;
+      post_tech_slice: function (event) {
+        let targ = event.target.closest('.body > .tech');
+        let post_tech = targ.innerHTML;
 
-  let post_tech_arr = post_tech.split(" ");
-  let post_tech_items = post_tech_arr.filter((el)=>{
-  return el ;
-  });
-  let  html = '';
-   for (var i = 0; i < post_tech_items.length; i++){ 
-     html += '<span>' + post_tech_items[i] + '</span>';
-     }
-  //tech_wrap.textContent = html;
-  targ.innerHTML = html;
-console.log(html);
-   }
+        let post_tech_arr = post_tech.split(" ");
+        let post_tech_items = post_tech_arr.filter((el)=>{
+         return el ;
+        });
+        let  html = '';
+        for (var i = 0; i < post_tech_items.length; i++){ 
+         html += '<span>' + post_tech_items[i] + '</span>';
+        }
+        targ.innerHTML = html;
+        console.log(html);
+      }
  },
+
   props: {
     articles: Array
   },
+
   computed: {
 
     ArticlesCount() {
       return Math.ceil(this.articles.length);
     },
+
     Articles() {
-      return this.articles.slice(0);
-      
+      return this.articles.slice(0);  
     },
 
   }
@@ -95,20 +94,20 @@ console.log(html);
 @import "@/scss/_variables.scss";
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
-.wrap.blog{
-  text-align:center;
-  text-transform: uppercase;
-  @extend %flex-start-between;
-  .wrap{
-  padding:0;
-  >a{
-  flex-basis: calc(50% - 40px);
-  }
-  }
-  img{
-  height:250px;
-  object-fit:cover;
-  }
+.wrap.blog {
+    text-align: center;
+    text-transform: uppercase;
+    @extend %flex-start-between;
+    .wrap {
+        padding: 0;
+        >a {
+            flex-basis: calc(50% - 40px);
+        }
+    }
+    img {
+        height: 250px;
+        object-fit: cover;
+    }
 }
 .blog .inner {
     height: 100%;
