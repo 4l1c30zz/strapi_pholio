@@ -32,7 +32,6 @@ export default {
               id
               tiitle
               content
-              publish
               git
               live
               tech
