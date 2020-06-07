@@ -3,7 +3,6 @@
 <div class="wrap blog">
   <div
   v-for="article in Articles"
-  v-on:click="post_tech_slice"
   class=" col-3 col-center"
   :key="article.id"
   >
@@ -28,7 +27,7 @@
         v-if="article.tech"
         class="tech medium normal"
         >
-         {{ article.tech }}
+         {{ wraped_tech }}
         </p>
         <router-link
         :to="{ path: '/article/' + article.id }"
@@ -54,10 +53,12 @@ export default {
     return {
       api_url: process.env.VUE_APP_STRAPI_API_URL,
     };
-  },
+  },/*
   methods: {
     post_tech_slice: function (event) {
       let targ = event.target.closest('.body > .tech');
+     let ar = this.$parent;
+     console.log(ar); 
       let post_tech = targ.innerHTML;
 
       let post_tech_arr = post_tech.split(" ");
@@ -69,9 +70,8 @@ export default {
         html += '<span>' + post_tech_items[i] + '</span>';
       }
       targ.innerHTML = html;
-      console.log(html);
     }
-  },
+  },*/
 
   props: {
     articles: Array
@@ -85,9 +85,29 @@ export default {
     Articles() {
      return this.articles.slice(0);  
     },
-
+       ArticlesTech() {
+     return this.articles.slice(0).tech;  
+    },
+    
+    wraped_tech: {
+      get: function () {
+      return this.articles.slice(0)
+    },
+   set: function(change){
+      let post_tech = change
+console.log(post_tech)
+      let post_tech_arr = post_tech.split(" ")
+      let post_tech_items = post_tech_arr.filter((el)=>{
+       return el 
+      })
+      let  html = ''
+      for (var i = 0; i < post_tech_items.length; i++){ 
+        html += '<span>' + post_tech_items[i] + '</span>'
+      }
+      return html
+    },
+  },
   }
-
 };
 
 </script>
