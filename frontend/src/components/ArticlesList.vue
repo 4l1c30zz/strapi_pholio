@@ -15,10 +15,12 @@
       <div class="body">
         <h3
         v-if="article.tiitle"
-        class="heading"
+        class="heading mark_block_wrap"
         >
-        <span class="mark magenta">
+        <span class="word">
          {{ article.tiitle }}
+         </span>
+         <span class="mark magenta">
          </span>
         </h3>
         <p  
@@ -29,9 +31,13 @@
         </p>
         <router-link
         :to="{ path: '/article/' + article.id }"
-        class="link blue"
+        class="link mark_block_wrap"
         > 
+        <span class="word">
           more
+        </span>
+          <span class="mark blue">
+          </span>
         </router-link>
       </div>
     </div>
@@ -131,7 +137,7 @@ export default {
     })
     let  html = ''
       for (var i = 0; i < post_tech_items.length; i++){ 
-      html += '<span class="mark yellow">' + post_tech_items[i] + '</span>'
+      html += '<span class="mark_block_wrap"><span class="word">' + post_tech_items[i] + '</span><span class="mark yellow"></span></span>'
     }
       return html
     }
@@ -185,12 +191,59 @@ text-transform: uppercase;
     }
   }
 }
+.blog .i{
+      .body {
+        position: absolute;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        width: 100%;
+        height: 100%;
+        opacity:0;
+        transition: $trans-default 0.3s;
+        }
+  .mark_block_wrap{
+           padding: 5px;
+            margin: 5px;
+            position: relative;
+  }
+  .word{
+    position: relative;
+    z-index: 1;
+  }
+        .mark {
+          width:0;
+          display: block;
+          position: absolute;
+          height: 100%;
+          top: 0;
+          left: 0;
+          transition: $trans-default 0.3s;
+        }
+        &.a{
+           .mark {
+          width:100%;
+        }
+        .body{
+          opacity: 1;
+        }
+         .media:after {
+        position: absolute;
+        top: -100%;
+        width: 300%;
+        opacity: 0.5;
+        animation: grain 8s steps(10) infinite 0.3s;
+    }
+        }
+}
+
 
 .blog .inner {
   height: 100%;
   max-height: 100%;
   position: relative;
-  cursor: pointer;
   overflow: hidden;
   max-height: 54vh;
   border: 5px solid black;
@@ -215,27 +268,8 @@ text-transform: uppercase;
             transition: opacity 0.5s ease-in-out;
         }
     }
-    &:hover .media:after {
-        position: absolute;
-        top: -100%;
-        width: 300%;
-        opacity: 0.5;
-        animation: grain 8s steps(10) infinite;
-    }
 
-    .body {
-        position: absolute;
-        top: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 100%;
-        height: 100%;
-        .mark {
-            padding: 5px;
-            margin: 5px;
-        }
+
         p {
             z-index: 2;
             position: relative;
@@ -243,6 +277,9 @@ text-transform: uppercase;
             margin-bottom: 0;
             line-height: 1em;
             @extend %flex-center-center;
+        }
+        .heading{
+          margin: 0 auto;
         }
         .link{
           max-width: 60px;
@@ -254,7 +291,7 @@ text-transform: uppercase;
            transform: rotate(180deg) scale(1.4);
           }
         }
-    }
+ 
 }
 
 @keyframes grain {
