@@ -118,14 +118,22 @@ text-align: center;
 text-transform: uppercase;
 @extend %flex-start-between;
   .wrap {
-  padding: 0;
-    > a {
-    flex-basis: calc(50% - 40px);
-    margin: 0 5px;
+    padding: 0;
+    margin-top: 10px;
+    > .btn {
+     flex-basis: calc(50% - 30px);
+     width:100%;
+     margin: 0;
+     &:hover{
+      transform: scale(0.9) translateY(10px) rotate(10deg);
+     }
+      &:first-child{
+      margin: 0px 5px 0 0;
+      }
     }
     h4{
       flex-basis: 100%;
-      margin: 10px auto;
+      margin: 10px auto 0;
     }
   }
 }
@@ -196,7 +204,7 @@ text-transform: uppercase;
           transform: scale(1) rotate(0deg);
            transition: $trans-default;
           &:hover{
-           transform: rotate(180deg) scale(1.2);
+           transform: rotate(180deg) scale(1.4);
           }
         }
     }
