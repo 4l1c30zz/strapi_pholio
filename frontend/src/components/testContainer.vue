@@ -25,9 +25,10 @@
         </h3>
         <p  
         v-if="article.tech"
+        :inner-html.prop="article.tech  | wrap"
         class="tech medium normal"
         >
-         {{ article.tech | wrap}}
+      
         </p>
         <router-link
         :to="{ path: '/article/' + article.id }"
