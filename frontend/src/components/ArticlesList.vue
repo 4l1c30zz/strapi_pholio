@@ -3,7 +3,9 @@
 <div class="wrap blog">
   <div
   v-for="article in Articles"
-  class=" col-3 col-center"
+  @mouseover="class_add"
+  @mouseleave="class_remove"
+  class=" col-3 col-center i"
   :key="article.id"
   >
     <div class="inner">
@@ -68,10 +70,39 @@
 <script>
 
 export default {
+
   data: function() {
+
     return {
       api_url: process.env.VUE_APP_STRAPI_API_URL,
+      hover: false,
     };
+
+  },
+
+  methods: {
+
+
+
+   class_add: function (event) {   
+     let targ = event.target.closest('.i');
+     targ.classList.add('a');
+     let siblings = get_siblings(targ);
+     siblings.forEach((sib) => {
+       sib.classList.remove('a');
+     });
+
+   },
+    class_remove: function (event) {   
+     let targ = event.target.closest('.i');
+     targ.classList.remove('a');
+     let siblings = get_siblings(targ);
+     siblings.forEach((sib) => {
+       sib.classList.remove('a');
+     });
+     
+   }
+
   },
 
   props: {
@@ -90,22 +121,39 @@ export default {
   },
 
   filters: {
-  wrap: function (value) {
+
+    wrap: function (value) {
     if (!value) return ''
     value = value.toString()
-      let post_tech_arr = value.split(" ")
-      let post_tech_items = post_tech_arr.filter((el)=>{
-       return el 
-      })
-      let  html = ''
+    let post_tech_arr = value.split(" ")
+    let post_tech_items = post_tech_arr.filter((el)=>{
+      return el 
+    })
+    let  html = ''
       for (var i = 0; i < post_tech_items.length; i++){ 
-        html += '<span class="mark yellow">' + post_tech_items[i] + '</span>'
-      }
+      html += '<span class="mark yellow">' + post_tech_items[i] + '</span>'
+    }
       return html
+    }
+
   }
-}
+
 };
 
+let get_siblings = function(e){
+  let siblings = [];
+  if(!e.parentNode){
+    return siblings;
+  }
+  let sibling = e.parentNode.firstChild;
+  while (sibling) {
+    if(sibling.nodeType == 1 && sibling !== e){
+      siblings.push(sibling);
+    }
+    sibling = sibling.nextSibling;
+  }
+  return siblings;
+}
 </script>
 
 <style lang="scss">
@@ -158,7 +206,7 @@ text-transform: uppercase;
             height: 60vh;
         }
         &:after {
-            background: url("/wp-content/uploads/2020/05/whitenoise-400x400-1.jpg");
+            background: url("../assets/whitenoise-400x400-1.jpg");
             opacity: 0.7;
             content: "";
             height: 300%;
@@ -188,7 +236,6 @@ text-transform: uppercase;
             padding: 5px;
             margin: 5px;
         }
-
         p {
             z-index: 2;
             position: relative;
@@ -209,6 +256,7 @@ text-transform: uppercase;
         }
     }
 }
+
 @keyframes grain {
     0%,
     100% {

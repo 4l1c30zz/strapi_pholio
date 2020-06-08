@@ -2,7 +2,7 @@
   <div class="gallery wrap gal">
     <div
     v-for="item in items" :key="item.url"
-     v-on:click="class_toggle"
+    @click="class_toggle"
     class="col-3 col-center i"
     >
         <img :src="api_url + item.url" class="gallery_image"  />
