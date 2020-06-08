@@ -27,7 +27,7 @@
         v-if="article.tech"
         class="tech medium normal"
         >
-         {{ article.tech }}
+         {{ article.tech | wrap}}
         </p>
         <router-link
         :to="{ path: '/article/' + article.id }"
@@ -46,6 +46,7 @@
 
 </template>
 
+
 <script>
 
 export default {
@@ -58,6 +59,9 @@ export default {
   props: {
     articles: Array
   },
+  mounted: function () {
+      console.log('mounted');
+  },
   computed: {
     ArticlesCount() {
       return Math.ceil(this.articles.length);
@@ -67,7 +71,25 @@ export default {
      return this.articles.slice(0);  
     },
 
+  },
+  filters: {
+  wrap: function (value) {
+    if (!value) return ''
+    value = value.toString()
+    console.log(value + ' /wrap!');
+      let post_tech_arr = value.split(" ")
+      console.log(post_tech_arr)
+      let post_tech_items = post_tech_arr.filter((el)=>{
+       return el 
+      })
+      let  html = ''
+      for (var i = 0; i < post_tech_items.length; i++){ 
+        html += '<span>' + post_tech_items[i] + '</span>'
+      }
+      return html
+   // return value.charAt(0).toUpperCase() + value.slice(1)
   }
+}
 };
 
 </script>
@@ -96,7 +118,8 @@ export default {
     max-height: 100%;
     position: relative;
     cursor: pointer;
-
+        overflow: hidden;
+        max-height: 54vh;
     border: 5px solid black;
     background: white;
     > a {
@@ -146,6 +169,7 @@ export default {
             padding: 10px;
             margin-bottom: 0;
             line-height: 1em;
+            background: white;
         }
     }
 }
@@ -181,6 +205,10 @@ export default {
     90% {
         transform: translate(-10%, -20%);
     }
+    100% {
+        transform: translate(0%, -5%);
+    }
 }
 
 </style>
+

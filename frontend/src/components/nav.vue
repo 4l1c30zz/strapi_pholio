@@ -19,6 +19,16 @@
           </div>
 
         <ul class="nav">
+         <li>
+        <router-link
+          to="/test"
+          v-slot="{ href, route, navigate }"
+        >
+          <a  :href="href" @click="navigate"
+            >{{ route.name }}</a
+          >
+        </router-link>
+        </li>
         <li>
         <router-link
           to="/"
