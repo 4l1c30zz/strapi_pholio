@@ -21,25 +21,26 @@
         v-if="article.tiitle"
         class="heading"
         >
+        <span class="mark magenta">
          {{ article.tiitle }}
+         </span>
         </h3>
         <p  
         v-if="article.tech"
         :inner-html.prop="article.tech  | wrap"
         class="tech medium normal"
         >
-      
         </p>
         <router-link
         :to="{ path: '/article/' + article.id }"
-        class="more"
+        class="link blue"
         > 
           more
         </router-link>
       </div>
     </div>
     <div class="wrap">
-    <a v-if="article.git" class="btn yellow" :href="article.git" target="_blank"> github > </a>
+    <a v-if="article.git" class="btn magenta" :href="article.git" target="_blank"> github > </a>
     <a v-if="article.live" class="btn yellow" :href="article.live" target="_blank"> live > </a>
     </div>
   </div>
@@ -84,7 +85,7 @@ export default {
       })
       let  html = ''
       for (var i = 0; i < post_tech_items.length; i++){ 
-        html += '<span>' + post_tech_items[i] + '</span>'
+        html += '<span class="mark yellow">' + post_tech_items[i] + '</span>'
       }
       return html
   }
@@ -159,14 +160,27 @@ export default {
         width: 100%;
         height: 100%;
         .mark {
-            background: yellow;
+            padding: 5px;
+            margin: 5px;
         }
+
         p {
             z-index: 2;
             position: relative;
             padding: 10px;
             margin-bottom: 0;
             line-height: 1em;
+            @extend %flex-center-center;
+        }
+        .link{
+          max-width: 60px;
+          margin: 0 auto;
+          padding: 5px;
+          transform: scale(1) rotate(0deg);
+           transition: $trans-default;
+          &:hover{
+           transform: rotate(180deg) scale(1.2);
+          }
         }
     }
 }

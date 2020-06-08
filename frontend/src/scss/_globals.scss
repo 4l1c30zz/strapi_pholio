@@ -83,6 +83,19 @@ p{
   background: color(_black);
   color: white;
   margin: 10px;
+  &:hover{
+    transition: $trans_default;
+  }
+}
+.yellow{
+  background: color(_yellow);
+}
+.magenta{
+   background: color(_magenta);
+}
+.blue{
+    background: color(_blue);
+
 }
 #morph {
     position: absolute;
