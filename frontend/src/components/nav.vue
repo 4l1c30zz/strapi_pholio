@@ -28,6 +28,17 @@
           >
         </router-link>
         </li>
+
+        <li>
+        <router-link
+          to="/blog"
+          v-slot="{ href, route, navigate }"
+        >
+          <a  :href="href" @click="navigate"
+            >{{ route.name }}</a
+          >
+        </router-link>
+        </li>
         
           <li v-for="category in categories" v-bind:key="category.id">
             <router-link

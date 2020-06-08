@@ -11,12 +11,6 @@
        <img :src="api_url + article.image.url" />
       </div>
       <div class="body">
-        <span
-        v-if="article.category"
-        class="category tiny uppercase"
-        >
-          {{ article.category.name }}
-        </span>
         <h3
         v-if="article.tiitle"
         class="heading"
@@ -40,8 +34,30 @@
       </div>
     </div>
     <div class="wrap">
-    <a v-if="article.git" class="btn magenta" :href="article.git" target="_blank"> github > </a>
-    <a v-if="article.live" class="btn yellow" :href="article.live" target="_blank"> live > </a>
+
+      <h4
+        v-if="article.category"
+        class="category tiny heading"
+      >
+      {{ article.category.name }}
+      </h4>
+      <a
+        v-if="article.git"
+        class="btn"
+        :href="article.git"
+        target="_blank"
+      >
+       github >
+      </a>
+      <a
+        v-if="article.live"
+        class="btn magenta"
+        :href="article.live" 
+        target="_blank"
+      > 
+       live > 
+      </a>
+
     </div>
   </div>
 </div>
@@ -61,9 +77,7 @@ export default {
   props: {
     articles: Array
   },
-  mounted: function () {
-      console.log('mounted');
-  },
+  
   computed: {
     ArticlesCount() {
       return Math.ceil(this.articles.length);
@@ -98,21 +112,24 @@ export default {
 @import "@/scss/_variables.scss";
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
+
 .wrap.blog {
-    text-align: center;
-    text-transform: uppercase;
-    @extend %flex-start-between;
-    .wrap {
-        padding: 0;
-        >a {
-            flex-basis: calc(50% - 40px);
-        }
+text-align: center;
+text-transform: uppercase;
+@extend %flex-start-between;
+  .wrap {
+  padding: 0;
+    > a {
+    flex-basis: calc(50% - 40px);
+    margin: 0 5px;
     }
-    img {
-        height: 250px;
-        object-fit: cover;
+    h4{
+      flex-basis: 100%;
+      margin: 10px auto;
     }
+  }
 }
+
 .blog .inner {
   height: 100%;
   max-height: 100%;

@@ -35,6 +35,7 @@ export default {
             url
           }
           category {
+            id
             name
           }
         }
