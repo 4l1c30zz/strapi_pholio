@@ -25,9 +25,10 @@
         </h3>
         <p  
         v-if="article.tech"
+        :inner-html.prop="article.tech  | wrap"
         class="tech medium normal"
         >
-         {{ article.tech }}
+      
         </p>
         <router-link
         :to="{ path: '/article/' + article.id }"
@@ -46,6 +47,7 @@
 
 </template>
 
+
 <script>
 
 export default {
@@ -58,6 +60,9 @@ export default {
   props: {
     articles: Array
   },
+  mounted: function () {
+      console.log('mounted');
+  },
   computed: {
     ArticlesCount() {
       return Math.ceil(this.articles.length);
@@ -67,7 +72,23 @@ export default {
      return this.articles.slice(0);  
     },
 
+  },
+
+  filters: {
+  wrap: function (value) {
+    if (!value) return ''
+    value = value.toString()
+      let post_tech_arr = value.split(" ")
+      let post_tech_items = post_tech_arr.filter((el)=>{
+       return el 
+      })
+      let  html = ''
+      for (var i = 0; i < post_tech_items.length; i++){ 
+        html += '<span>' + post_tech_items[i] + '</span>'
+      }
+      return html
   }
+}
 };
 
 </script>
@@ -92,13 +113,13 @@ export default {
     }
 }
 .blog .inner {
-    height: 100%;
-    max-height: 100%;
-    position: relative;
-    cursor: pointer;
-
-    border: 5px solid black;
-    background: white;
+  height: 100%;
+  max-height: 100%;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  max-height: 54vh;
+  border: 5px solid black;
     > a {
         display: block;
         height: 100%;
@@ -181,6 +202,10 @@ export default {
     90% {
         transform: translate(-10%, -20%);
     }
+    100% {
+        transform: translate(0%, -5%);
+    }
 }
 
 </style>
+
