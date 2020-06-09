@@ -33,25 +33,11 @@ p{
   text-transform: none;
 }
 #app {
-  @extend %flex-center-center-column;
-    max-width: 100%;
+  @extend %flex-center-column;
 }
-.logo {
-    flex-basis: 30%;
-    text-align: left;
-    svg {
-        max-width: 90px;
-        margin: 0 auto;
-    }
-    path {
-        fill: black;
-        stroke: black;
-    }
-}
-
 .wrap {
     @extend %flex-center-between;
-    width: 100%;
+
     padding: 10px;
     &.boxed {
         @include cont_width;

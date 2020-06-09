@@ -65,6 +65,8 @@ let get_siblings = function(e){
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
 .gallery{
+  width: 100%;
+  overflow: hidden;
   h4{
   background: color(_black);
   color: white;

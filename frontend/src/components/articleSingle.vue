@@ -122,7 +122,6 @@ export default {
   },
 
   filters: {
-
     wrap: function (value) {
     if (!value) return ''
     value = value.toString()
@@ -136,9 +135,7 @@ export default {
     }
       return html
     }
-
   }
-
 };
 
 let get_siblings = function(e){
@@ -163,82 +160,91 @@ let get_siblings = function(e){
 @import "@/scss/_mixins.scss";
 
 .wrap.blog {
-text-align: center;
-text-transform: uppercase;
-@extend %flex-start-between;
-  .wrap {
-    padding: 0;
-    margin-top: 10px;
-    > .btn {
-     flex-basis: calc(50% - 30px);
-     width:100%;
-     margin: 0;
-     &:hover{
-      transform: scale(0.9) translateY(10px) rotate(10deg);
-     }
-      &:first-child{
-      margin: 0px 5px 0 0;
-      }
+     @extend %flex-start-between;
+    text-align: center;
+    text-transform: uppercase;
+    
+    .wrap {
+        padding: 0;
+        margin-top: 10px;
+        width: 100%;
+        > .btn {
+            flex-basis: calc(50% - 30px);
+            width: 100%;
+            margin: 0;
+            &:hover {
+                transform: scale(0.9) translateY(10px) rotate(10deg);
+            }
+            &:first-child {
+                margin: 0 5px 0 0;
+            }
+        }
+        h4 {
+            flex-basis: 100%;
+            margin: 10px auto 0;
+        }
     }
-    h4{
-      flex-basis: 100%;
-      margin: 10px auto 0;
-    }
-  }
 }
-.blog .i{
-      .body {
+
+.blog .i {
+    .body {
+        @extend %flex-center-center-column;
         position: absolute;
         top: 0;
-        @extend %flex-center-center-column;
+        left: -50vw;
         width: 100%;
         height: 100%;
-        opacity:0;
         transition: $trans-default 0.3s;
-        }
-  .mark_block_wrap{
-           padding: 5px;
-            margin: 5px;
-            position: relative;
-  }
-  .word{
-    position: relative;
-    z-index: 1;
-  }
-        .mark {
-          width:0;
-          display: block;
-          position: absolute;
-          height: 100%;
-          top: 0;
-          left: 0;
-          transition: $trans-default 0.3s;
-        }
-        &.a{
-           .mark {
-          width:100%;
-        }
-        .body{
-          opacity: 1;
-        }
-         .media:after {
-        position: absolute;
-        top: -100%;
-        width: 300%;
-        opacity: 0.5;
-        animation: grain 8s steps(10) infinite 0.3s;
     }
+    .mark_block_wrap {
+        padding: 5px;
+        margin: 5px;
+        position: relative;
+    }
+    .word {
+        position: relative;
+        z-index: 1;
+    }
+    .mark {
+        width: 0;
+        display: block;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    .heading .mark {
+        transition: all 0.1s ease-in-out 0.6s;
+    }
+    .tech .mark {
+        transition: all 0.15s cubic-bezier(0.550, 0.055, 0.675, 0.190) 0.75s;
+    }
+    .link .mark {
+        transition: all 0.3s ease 0.95s;
+    }
+    &.a {
+        .mark {
+            width: 100%;
         }
+        .body {
+            left: 0;
+        }
+        .media:after {
+            position: absolute;
+            top: -100%;
+            width: 300%;
+            opacity: 0.5;
+            animation: grain 8s steps(10) infinite 0.3s;
+        }
+    }
 }
 
-
 .blog .inner {
-  height: 100%;
-  max-height: 100%;
-  position: relative;
-  overflow: hidden;
-  max-height: 54vh;
-  border: 5px solid black;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    max-height: 54vh;
+    border: 5px solid black;
     > a {
         display: block;
         height: 100%;
@@ -260,30 +266,27 @@ text-transform: uppercase;
             transition: opacity 0.5s ease-in-out;
         }
     }
-
-
-        p {
-            z-index: 2;
-            position: relative;
-            padding: 10px;
-            margin-bottom: 0;
-            line-height: 1em;
-            @extend %flex-center-center;
+    p {
+        z-index: 2;
+        position: relative;
+        padding: 10px;
+        margin-bottom: 0;
+        line-height: 1em;
+        @extend %flex-center-center;
+    }
+    .heading {
+        margin: 0 auto;
+    }
+    .link {
+        max-width: 60px;
+        margin: 0 auto;
+        padding: 5px;
+        transform: scale(1) rotate(0deg);
+        transition: $trans-default;
+        &:hover {
+            transform: rotate(180deg) scale(1.4);
         }
-        .heading{
-          margin: 0 auto;
-        }
-        .link{
-          max-width: 60px;
-          margin: 0 auto;
-          padding: 5px;
-          transform: scale(1) rotate(0deg);
-           transition: $trans-default;
-          &:hover{
-           transform: rotate(180deg) scale(1.4);
-          }
-        }
- 
+    }
 }
 
 @keyframes grain {
@@ -317,9 +320,6 @@ text-transform: uppercase;
     }
     90% {
         transform: translate(-10%, -20%);
-    }
-    100% {
-        transform: translate(0%, -5%);
     }
 }
 

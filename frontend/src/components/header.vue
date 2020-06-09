@@ -82,6 +82,21 @@ export default {
 @import "@/scss/_variables.scss";
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
+header .wrap.boxed{
+  width: 100%;
+}
+.logo {
+    flex-basis: 30%;
+    text-align: left;
+    svg {
+        max-width: 90px;
+        margin: 0 auto;
+    }
+    path {
+        fill: black;
+        stroke: black;
+    }
+}
 .nav {
     flex-basis: 70%;
     @extend %flex-center-end;
@@ -89,4 +104,5 @@ export default {
     margin: 10px;
     }
 }
+
 </style>
