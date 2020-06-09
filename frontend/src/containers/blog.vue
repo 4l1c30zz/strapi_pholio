@@ -26,7 +26,7 @@ export default {
       query  {
         articles {
           id
-          tiitle
+          title
           content
           git
           live

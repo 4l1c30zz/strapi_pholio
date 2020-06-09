@@ -30,7 +30,7 @@ export default {
             name
             articles {
               id
-              tiitle
+              title
               content
               git
               live

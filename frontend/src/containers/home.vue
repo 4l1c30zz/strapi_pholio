@@ -78,7 +78,7 @@ export default {
         query Pages($id: ID = 1) {
           page(id: $id) {
             id
-            Title
+            page_title
             about {
               id
               title
@@ -88,7 +88,7 @@ export default {
               title
               articles {
                 id
-                tiitle
+                title
                 tech
                 git
                 live

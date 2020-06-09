@@ -14,11 +14,11 @@
       </div>
       <div class="body">
         <h3
-        v-if="article.tiitle"
+        v-if="article.title"
         class="heading mark_block_wrap"
         >
         <span class="word">
-         {{ article.tiitle }}
+         {{ article.title }}
          </span>
          <span class="mark magenta">
          </span>

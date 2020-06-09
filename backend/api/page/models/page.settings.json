@@ -9,7 +9,7 @@
     "timestamps": true
   },
   "attributes": {
-    "Title": {
+    "page_title": {
       "type": "string"
     },
     "title_n_posts": {

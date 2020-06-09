@@ -9,7 +9,7 @@
     "timestamps": true
   },
   "attributes": {
-    "tiitle": {
+    "title": {
       "type": "string"
     },
     "content": {

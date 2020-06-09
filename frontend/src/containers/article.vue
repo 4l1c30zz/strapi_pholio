@@ -7,7 +7,7 @@
       :data-src="api_url + article.image.url"
       uk-img
     >
-      <h1 class="heading" >{{ article.tiitle }}</h1>
+      <h1 class="heading" >{{ article.title }}</h1>
     </div>
         <vue-markdown-it
           v-if="article.content"
