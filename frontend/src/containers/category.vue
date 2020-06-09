@@ -3,13 +3,13 @@
 
         <h1 class="heading">{{ category.name }}</h1>
 
-        <ArticlesList :articles="category.articles || []"></ArticlesList>
+        <articleSingle :articles="category.articles || []"></articleSingle>
 
   </div>
 </template>
 
 <script>
-import ArticlesList from "../components/ArticlesList";
+import articleSingle from "../components/articleSingle";
 import gql from "graphql-tag";
 
 export default {
@@ -20,7 +20,7 @@ export default {
     };
   },
   components: {
-    ArticlesList
+    articleSingle
   },
   apollo: {
     category: {

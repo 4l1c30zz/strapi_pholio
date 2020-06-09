@@ -8,7 +8,7 @@
 
   <div v-if="page" class="blog wrap boxed">
     <h2  class="heading col-1">{{ page.title_n_posts.title }}</h2>
-    <ArticlesList :articles="page.title_n_posts.articles || []"></ArticlesList>
+    <articleSingle :articles="page.title_n_posts.articles || []"></articleSingle>
   </div>
 
      <div v-if="page" class="gallery wrap boxed">
@@ -41,8 +41,8 @@
 
 <script>
 import gql from "graphql-tag";
-import gallerySingle from "../components/gallery-single";
-import ArticlesList from "../components/ArticlesList";
+import gallerySingle from "../components/gallerySingle";
+import articleSingle from "../components/articleSingle";
 
 
 export default {
@@ -70,7 +70,7 @@ export default {
   },
   components: {
     gallerySingle,
-    ArticlesList
+    articleSingle
   },
   apollo: {
     page: {

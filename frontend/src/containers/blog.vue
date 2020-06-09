@@ -3,18 +3,18 @@
 
         <h1 class="heading">blog</h1>
 
-        <ArticlesList :articles="articles"></ArticlesList>
+        <articleSingle :articles="articles"></articleSingle>
 
   </div>
 </template>
 
 <script>
-import ArticlesList from "../components/ArticlesList.vue";
+import articleSingle from "../components/articleSingle.vue";
 import gql from "graphql-tag";
 
 export default {
   components: {
-    ArticlesList
+    articleSingle
   },
   data() {
     return {

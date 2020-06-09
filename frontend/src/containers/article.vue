@@ -39,7 +39,7 @@ export default {
       query Articles($id: ID!) {
         article(id: $id) {
           id
-          tiitle
+          title
           content
           publish
           git
