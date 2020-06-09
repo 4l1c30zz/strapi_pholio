@@ -102,11 +102,6 @@ export default {
     class_remove: function (event) {   
      let targ = event.target.closest('.i');
      targ.classList.remove('a');
-     let siblings = get_siblings(targ);
-     siblings.forEach((sib) => {
-       sib.classList.remove('a');
-     });
-     
    }
 
   },
@@ -195,10 +190,7 @@ text-transform: uppercase;
       .body {
         position: absolute;
         top: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
+        @extend %flex-center-center-column;
         width: 100%;
         height: 100%;
         opacity:0;

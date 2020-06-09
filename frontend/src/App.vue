@@ -6,12 +6,13 @@
 </template>
 
 <script>
-import Nav from "./components/nav.vue";
+import Nav from "./components/header.vue";
 
 export default {
   name: "App",
   components: { Nav }
 };
+
 </script>
 
 <style lang="scss">
