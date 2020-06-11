@@ -64,21 +64,58 @@ let get_siblings = function(e){
 @import "@/scss/_variables.scss";
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
-.gallery{
-  width: 100%;
-  overflow: hidden;
-  h4{
-  background: color(_black);
-  color: white;
-  width:100%;
-  padding: 5px 10px;
-  text-align: left;
-  }
-  img{
+  .gallery{
     width: 100%;
-  height: 30vw;
-  object-fit: cover;
-  object-position: center top;
+    overflow: hidden;
+    h4{
+    background: color(_black);
+    color: white;
+    width:100%;
+    padding: 5px 10px;
+    text-align: left;
+    }
+      .i{
+      position: relative;
+      background: transparent;
+      transition: all 0.3s cubic-bezier(0.895, 0.030, 0.685, 0.220);
+      img{
+      width: 100%;
+      max-height: 30vw;
+      min-height: 30vw;
+      height: 30vw;
+      object-fit: cover;
+      object-position: center top;
+      transition:  all 0.3s cubic-bezier(0.895, 0.030, 0.685, 0.220);
+      }
+      &.a{
+      position: fixed;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      z-index: 99;
+      background: white;
+      height: 100vh;
+      &::after{
+        content: "close";
+        background: color(_yellow);
+        padding: 10px;
+        font-weight: font_weight(bolder);
+        font-family: font(lined_font);
+        text-align: center;
+        font-size: font_size(f18);
+        cursor: pointer;
+        position: absolute;
+        top: 5%;
+        right: 0;
+      }
+        img{
+        height: 100%;
+        max-height: 90vh;
+        object-fit: scale-down;
+        }
+      }
+    }
   }
-}
 </style>
