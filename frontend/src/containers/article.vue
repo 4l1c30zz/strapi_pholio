@@ -5,9 +5,7 @@
       id="banner"
       class="bck-cover bck-fixed single-title"
       :data-src="api_url + article.image.url"
-  
       :style="{ backgroundImage: `url('${api_url + article.image.url}')` }"
-      uk-img
     >
     <!-- <img :src="api_url + article.image.url" /> -->
       <h1 class="heading" >{{ article.title }}</h1>
