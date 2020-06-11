@@ -73,6 +73,8 @@ let get_siblings = function(e){
     width:100%;
     padding: 5px 10px;
     text-align: left;
+    position: relative;
+    transition: $trans-default;
     }
       .i{
       position: relative;
@@ -114,6 +116,11 @@ let get_siblings = function(e){
         height: 100%;
         max-height: 90vh;
         object-fit: scale-down;
+        }
+        h4{
+          position: absolute;
+          bottom: 0;
+          left: 0;
         }
       }
     }
