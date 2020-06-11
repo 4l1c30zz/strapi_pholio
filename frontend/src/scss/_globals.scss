@@ -86,3 +86,15 @@ p{
 #morph {
     position: absolute;
 }
+.bck-cover{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:center top;
+}
+.bck-fixed{
+  background-attachment: fixed;
+}
+.single-title{
+  min-height: 60vh;
+  @extend %flex-center-center;
+}

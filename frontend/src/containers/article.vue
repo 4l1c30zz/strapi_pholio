@@ -5,8 +5,11 @@
       id="banner"
       class="bck-cover bck-fixed single-title"
       :data-src="api_url + article.image.url"
+  
+      :style="{ backgroundImage: `url('${api_url + article.image.url}')` }"
       uk-img
     >
+    <!-- <img :src="api_url + article.image.url" /> -->
       <h1 class="heading" >{{ article.title }}</h1>
     </div>
         <vue-markdown-it
@@ -69,4 +72,9 @@ export default {
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
 @import "@/scss/_globals.scss";
+.single .body{
+  padding: 20px;
+  max-width: 90%;
+  margin: 0 auto;
+}
 </style>
