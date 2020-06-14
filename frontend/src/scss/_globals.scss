@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat+Subrayada:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Subrayada:700&display=swap');
 @import "_reset";
 @import "_variables";
 @import "_functions";
 @import "_mixins";
-
 
 body {
     font: font_weight(regular) font_size(f16) font(base_font);
@@ -29,7 +28,7 @@ header{
 .heading,
 .btn,
  a {
-    font-weight: font_weight(bolder);
+    font-weight: font_weight(boldest);
     font-family: font(lined_font);
     text-align: center;
 }
