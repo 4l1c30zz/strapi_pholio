@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="gallery wrap gal">
     <div
     v-for="item in items" :key="item.url"
@@ -10,6 +11,7 @@
     </div>
   </div>
   <div class="overlay"></div>
+  </div>
 </template>
 
 <script>
