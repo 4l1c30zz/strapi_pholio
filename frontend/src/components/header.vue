@@ -58,6 +58,7 @@
 <script>
 import gql from "graphql-tag";
 import logo from "../assets/logo";
+import anime from 'animejs';
 export default {
   name: "Nav",
   data() {
@@ -67,6 +68,9 @@ export default {
   },
   components: {
     logo
+  },
+  mounted(){
+    bck_morph()
   },
   apollo: {
     categories: gql`
@@ -92,6 +96,21 @@ function stick (){
 window.onscroll =  function() {
   stick()
 };
+
+export function bck_morph(){
+  anime({
+  targets:'.morph',
+    d: [
+      {value: 'M1-1c120.1,418.2,268.7,527.3,379.8,551.8c193.5,42.7,272-171.4,645.1-237 c277.8-48.8,381.9,44,609.1-45c168.3-65.9,280.1-183,346.8-268.5C1321.4-0.1,661.2-0.6,1-1z'},
+      {value: 'M1-1c-196.2,663.5-110.7,924.1,18,1034c170,145.2,378.2-4,1044,0c581.7,3.5,760.5,119.4,912-12c123.2-106.9,208.8-360.6,6.7-1020.7C1321.4-0.1,661.2-0.6,1-1z'},
+    ],
+    easing: 'easeInQuad',
+    duration: 2000,
+    loop: false
+  });
+}
+
+
 </script>
 <style lang="scss">
 @import "@/scss/_variables.scss";
@@ -99,7 +118,7 @@ window.onscroll =  function() {
 @import "@/scss/_mixins.scss";
 header {
     position: static;
-    background: white;
+    background: transparent;
     transition: all 0.3 ease;
     .wrap.boxed {
         width: 100%;
@@ -133,8 +152,8 @@ header {
         position: fixed;
         top: 0;
         width: 100%;
-        z-index: 10;
-        background: magenta;
+        z-index: 10;  
+        background: color(_magenta);
         .logo svg {
             max-width: 70px;
         }
@@ -142,8 +161,14 @@ header {
 }
 #morph {
     pointer-events: none;
-        position: absolute;
-
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    path{
+      fill: color(_magenta);
+    }
 }
 
 
