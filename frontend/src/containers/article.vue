@@ -8,7 +8,30 @@
       :style="{ backgroundImage: `url('${api_url + article.image.url}')` }"
     >
     <!-- <img :src="api_url + article.image.url" /> -->
+    <div class="info_wrap">
       <h1 class="heading" >{{ article.title }}</h1>
+      <div
+      v-if="article.tech"
+       class="tech"> 
+        {{article.tech}}
+      </div>
+      <div class="btn_wrap wrap">
+        <a
+          v-if="article.live"
+         class="btn col-2"
+          :href="article.live"
+          target="_blank"
+          >live  </a>
+        <a  
+        v-if="article.git"
+        :href="article.git"
+        target="_blank"
+          class="btn col-2"
+     
+           > git  </a>
+
+      </div>
+   </div>
     </div>
         <vue-markdown-it
           v-if="article.content"
@@ -49,7 +72,6 @@ export default {
           image {
             url
           }
-
         }
       }
       `,
@@ -74,5 +96,25 @@ export default {
   padding: 20px;
   max-width: 90%;
   margin: 0 auto;
+   p{
+    line-height: line_height(_bigger);
+    margin-bottom: $med_marg;
+  }
+}
+
+.info_wrap{
+  h1{
+    padding: $inner_padd;
+    background:color(_blue);
+  }
+  .tech{
+    background: color(_yellow);
+    margin-top: $bigger_marg;
+    font-size: font_size(f18);
+    text-align: center;
+    font-weight: font_weight(bold);
+    padding: $inner-padd;
+  }
+ 
 }
 </style>

@@ -10,9 +10,9 @@
             to="/"
             v-slot="{ href, route, navigate }"
           >
-            <a  :href="href" @click="navigate"
-              ><logo></logo></a
-            >
+            <a :href="href" @click="navigate">
+              <logo></logo>
+            </a>
           </router-link>
           </div>
 
@@ -61,7 +61,7 @@ import gql from "graphql-tag";
 import logo from "../assets/logo";
 import anime from 'animejs';
 export default {
-  name: "Nav",
+  name: "headerComponent",
   data() {
     return {
       categories: []

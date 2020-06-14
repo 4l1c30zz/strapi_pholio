@@ -1,24 +1,24 @@
 <template>
   <div id="app">
-<Nav />
+<headerComponent />
         <router-view :key="$route.fullPath"></router-view>
+          <footerComponent/>
   </div>
 </template>
 
 <script>
-import Nav from "./components/header.vue";
+  import headerComponent from "./components/header.vue";
+  import footerComponent from "./components/footer.vue";
 
-export default {
-  name: "App",
-  components: { Nav }
-};
-
+  export default {
+    name: "App",
+    components: {
+      headerComponent,
+      footerComponent
+    }
+  };
 </script>
 
 <style lang="scss">
-  @import "@/scss/_reset.scss";
-  @import "@/scss/_variables.scss";
-  @import "@/scss/_functions.scss";
-  @import "@/scss/_mixins.scss";
   @import "@/scss/_globals.scss";
 </style>

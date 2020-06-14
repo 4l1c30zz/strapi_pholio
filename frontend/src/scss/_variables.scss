@@ -27,6 +27,7 @@ $font_weights: (
 $line_heights: (
 "_minimal": 1em,
 "_default": 1.2em,
+"_bigger": 1.3em,
 );
 $colors: (
   "_gray": #1a181b,
@@ -38,5 +39,6 @@ $colors: (
 
 $inner_padd: 10px;
 $med_marg: 10px;
+$bigger_marg: 20px;
 $cont_width: 1200px;
 $trans_default: all 0.3s ease;
