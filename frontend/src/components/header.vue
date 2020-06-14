@@ -38,6 +38,7 @@
             >{{ route.name }}</a
           >
         </router-link>
+        <div class="mark yellow"></div>
         </li>
         
           <li v-for="category in categories" v-bind:key="category.id">
