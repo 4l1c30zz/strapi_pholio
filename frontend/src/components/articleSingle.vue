@@ -166,7 +166,7 @@ let get_siblings = function(e){
     
     .wrap {
         padding: 0;
-        margin-top: 10px;
+        margin-top: $med_marg;
         width: 100%;
         > .btn {
             flex-basis: calc(50% - 30px);
@@ -181,7 +181,7 @@ let get_siblings = function(e){
         }
         h4 {
             flex-basis: 100%;
-            margin: 10px auto 0;
+            margin: $med_marg auto 0;
         }
     }
 }
@@ -269,7 +269,7 @@ let get_siblings = function(e){
     p {
         z-index: 2;
         position: relative;
-        padding: 10px;
+        padding: $inner_padd;
         margin-bottom: 0;
         line-height: 1em;
         @extend %flex-center-center;

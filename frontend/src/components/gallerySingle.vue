@@ -102,7 +102,7 @@ let get_siblings = function(e){
       &::after{
         content: "close";
         background: color(_yellow);
-        padding: 10px;
+        padding: $inner_padd;
         font-weight: font_weight(bolder);
         font-family: font(lined_font);
         text-align: center;

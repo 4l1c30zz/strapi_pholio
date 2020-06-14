@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat+Subrayada:400,700&display=swap');
+@import "_reset";
+@import "_variables";
+@import "_functions";
+@import "_mixins";
+
+
 body {
     font: font_weight(regular) font_size(f16) font(base_font);
     color: color(_gray);
@@ -38,14 +44,14 @@ p{
 .wrap {
     @extend %flex-center-between;
 
-    padding: 10px;
+    padding: $inner_padd;
     &.boxed {
         @include cont_width;
     }
     > div{
       &.col-center{
         @extend %flex-center-center;
-        margin: 10px;
+        margin: $med_marg;
       }
     }
     .col-1 {
@@ -65,10 +71,10 @@ p{
     }
 }
 .btn{
-  padding: 10px;
+  padding: $inner_padd;
   background: color(_black);
   color: white;
-  margin: 10px;
+  margin: $med_marg;
   &:hover{
     transition: $trans_default;
   }

@@ -144,7 +144,7 @@ header {
         flex-basis: 70%;
         @extend %flex-center-end;
         li {
-            margin: 10px;
+            margin: $med_marg;
         }
         a{
           font-size: font_size(f20);
@@ -173,6 +173,5 @@ header {
       fill: color(_magenta);
     }
 }
-
 
 </style>
