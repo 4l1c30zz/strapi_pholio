@@ -72,6 +72,7 @@ export default {
   },
   mounted(){
     bck_morph()
+    stick()
   },
   apollo: {
     categories: gql`

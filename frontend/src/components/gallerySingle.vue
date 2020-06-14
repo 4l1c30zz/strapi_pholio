@@ -9,6 +9,7 @@
         <h4 class="heading">{{item.caption}}</h4>
     </div>
   </div>
+  <div class="overlay"></div>
 </template>
 
 <script>
