@@ -27,9 +27,7 @@
         :href="article.git"
         target="_blank"
           class="btn col-2"
-     
            > git  </a>
-
       </div>
    </div>
     </div>
@@ -38,7 +36,6 @@
           :source="article.content"
           class="body"
         />
-
   </div>
 </template>
 
@@ -83,7 +80,6 @@ export default {
     }
   }
 };
-
 </script>
 
 <style lang="scss">
