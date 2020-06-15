@@ -36,7 +36,6 @@ export default {
      let targ = event.target.closest('.i');
      targ.classList.toggle('a');
     let targ_parent = event.target.parentNode.closest('.gal');
-    console.log(targ_parent);
     targ_parent.classList.add("a");
      let siblings = get_siblings(targ);
      siblings.forEach((sib) => {
@@ -46,7 +45,6 @@ export default {
    class_remove: function(){
      document.querySelector(".gal").classList.remove("a");
      let gal_items = document.querySelectorAll(".gal .i");
-     console.log(gal_items);
      gal_items.forEach((gal_item) => {
         if(gal_item.classList.contains('a')){
           gal_item.classList.remove('a');
