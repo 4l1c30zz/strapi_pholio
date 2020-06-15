@@ -1,5 +1,4 @@
 <template>
-
   <div class="gallery wrap gal">
     <div class="i_wrap wrap">
       <div
@@ -14,30 +13,27 @@
     <div class="overlay" >
     </div>
     <div class="overlay_controllers">
-       <span
-    @click="class_remove"
-    class="close btn"
-    >close</span>
-    <span 
-    @click="move_left"
-    class="left btn arr"
-    >
-    left
-    </span>
-    <span 
-    @click="move_right"
-    class="right btn arr"
-    >
-    right
-    </span>
+      <span
+      @click="class_remove"
+      class="close btn"
+      >close</span>
+      <span 
+      @click="move_left"
+      class="left btn arr"
+      >
+      left
+      </span>
+      <span 
+      @click="move_right"
+      class="right btn arr"
+      >
+      right
+      </span>
     </div>
   </div>
-
 </template>
 
-
 <script>
-
 export default {
   data: function() {
     return {
@@ -72,11 +68,10 @@ export default {
     if(typeof(left_sib) != 'undefined' && left_sib != null){
       current_i.classList.remove('a');
       left_sib.classList.add('a');
-      console.log("left arr clicked");
-      console.log(left_sib);
     }
     else{
-      console.log("empty left");
+       current_i.classList.remove('a');
+       document.querySelector('.gal .i:last-child').classList.add("a");
     }
   },
 
@@ -86,11 +81,10 @@ export default {
       if(typeof(right_sib) != 'undefined' && right_sib != null){
         current_i.classList.remove('a');
         right_sib.classList.add('a');
-        console.log("right arr clicked");
-        console.log(right_sib);
       }
       else{
-       console.log("empty right");
+       current_i.classList.remove('a');
+       document.querySelector('.gal .i:first-child').classList.add("a");
       }
     }
  },
@@ -122,8 +116,6 @@ let get_siblings = function(e){
   }
   return siblings;
 }
-
-
 </script>
 <style lang="scss">
 @import "@/scss/_variables.scss";
