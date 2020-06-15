@@ -18,7 +18,7 @@
       <div class="btn_wrap wrap">
         <a
           v-if="article.live"
-         class="btn col-md-2 col-sm-1  col-2"
+         class="btn col-2"
           :href="article.live"
           target="_blank"
           >live  </a>
@@ -26,7 +26,7 @@
         v-if="article.git"
         :href="article.git"
         target="_blank"
-          class="btn col-2 col-md-2 col-sm-1 "
+          class="btn col-2"
            > git  </a>
       </div>
    </div>
@@ -88,29 +88,58 @@ export default {
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
 @import "@/scss/_globals.scss";
-.single .body{
-  padding: 20px;
-  max-width: 90%;
-  margin: 0 auto;
-   p{
-    line-height: line_height(_bigger);
-    margin-bottom: $med_marg;
-  }
+.single .body {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    p {
+        line-height: line_height(_bigger);
+        margin-bottom: $med_marg;
+    }
 }
 
-.info_wrap{
-  h1{
-    padding: $inner_padd;
-    background:color(_blue);
-  }
-  .tech{
-    background: color(_yellow);
-    margin-top: $bigger_marg;
-    font-size: font_size(f18);
-    text-align: center;
-    font-weight: font_weight(bold);
-    padding: $inner-padd;
-  }
- 
+body {
+    &.tablet {
+        .body {
+            max-width: 70%;
+        }
+        .btn_wrap {
+            max-width: 100%;
+        }
+    }
+    &.mobile {
+        .body {
+            max-width: 80%;
+        }
+        .btn_wrap {
+            max-width: 100%;
+        }
+    }
 }
+
+.info_wrap {
+    h1 {
+        padding: $inner_padd;
+        background: color(_blue);
+    }
+    .tech {
+        background: color(_yellow);
+        margin-top: $bigger_marg;
+        font-size: font_size(f18);
+        text-align: center;
+        font-weight: font_weight(bold);
+        padding: $inner-padd;
+    }
+    .btn_wrap {
+        padding: 15px 0;
+        > .btn {
+            margin: 0;
+            flex-basis: calc(50% - 25px);
+            &:first-child {
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
 </style>
