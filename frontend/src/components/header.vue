@@ -129,6 +129,9 @@ function body_class_switcher() {
     if(body.classList.contains("laptop")){
       body.classList.remove("laptop");
     }
+     if(body.classList.contains("tiny")){
+    body.classList.remove("tiny");
+    }
   } 
 
   if(window.matchMedia("(min-width:1025px) and (max-width:1330px)").matches){
@@ -142,6 +145,9 @@ function body_class_switcher() {
     }
     if(body.classList.contains("mobile")){
       body.classList.remove("mobile");
+    }
+    if(body.classList.contains("tiny")){
+    body.classList.remove("tiny");
     }
   } 
 
@@ -157,9 +163,12 @@ function body_class_switcher() {
     if(body.classList.contains("mobile")){
      body.classList.remove("mobile");
     }
+     if(body.classList.contains("tiny")){
+    body.classList.remove("tiny");
+    }
   } 
 
-  if(window.matchMedia("(max-width:768px)").matches){
+  if(window.matchMedia("(min-width:400px) and (max-width:768px)").matches){
     body.classList.add('mobile');
     console.log("mobile");
     if(body.classList.contains("desktop")){
@@ -171,6 +180,23 @@ function body_class_switcher() {
     if(body.classList.contains("tablet")){
     body.classList.remove("tablet");
     }
+     if(body.classList.contains("tiny")){
+    body.classList.remove("tiny");
+    }
+  } 
+   if(window.matchMedia("(max-width:400px)").matches){
+    body.classList.add('tiny','mobile');
+    console.log("tiny");
+    if(body.classList.contains("desktop")){
+    body.classList.remove("desktop");
+    }
+    if(body.classList.contains("laptop")){
+      body.classList.remove("laptop");
+    }
+    if(body.classList.contains("tablet")){
+    body.classList.remove("tablet");
+    }
+
   } 
 }
 
