@@ -1,6 +1,7 @@
 <template>
 
   <div class="gallery wrap gal">
+    <div class="i_wrap wrap">
     <div
     v-for="item in items" :key="item.url"
     @click="class_toggle"
@@ -9,7 +10,7 @@
       <img :src="api_url + item.url" class="gallery_image"  />
       <h4 class="heading">{{item.caption}}</h4>
     </div>
-    
+    </div>
     <div class="overlay" >
 
     <span
@@ -63,11 +64,35 @@ export default {
         }
      });
    },
+  move_left: function(){
+
+    let current_i = document.querySelector('.gal .i.a');
+    let left_sib = current_i.previousSibling;
+  if(typeof(left_sib) != 'undefined' && left_sib != null){
+    current_i.classList.remove('a');
+    left_sib.classList.add('a');
+    console.log("left arr clicked");
+    console.log(left_sib);
+    }
+    else{
+      console.log("empty left");
+    }
+  },
    move_right: function(){
-     console.log("right arr clicked");
-   },
-   move_left: function(){
-          console.log("left arr clicked");
+
+
+    let current_i = document.querySelector('.gal .i.a');
+    let right_sib = current_i.nextSibling;
+     if(typeof(right_sib) != 'undefined' && right_sib != null){
+       current_i.classList.remove('a');
+       right_sib.classList.add('a');
+               console.log("right arr clicked");
+        console.log(right_sib);
+     }
+    else{
+      console.log("empty right");
+    }
+
    }
  },
   props: {

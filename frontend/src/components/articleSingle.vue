@@ -88,8 +88,6 @@ export default {
 
   methods: {
 
-
-
    class_add: function (event) {   
      let targ = event.target.closest('.i');
      targ.classList.add('a');
