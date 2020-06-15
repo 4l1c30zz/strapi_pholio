@@ -11,7 +11,7 @@
     </div>
     
     <div class="overlay" >
-      
+
     <span
     @click="class_remove"
     class="close btn"
@@ -124,7 +124,7 @@ let get_siblings = function(e){
             overflow: hidden;
             padding: 0;
             font-size: 0;
-            transition: $trans-default;
+            transition: all 0.5s ease-in-out;
           }
           .arr{
             width: 0;
@@ -133,7 +133,7 @@ let get_siblings = function(e){
             font-size: 0;
             position: static;
             transition: $trans-default;
-          }
+        }
       }
     &.a{
       .overlay{
@@ -186,12 +186,12 @@ let get_siblings = function(e){
     padding: 5px 10px;
     text-align: left;
     position: relative;
-    transition: $trans-default;
+    
     }
       .i{
       position: relative;
       background: transparent;
-      transition: all 0.3s cubic-bezier(0.895, 0.030, 0.685, 0.220);
+     
 
       img{
       width: 100%;
@@ -200,7 +200,6 @@ let get_siblings = function(e){
       height: 30vw;
       object-fit: cover;
       object-position: center top;
-      transition:  all 0.3s cubic-bezier(0.895, 0.030, 0.685, 0.220);
       }
 
       &.a{
