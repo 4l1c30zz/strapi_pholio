@@ -43,7 +43,7 @@ export default {
   methods: {
     class_toggle: function (event) {
       let targ = event.target.closest('.i');
-      targ.classList.toggle('a');
+      targ.classList.add('a');
       let targ_parent = event.target.parentNode.closest('.gal');
       targ_parent.classList.add("a");
       let siblings = get_siblings(targ);
@@ -132,7 +132,7 @@ let get_siblings = function(e){
         overflow: hidden;
         position: static;
         z-index: 0;
-        transition: all 0.5s ease;
+        transition: width 0.5s ease;
       }
       .overlay_controllers{
           .close{
@@ -142,7 +142,7 @@ let get_siblings = function(e){
             overflow: hidden;
             padding: 0;
             font-size: 0;
-            transition: all 0.5s ease-in-out;
+            transition: all 0.4s ease 0.3s;
           }
           .arr{
             width: 0;
@@ -150,7 +150,12 @@ let get_siblings = function(e){
             padding: 0;
             font-size: 0;
             position: static;
-            transition: $trans-default;
+            &.left{
+            transition: all 0.3s ease 0.1s;
+            }
+            &.right{
+            transition: all 0.2s ease 0.2s;
+            }
         }
      }
     &.a{
