@@ -117,20 +117,18 @@ export function bck_morph(){
 function resizer() {
   let body = document.querySelector("body");
 
-  if(window.matchMedia("(max-width:1300px)").matches){
+  if(window.matchMedia("(min-width:1025px) and (max-width:1330px)").matches){
     body.classList.add('laptop');
-    console.log("laptop");
     if(body.classList.contains("mobile")){
       body.classList.remove("mobile");
     }
-    if(body.classList.contains("tablet")){
+    else if(body.classList.contains("tablet")){
       body.classList.remove("tablet");
     }
   } 
 
-  else if(window.matchMedia("(max-width:1024px)").matches){
+   if(window.matchMedia("(min-width:769px) and (max-width:1024px)").matches){
     body.classList.add('tablet');
-    console.log("tablet");
     if(body.classList.contains("mobile")){
      body.classList.remove("mobile");
     }
@@ -139,9 +137,8 @@ function resizer() {
     }
   } 
 
-  else if(window.matchMedia("(max-width:768px)").matches){
+   if(window.matchMedia("(max-width:768px)").matches){
     body.classList.add('mobile');
-    console.log("mobile");
     if(body.classList.contains("tablet")){
       body.classList.remove("tablet");
     }
