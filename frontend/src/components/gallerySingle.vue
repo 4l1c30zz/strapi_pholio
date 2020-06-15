@@ -9,8 +9,14 @@
     <img :src="api_url + item.url" class="gallery_image"  />
     <h4 class="heading">{{item.caption}}</h4>
   </div>
-  <div class="overlay">
-    <span class="close">close</span>
+  <div
+  @click="class_remove"
+  class="overlay"
+  >
+    <span
+    @click="class_remove"
+    class="close"
+    >close</span>
     </div>
 </div>
 
@@ -35,6 +41,16 @@ export default {
      let siblings = get_siblings(targ);
      siblings.forEach((sib) => {
        sib.classList.remove('a');
+     });
+   },
+   class_remove: function(){
+     document.querySelector(".gal").classList.remove("a");
+     let gal_items = document.querySelectorAll(".gal .i");
+     console.log(gal_items);
+     gal_items.forEach((gal_item) => {
+        if(gal_item.classList.contains('a')){
+          gal_item.classList.remove('a');
+        }
      });
    }
  },
@@ -76,6 +92,7 @@ let get_siblings = function(e){
   .gallery{
     width: 100%;
     overflow: hidden;
+    position: relative;
      .overlay{
         background: transparent;
         width: 0;
@@ -92,6 +109,7 @@ let get_siblings = function(e){
             padding: 0;
             font-size: 0;
             transition: $trans-default;
+           
           }
       }
     &.a{
@@ -103,7 +121,7 @@ let get_siblings = function(e){
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 50;
+        z-index: 15;
          .close{
           background: color(_yellow);
           padding: $inner_padd;
@@ -113,10 +131,12 @@ let get_siblings = function(e){
           font-size: font_size(f18);
           width: auto;
           height: auto;
-          cursor: pointer;
-          position: absolute;
+          display: block;
+          position: fixed;
           top: 5%;
           right: 0;
+          z-index: 25;
+          cursor: pointer;
          }
       }
     }
@@ -145,14 +165,14 @@ let get_siblings = function(e){
       }
 
       &.a{
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100vh;
-      z-index: 99;
+      z-index: 20;
         img{
         height: 100%;
         max-height: 90vh;
