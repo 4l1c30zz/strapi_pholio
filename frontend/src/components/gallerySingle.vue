@@ -1,24 +1,36 @@
 <template>
 
-<div class="gallery wrap gal">
-  <div
-  v-for="item in items" :key="item.url"
-  @click="class_toggle"
-  class="col-3 col-center i"
-  >
-    <img :src="api_url + item.url" class="gallery_image"  />
-    <h4 class="heading">{{item.caption}}</h4>
-  </div>
-  <div
-  @click="class_remove"
-  class="overlay"
-  >
+  <div class="gallery wrap gal">
+    <div
+    v-for="item in items" :key="item.url"
+    @click="class_toggle"
+    class="col-3 col-center i"
+    >
+      <img :src="api_url + item.url" class="gallery_image"  />
+      <h4 class="heading">{{item.caption}}</h4>
+    </div>
+    
+    <div class="overlay" >
+      
     <span
     @click="class_remove"
-    class="close"
+    class="close btn"
     >close</span>
+    <span 
+    @click="move_left"
+    class="left btn arr"
+    >
+    left
+    </span>
+    <span 
+    @click="move_right"
+    class="right btn arr"
+    >
+    right
+    </span>
+
     </div>
-</div>
+  </div>
 
 </template>
 
@@ -50,6 +62,12 @@ export default {
           gal_item.classList.remove('a');
         }
      });
+   },
+   move_right: function(){
+     console.log("right arr clicked");
+   },
+   move_left: function(){
+          console.log("left arr clicked");
    }
  },
   props: {
@@ -107,7 +125,14 @@ let get_siblings = function(e){
             padding: 0;
             font-size: 0;
             transition: $trans-default;
-           
+          }
+          .arr{
+            width: 0;
+            height: 0;
+            padding: 0;
+            font-size: 0;
+            position: static;
+            transition: $trans-default;
           }
       }
     &.a{
@@ -123,10 +148,8 @@ let get_siblings = function(e){
          .close{
           background: color(_yellow);
           padding: $inner_padd;
-          font-weight: font_weight(bolder);
-          font-family: font(lined_font);
-          text-align: center;
-          font-size: font_size(f18);
+          font-size: font_size(f30);
+          color: color(_black);
           width: auto;
           height: auto;
           display: block;
@@ -135,6 +158,24 @@ let get_siblings = function(e){
           right: 0;
           z-index: 25;
           cursor: pointer;
+         }
+         .arr{
+           padding: $inner_padd;
+           font-size: font_size(f30);
+           position: fixed;
+           top: 50%;
+           display: block;
+           width: auto;
+           height: auto;
+           color: color(_black);
+           background: color(_yellow);
+            z-index: 55;
+           &.left{
+             left: 0;
+           }
+           &.right{
+             right: 0;
+           }
          }
       }
     }
