@@ -115,22 +115,61 @@ export function bck_morph(){
 
 
 function resizer() {
-  if(window.matchMedia("(max-width:768px)").matches){
-    document.querySelector("body").classList.add('mobile');
-  } else {
-    document.querySelector("body").classList.remove("mobile ");
+  let body = document.querySelector("body");
+
+  if(window.matchMedia("(max-width:1300px)").matches){
+    body.classList.add('laptop');
+    console.log("laptop");
+    if(body.classList.contains("mobile")){
+      body.classList.remove("mobile");
+    }
+    if(body.classList.contains("tablet")){
+      body.classList.remove("tablet");
+    }
+  } 
+
+  else if(window.matchMedia("(max-width:1024px)").matches){
+    body.classList.add('tablet');
+    console.log("tablet");
+    if(body.classList.contains("mobile")){
+     body.classList.remove("mobile");
+    }
+    else if(body.classList.contains("laptop")){
+     body.classList.remove("laptop");
+    }
+  } 
+
+  else if(window.matchMedia("(max-width:768px)").matches){
+    body.classList.add('mobile');
+    console.log("mobile");
+    if(body.classList.contains("tablet")){
+      body.classList.remove("tablet");
+    }
+    else if(body.classList.contains("laptop")){
+     body.classList.remove("laptop");
+    }
+  } 
+
+  else {
+    if(body.classList.contains("mobile")){
+      body.classList.remove("mobile");
+    }
+    else if(body.classList.contains("tablet")){
+     body.classList.remove("tablet");
+    }
+    else if(body.classList.contains("laptop")){
+      body.classList.remove("laptop");
+    }
   }
+
 }
 
 window.onload = function() {
   resizer();
-  console.log("load lalal");
 }
 
 window.onresize = function() {
   resizer();
-    console.log("resize lalal");
-
 }
 </script>
 <style lang="scss">
