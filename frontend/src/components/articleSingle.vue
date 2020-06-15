@@ -183,7 +183,6 @@ let get_siblings = function(e){
         }
     }
 }
-
 .blog .i {
     .body {
         @extend %flex-center-center-column;

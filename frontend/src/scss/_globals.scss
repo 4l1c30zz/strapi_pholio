@@ -32,6 +32,9 @@ body {
     h2 {
       font-size: font_size(f60);
     }
+    .boxed{
+      max-width: 90%;
+    }
   }
 
   &.tablet {
@@ -43,21 +46,20 @@ body {
       font-size: font_size(f60);
     }
 
-    .wrap {
+    .boxed {
       @extend %flex-center-between;
       max-width: 90%;
-      margin: 0 auto;
 
       .col-md-1 {
         flex-basis: 100%;
       }
 
       .col-md-2 {
-        flex-basis: calc(50% - 20px);
+        flex-basis: calc(50% - 25px);
       }
 
       .col-md-3 {
-        flex-basis: calc(33.33% - 20px);
+        flex-basis: calc(33.33% - 25px);
       }
     }
   }
@@ -71,21 +73,19 @@ body {
       font-size: 50px;
     }
 
-    .wrap {
+    .boxed {
       @extend %flex-center-between;
       max-width: 90%;
-      margin: 0 auto;
-
       .col-sm-1 {
         flex-basis: 100%;
       }
 
       .col-sm-2 {
-        flex-basis: calc(50% - 20px);
+        flex-basis: calc(50% - 25px);
       }
 
       .col-sm-3 {
-        flex-basis: calc(33.33% - 20px);
+        flex-basis: calc(33.33% - 25px);
       }
     }
   }
@@ -154,10 +154,9 @@ p {
   background: color(_black);
   color: white;
   margin: $med_marg;
+  transform: scale(1) rotate(0deg);
+  transition: $trans_default;
 
-  &:hover {
-    transition: $trans_default;
-  }
 }
 
 .yellow {

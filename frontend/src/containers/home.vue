@@ -144,6 +144,7 @@ export default {
       font-weight: font_weight(medium);
       font-size: font_size(f20);
       line-height: line_height(_default);
+      text-transform: uppercase;
     }
     }
   .blog, .contact{
@@ -152,5 +153,16 @@ export default {
   .mail.link{
   display: block;
   margin-bottom:25px;
+  }
+  body{
+    &.mobile{
+      .glitch-heading{
+        font-size: font_size(f80);
+        margin-bottom: $med-marg;
+    }
+    .about p{
+      font-size: font_size(f18);
+    }
+  }
   }
 </style>

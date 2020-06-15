@@ -135,11 +135,32 @@ body {
         > .btn {
             margin: 0;
             flex-basis: calc(50% - 25px);
+             background: linear-gradient(to right, #000300 0%,#000300 100%);
+                  background-size: 400% 400%;
+          &:hover{
+             animation: gradient_wave  5s ease infinite;
+          }
             &:first-child {
                 margin-right: 5px;
+              &:hover {
+              transform: scale(1.1) rotate(10deg);
+              background: linear-gradient(to right, #ec008c 0%,#02a9ea 100%);
+                background-size: 400% 400%;
+              }
+            }
+             &:last-child {
+              &:hover {
+              transform: scale(1.1) rotate(-10deg);
+              background: linear-gradient(to left, #ec008c 0%,#02a9ea 100%);
+                background-size: 400% 400%;
+              }
             }
         }
     }
 }
-
+@keyframes gradient_wave {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
 </style>
