@@ -4,7 +4,7 @@
       <div
       v-for="item in items" :key="item.url"
       @click="class_toggle"
-      class="col-3 col-center i"
+      class="col-3 col-md-3 col-sm-2  col-center i"
       >
         <img :src="api_url + item.url" class="gallery_image"  />
         <h4 class="heading">{{item.caption}}</h4>

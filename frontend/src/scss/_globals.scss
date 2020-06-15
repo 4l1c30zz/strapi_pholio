@@ -39,6 +39,20 @@ body {
       h2 {
        font-size: font_size(f60);
       }
+      .wrap {
+        @extend %flex-center-between;
+        max-width: 90%;
+        margin: 0 auto;
+        .col-md-1 {
+         flex-basis: calc(33.33% - 20px);
+        }
+        .col-md-2 {
+         flex-basis: calc(33.33% - 20px);
+        }
+        .col-md-3 {
+          flex-basis: calc(33.33% - 20px);
+        }
+      }
     }
     &.mobile {
       h1 {
@@ -48,9 +62,57 @@ body {
       h2 {
         font-size: 50px;
       }
+     .wrap {
+       @extend %flex-center-between;
+       max-width: 90%;
+       margin: 0 auto;
+        .col-sm-1 {
+          flex-basis: 100%;
+        }
+       .col-sm-2 {
+         flex-basis: calc(50% - 20px);
+       }
+      .col-sm-3 {
+        flex-basis: calc(33.33% - 20px);
+      }
+     }
     }
 }
+.wrap {
+  @extend %flex-center-between;
+  padding: $inner_padd;
 
+  &.boxed {
+    @include cont_width;
+  }
+
+  >div {
+    &.col-center {
+      @extend %flex-center-center;
+      margin: $med_marg;
+    }
+  }
+
+  .col-1 {
+    flex-basis: 100%;
+  }
+
+  .col-2 {
+    flex-basis: calc(50% - 20px);
+  }
+
+  .col-3 {
+    flex-basis: calc(33.33% - 20px);
+  }
+
+  .col-4 {
+    flex-basis: calc(25% - 20px);
+  }
+
+  .col-5 {
+    flex-basis: calc(20% -20px);
+  }
+}
 
 header{
   @extend %flex-center-center;
@@ -70,35 +132,7 @@ p{
 #app {
   @extend %flex-center-column;
 }
-.wrap {
-    @extend %flex-center-between;
 
-    padding: $inner_padd;
-    &.boxed {
-        @include cont_width;
-    }
-    > div{
-      &.col-center{
-        @extend %flex-center-center;
-        margin: $med_marg;
-      }
-    }
-    .col-1 {
-        flex-basis: 100%;
-    }
-    .col-2 {
-        flex-basis: calc(50% - 20px);
-    }
-    .col-3 {
-        flex-basis: calc(33.33% - 20px);
-    }
-    .col-4 {
-        flex-basis: calc(25% - 20px);
-    }
-    .col-5 {
-        flex-basis: calc(20% -20px);
-    }
-}
 .btn{
   padding: $inner_padd;
   background: color(_black);
