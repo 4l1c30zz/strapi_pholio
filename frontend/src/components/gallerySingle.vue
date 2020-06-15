@@ -2,18 +2,19 @@
 
   <div class="gallery wrap gal">
     <div class="i_wrap wrap">
-    <div
-    v-for="item in items" :key="item.url"
-    @click="class_toggle"
-    class="col-3 col-center i"
-    >
-      <img :src="api_url + item.url" class="gallery_image"  />
-      <h4 class="heading">{{item.caption}}</h4>
-    </div>
+      <div
+      v-for="item in items" :key="item.url"
+      @click="class_toggle"
+      class="col-3 col-center i"
+      >
+        <img :src="api_url + item.url" class="gallery_image"  />
+        <h4 class="heading">{{item.caption}}</h4>
+      </div>
     </div>
     <div class="overlay" >
-
-    <span
+    </div>
+    <div class="overlay_controllers">
+       <span
     @click="class_remove"
     class="close btn"
     >close</span>
@@ -29,7 +30,6 @@
     >
     right
     </span>
-
     </div>
   </div>
 
@@ -45,16 +45,17 @@ export default {
     };
   },
   methods: {
-   class_toggle: function (event) {
-     let targ = event.target.closest('.i');
-     targ.classList.toggle('a');
-    let targ_parent = event.target.parentNode.closest('.gal');
-    targ_parent.classList.add("a");
-     let siblings = get_siblings(targ);
-     siblings.forEach((sib) => {
-       sib.classList.remove('a');
-     });
+    class_toggle: function (event) {
+      let targ = event.target.closest('.i');
+      targ.classList.toggle('a');
+      let targ_parent = event.target.parentNode.closest('.gal');
+      targ_parent.classList.add("a");
+      let siblings = get_siblings(targ);
+      siblings.forEach((sib) => {
+        sib.classList.remove('a');
+      });
    },
+
    class_remove: function(){
      document.querySelector(".gal").classList.remove("a");
      let gal_items = document.querySelectorAll(".gal .i");
@@ -64,37 +65,36 @@ export default {
         }
      });
    },
-  move_left: function(){
 
+  move_left: function(){
     let current_i = document.querySelector('.gal .i.a');
     let left_sib = current_i.previousSibling;
-  if(typeof(left_sib) != 'undefined' && left_sib != null){
-    current_i.classList.remove('a');
-    left_sib.classList.add('a');
-    console.log("left arr clicked");
-    console.log(left_sib);
+    if(typeof(left_sib) != 'undefined' && left_sib != null){
+      current_i.classList.remove('a');
+      left_sib.classList.add('a');
+      console.log("left arr clicked");
+      console.log(left_sib);
     }
     else{
       console.log("empty left");
     }
   },
-   move_right: function(){
 
-
-    let current_i = document.querySelector('.gal .i.a');
-    let right_sib = current_i.nextSibling;
-     if(typeof(right_sib) != 'undefined' && right_sib != null){
-       current_i.classList.remove('a');
-       right_sib.classList.add('a');
-               console.log("right arr clicked");
+    move_right: function(){
+      let current_i = document.querySelector('.gal .i.a');
+      let right_sib = current_i.nextSibling;
+      if(typeof(right_sib) != 'undefined' && right_sib != null){
+        current_i.classList.remove('a');
+        right_sib.classList.add('a');
+        console.log("right arr clicked");
         console.log(right_sib);
-     }
-    else{
-      console.log("empty right");
+      }
+      else{
+       console.log("empty right");
+      }
     }
-
-   }
  },
+
   props: {
     items: Array
   },
@@ -105,7 +105,6 @@ export default {
     Items() {
       return this.items.slice(0);
     },
-
   }
 };
 
@@ -142,6 +141,8 @@ let get_siblings = function(e){
         position: static;
         z-index: 0;
         transition: all 0.5s ease;
+      }
+      .overlay_controllers{
           .close{
             position: static;
             width: 0;
@@ -159,8 +160,9 @@ let get_siblings = function(e){
             position: static;
             transition: $trans-default;
         }
-      }
+     }
     &.a{
+      width: 100%;
       .overlay{
         background: white;
         width: 100%;
@@ -170,7 +172,14 @@ let get_siblings = function(e){
         top: 0;
         left: 0;
         z-index: 15;
-         .close{
+      }
+      .overlay_controllers{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 35;
+        .close{
           background: color(_yellow);
           padding: $inner_padd;
           font-size: font_size(f30);
@@ -194,6 +203,7 @@ let get_siblings = function(e){
            height: auto;
            color: color(_black);
            background: color(_yellow);
+           cursor: pointer;
             z-index: 55;
            &.left{
              left: 0;
@@ -228,7 +238,7 @@ let get_siblings = function(e){
       }
 
       &.a{
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       margin: 0;
