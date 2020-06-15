@@ -8,20 +8,50 @@
 body {
     font: font_weight(regular) font_size(f16) font(base_font);
     color: color(_gray);
+    h1 {
+      font-size: font_size(f100);
+    }
 
+    h2 {
+      font-size: font_size(f80);
+    }
+
+    h3 {
+      font-size: font_size(f25);
+    }
+
+    h4 {
+      font-size: font_size(f20);
+    }
+    &.laptop {
+      h1 {
+        font-size: font_size(f80);
+      }
+      h2 {
+        font-size: font_size(f60);
+      }
+    }
+    &.tablet {
+      h1 {
+        font-size: font_size(f80);
+      }
+
+      h2 {
+       font-size: font_size(f60);
+      }
+    }
+    &.mobile {
+      h1 {
+        font-size: font_size(f60);
+      }
+
+      h2 {
+        font-size: 50px;
+      }
+    }
 }
-h1{
-  font-size: font_size(f100);
-}
-h2{
-  font-size: font_size(f80);
-}
-h3{
-    font-size: font_size(f25);
-}
-h4{
-    font-size: font_size(f20);
-}
+
+
 header{
   @extend %flex-center-center;
 }

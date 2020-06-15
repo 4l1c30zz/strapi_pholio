@@ -114,59 +114,72 @@ export function bck_morph(){
 
 
 
-function resizer() {
+function body_class_switcher() {
   let body = document.querySelector("body");
 
-  if(window.matchMedia("(min-width:1025px) and (max-width:1330px)").matches){
-    body.classList.add('laptop');
-    if(body.classList.contains("mobile")){
-      body.classList.remove("mobile");
-    }
-    else if(body.classList.contains("tablet")){
-      body.classList.remove("tablet");
-    }
-  } 
-
-   if(window.matchMedia("(min-width:769px) and (max-width:1024px)").matches){
-    body.classList.add('tablet');
+  if(window.matchMedia("(min-width:1331px)").matches){
+    body.classList.add('desktop');
+    console.log("desktop");
     if(body.classList.contains("mobile")){
      body.classList.remove("mobile");
     }
-    else if(body.classList.contains("laptop")){
-     body.classList.remove("laptop");
-    }
-  } 
-
-   if(window.matchMedia("(max-width:768px)").matches){
-    body.classList.add('mobile');
     if(body.classList.contains("tablet")){
       body.classList.remove("tablet");
     }
-    else if(body.classList.contains("laptop")){
-     body.classList.remove("laptop");
+    if(body.classList.contains("laptop")){
+      body.classList.remove("laptop");
     }
   } 
 
-  else {
+  if(window.matchMedia("(min-width:1025px) and (max-width:1330px)").matches){
+    body.classList.add('laptop');
+    console.log("laptop");
+    if(body.classList.contains("desktop")){
+      body.classList.remove("desktop");
+    }
+    if(body.classList.contains("tablet")){
+      body.classList.remove("tablet");
+    }
     if(body.classList.contains("mobile")){
       body.classList.remove("mobile");
     }
-    else if(body.classList.contains("tablet")){
-     body.classList.remove("tablet");
+  } 
+
+  if(window.matchMedia("(max-width:1024px)").matches){
+    body.classList.add('tablet');
+    console.log("tablet");
+    if(body.classList.contains("desktop")){
+      body.classList.remove("desktop");
     }
-    else if(body.classList.contains("laptop")){
+    if(body.classList.contains("laptop")){
+     body.classList.remove("laptop");
+    }
+    if(body.classList.contains("mobile")){
+     body.classList.remove("mobile");
+    }
+  } 
+
+  if(window.matchMedia("(max-width:768px)").matches){
+    body.classList.add('mobile');
+    console.log("mobile");
+    if(body.classList.contains("desktop")){
+    body.classList.remove("desktop");
+    }
+    if(body.classList.contains("laptop")){
       body.classList.remove("laptop");
     }
-  }
-
+    if(body.classList.contains("tablet")){
+    body.classList.remove("tablet");
+    }
+  } 
 }
 
 window.onload = function() {
-  resizer();
+  body_class_switcher();
 }
 
 window.onresize = function() {
-  resizer();
+  body_class_switcher();
 }
 </script>
 <style lang="scss">
