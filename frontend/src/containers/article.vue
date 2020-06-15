@@ -18,7 +18,7 @@
       <div class="btn_wrap wrap">
         <a
           v-if="article.live"
-         class="btn col-2"
+         class="btn col-md-2 col-sm-1  col-2"
           :href="article.live"
           target="_blank"
           >live  </a>
@@ -26,7 +26,7 @@
         v-if="article.git"
         :href="article.git"
         target="_blank"
-          class="btn col-2"
+          class="btn col-2 col-md-2 col-sm-1 "
            > git  </a>
       </div>
    </div>

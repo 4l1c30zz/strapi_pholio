@@ -145,7 +145,7 @@ function body_class_switcher() {
     }
   } 
 
-  if(window.matchMedia("(max-width:1024px)").matches){
+  if(window.matchMedia("(min-width:769px) and (max-width:1024px)").matches){
     body.classList.add('tablet');
     console.log("tablet");
     if(body.classList.contains("desktop")){

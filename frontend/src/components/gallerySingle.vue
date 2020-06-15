@@ -247,6 +247,7 @@ let get_siblings = function(e){
                 height: 100%;
                 max-height: 90vh;
                 object-fit: scale-down;
+                object-position: center center;
             }
             h4 {
                 position: absolute;

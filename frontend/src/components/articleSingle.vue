@@ -5,7 +5,7 @@
   v-for="article in Articles"
   @mouseover="class_add"
   @mouseleave="class_remove"
-  class=" col-3 col-center i"
+  class=" col-3 col-md-2 col-sm-1 col-center i"
   :key="article.id"
   >
     <div class="inner">

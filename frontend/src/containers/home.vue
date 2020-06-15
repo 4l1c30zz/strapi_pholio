@@ -2,8 +2,8 @@
   <div id="main">
 
   <div v-if="page" class="about wrap boxed">
-    <h1 v-if="page.about.title" class="heading col-2 glitch-heading"><span>{{ page.about.title }}</span></h1>
-    <p v-if="page.about.txt" class="col-2">{{ page.about.txt }}</p>
+    <h1 v-if="page.about.title" class="heading col-2 col-md-2 col-sm-1  glitch-heading"><span>{{ page.about.title }}</span></h1>
+    <p v-if="page.about.txt" class="col-2 col-md-2 col-sm-1">{{ page.about.txt }}</p>
   </div>
 
   <div v-if="page" class="blog wrap boxed">
@@ -27,10 +27,10 @@
     <h2 class="heading col-1">{{ page.contact.title }}</h2>
     <a class="mail link col-1" :href="page.contact.email">{{page.contact.email}}</a>
     <div class="col-1">
-      <a :href="page.contact.git" class="btn btn-default col-2">
+      <a :href="page.contact.git" class="btn btn-default col-md-2 col-sm-1  col-2">
       GitHub
       </a>
-      <a :href="page.contact.insta" class="btn btn-default col-2">
+      <a :href="page.contact.insta" class="btn btn-default col-2 col-md-2 col-sm-1">
       Instagram
       </a>
     </div>
