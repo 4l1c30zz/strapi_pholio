@@ -112,6 +112,26 @@ export function bck_morph(){
   });
 }
 
+
+
+function resizer() {
+  if(window.matchMedia("(max-width:768px)").matches){
+    document.querySelector("body").classList.add('mobile');
+  } else {
+    document.querySelector("body").classList.remove("mobile ");
+  }
+}
+
+window.onload = function() {
+  resizer();
+  console.log("load lalal");
+}
+
+window.onresize = function() {
+  resizer();
+    console.log("resize lalal");
+
+}
 </script>
 <style lang="scss">
 @import "@/scss/_variables.scss";
