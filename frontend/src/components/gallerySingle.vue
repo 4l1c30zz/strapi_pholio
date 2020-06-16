@@ -21,13 +21,15 @@
       @click="move_left"
       class="left btn arr"
       >
-     <font-awesome-icon icon="coffee" size="lg"/>there
+     <font-awesome-icon icon="chevron-left" size="sm"/>
+     there
       </span>
       <span 
       @click="move_right"
       class="right btn arr"
       >
       there 
+      <font-awesome-icon icon="chevron-right" size="sm"/> 
       </span>
     </div>
   </div>

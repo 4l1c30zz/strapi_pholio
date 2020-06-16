@@ -5,9 +5,8 @@ import VueApollo from "vue-apollo";
 import apolloClient from "./vue-apollo";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
-library.add(faCoffee, faSpinner)
+import {  faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+library.add(faChevronRight, faChevronLeft)
 import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome'
 import { dom} from '@fortawesome/fontawesome-svg-core'
 dom.watch()
