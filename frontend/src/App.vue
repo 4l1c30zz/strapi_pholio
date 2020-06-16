@@ -16,7 +16,14 @@
     components: {
       headerComponent,
       footerComponent
-    }
+    },
+    mounted: function() {
+        console.log("Mounted!")
+      setTimeout(function() {
+        console.log('time reached');
+    }, 1000);
+    },
+
   };
 </script>
 
