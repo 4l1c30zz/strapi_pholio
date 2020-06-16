@@ -21,19 +21,20 @@
       @click="move_left"
       class="left btn arr"
       >
-      left
+     <font-awesome-icon icon="coffee" size="lg"/>there
       </span>
       <span 
       @click="move_right"
       class="right btn arr"
       >
-      right
+      there 
       </span>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   data: function() {
     return {
