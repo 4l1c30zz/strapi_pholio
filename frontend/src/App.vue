@@ -20,6 +20,7 @@
     mounted: function() {
  console.log(loader_random());
      document.querySelector("#loader .txt").innerHTML = loader_random();
+     loader();
     },
    methods: {
     footer_attached() {
