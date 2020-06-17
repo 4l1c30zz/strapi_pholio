@@ -10,7 +10,6 @@
   import headerComponent from "./components/header.vue";
   import footerComponent from "./components/footer.vue";
 
-
   export default {
     name: "App",
     components: {
@@ -18,15 +17,12 @@
       footerComponent
     },
     mounted: function() {
-        console.log("Mounted!")
-      setTimeout(function() {
-        console.log('time reached');
-    }, 1000);
+       // console.log("Mounted!")
+      //setTimeout(function() {
+       // console.log('time reached');
+  //  }, 1000);
     },
 
   };
 </script>
 
-<style lang="scss">
-  @import "@/scss/_globals.scss";
-</style>
