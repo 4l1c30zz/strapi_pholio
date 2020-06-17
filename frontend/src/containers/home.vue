@@ -26,7 +26,7 @@
   <div v-if="page"  class="contact wrap boxed">
     <h2 class="heading col-1">{{ page.contact.title }}</h2>
     <a class="mail link col-1" :href="page.contact.email">{{page.contact.email}}</a>
-    <div class="col-1">
+    <div class="wrap btn_wrap">
       <a :href="page.contact.git" class="btn btn-default col-md-2 col-sm-1  col-2">
       GitHub
       </a>
@@ -152,7 +152,6 @@ export default {
   }
   .mail.link{
   display: block;
-  margin-bottom:25px;
   }
   body{
     &.mobile{
@@ -164,5 +163,10 @@ export default {
       font-size: font_size(f18);
     }
   }
+  }
+  .contact .btn_wrap{
+    width: 100%;
+    max-width: 50%;
+    margin: 0 auto;
   }
 </style>

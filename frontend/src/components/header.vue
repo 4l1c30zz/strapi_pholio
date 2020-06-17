@@ -95,9 +95,6 @@ function stick (){
       head.classList.remove("a");
     }
 }
-window.onscroll =  function() {
-  stick()
-};
 
 export function bck_morph(){
   anime({
@@ -184,6 +181,7 @@ function body_class_switcher() {
     body.classList.remove("tiny");
     }
   } 
+
    if(window.matchMedia("(max-width:400px)").matches){
     body.classList.add('tiny','mobile');
     console.log("tiny");
@@ -207,6 +205,10 @@ window.onload = function() {
 window.onresize = function() {
   body_class_switcher();
 }
+
+window.onscroll =  function() {
+  stick()
+};
 </script>
 <style lang="scss">
 @import "@/scss/_variables.scss";

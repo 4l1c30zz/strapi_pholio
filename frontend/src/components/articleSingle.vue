@@ -179,7 +179,8 @@ let get_siblings = function(e){
         }
         h4 {
             flex-basis: 100%;
-            margin: $med_marg auto 0;
+
+            padding: 0 0 5px 0;
         }
     }
 }
