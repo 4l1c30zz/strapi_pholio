@@ -91,6 +91,8 @@ export default{
             overflow: hidden;
             margin: 0 auto;
             flex-basis: 100%;
+         @extend %flex-center-center;
+
         }
         p {
             white-space: nowrap;
