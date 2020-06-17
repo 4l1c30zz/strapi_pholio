@@ -14,19 +14,7 @@
             </div>
         </div>
     </footer>
-    <div id="loader" class="a">
-        <div id="load">
-         <div id="load_container"></div>
-        </div>
-        <div class="inner">
-            <div class="txt_wrap">
-             <p class="txt"></p>
-            </div>
-            <div class="side">
-                 Loading...
-            </div>
-        </div>
-    </div>
+
 </div>
 </template>
 <script>
@@ -71,9 +59,7 @@ export default{
         background: white;
         z-index: 999;
         top: 0;
-            display: none;
-
-         //@extend %flex-center-center;
+         @extend %flex-center-center;
         flex-direction: column;
         width: 100vw;
         height: 100vh;
