@@ -12,3 +12,61 @@ export function bck_morph(){
     loop: false
   });
 }
+export function loader_random() {
+  
+  let text = "";
+  let len = 100;
+  let char_list = "!{}@#/$}%>^&*<~?";
+  for (var i = 0; i < len; i++) {
+    text += char_list.charAt(Math.floor(Math.random() * char_list.length));
+
+  }
+  let elem = document.querySelector("#loader .txt");
+  return text;
+}
+
+export function loader() {
+  let tl = anime.timeline({
+    targets: '#load',
+    delay: function (el, i) {
+      return i * 10
+    },
+    duration: 1000,
+    easing: 'cubicBezier(0.980, 0, 0.150, 0.675)',
+    direction: 'alternate',
+    loop: true
+  });
+  tl
+    .add({
+      top: ['25%'],
+      width: 300,
+      rotate: 50,
+      height: 300,
+      borderRadius: ['100%'],
+
+    })
+    .add({
+      width: 250,
+      height: 240,
+      rotate: 90,
+      top: ['19%'],
+      borderRadius: ['0%'],
+    })
+    .add({
+      top: ['30%'],
+      width: 350,
+      height: 320,
+      rotate: 10,
+      borderRadius: ['100%'],
+    })
+
+  anime({
+    targets: '#loader p',
+    right: ['0', '1000'],
+    easing: 'easeInOutSine',
+    duration: 9000,
+    direction: 'normal',
+    loop: true,
+
+  });
+}

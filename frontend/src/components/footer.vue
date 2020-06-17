@@ -1,4 +1,5 @@
 <template>
+<div>
     <footer class="site-footer">
         <div class="wrap">
             <div class="logo">
@@ -13,17 +14,38 @@
             </div>
         </div>
     </footer>
+    <div id="loader" class="a">
+        <div id="load">
+         <div id="load_container"></div>
+        </div>
+        <div class="inner">
+            <div class="txt_wrap">
+             <p class="txt"></p>
+            </div>
+            <div class="side">
+                 Loading...
+            </div>
+        </div>
+    </div>
+</div>
 </template>
 <script>
 import logo from "../assets/logo";
+
+
 export default{
     name: "footerComponent",
     components: {
         logo
-    }
+    },
+    created() {
+    this.$emit('created');
+
+  }
 };
 
 </script>
+
 <style lang="scss">
 @import "@/scss/_variables.scss";
 @import "@/scss/_functions.scss";
@@ -39,6 +61,55 @@ export default{
         max-width: 90px;
         path{
             fill: color(_black);
+        }
+    }
+}
+#loader {
+    display: none;
+    &.a {
+        position: fixed;
+        background: white;
+        z-index: 999;
+        top: 0;
+         @extend %flex-center-center;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        #load {
+            z-index: 1;
+            background: color(_magenta);
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 25%;
+            border-radius: 0;
+            transform: rotate(0deg);
+        }
+        .inner {
+            max-width: 80vw;
+            z-index: 2;
+            overflow: hidden;
+            margin: 0 auto;
+            flex-basis: 100%;
+        }
+        p {
+            white-space: nowrap;
+            font: font_weight(bold) font_size(f100) font(base_font);
+            padding: 10px;
+            text-transform: uppercase;
+            position: relative;
+            right: 0;
+        }
+        .side {
+            font: font_weight(bold) font_size(f60) font(base_font);
+            text-transform: uppercase;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+            flex-basis: 100%;
+        }
+        .txt_wrap {
+            max-width: 70vw;
         }
     }
 }
