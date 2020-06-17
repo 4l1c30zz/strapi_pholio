@@ -59,7 +59,7 @@
 <script>
 import gql from "graphql-tag";
 import logo from "../assets/logo";
-import { bck_morph } from '../js/bck_morph';
+import { bck_morph } from '../js/particals/anime_effects';
 
 export default {
   name: "headerComponent",

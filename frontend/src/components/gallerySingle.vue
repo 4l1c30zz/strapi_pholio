@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { get_siblings } from '../js/siblings';
+import { get_siblings } from '../js/particals/siblings';
 
 export default {
   data: function() {
