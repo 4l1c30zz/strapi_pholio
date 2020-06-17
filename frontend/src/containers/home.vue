@@ -125,7 +125,8 @@ export default {
     handleCreate() {
       console.log('articleList has been created.');
     }
-  }
+  },
+  
 };
 
 </script>

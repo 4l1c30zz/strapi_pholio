@@ -19,14 +19,18 @@
         <ul class="nav">
           
         <li>
-        <router-link
+
+       <router-link
           to="/"
+         
           v-slot="{ href, route, navigate }"
         >
           <a  :href="href" @click="navigate"
             >{{ route.name }}</a
           >
-        </router-link>
+        </router-link>-
+        
+ 
         </li>
 
         <li class="mark_block_wrap">
@@ -53,13 +57,13 @@
         </ul>
     </div>
   </header>
+
   </div>
 </template>
 
 <script>
 import gql from "graphql-tag";
 import logo from "../assets/logo";
-import { bck_morph } from '../js/particals/anime_effects';
 
 export default {
   name: "headerComponent",
@@ -68,14 +72,7 @@ export default {
       categories: []
     };
   },
-  components: {
-    logo
-  },
-  mounted(){
-    bck_morph()
-    stick()
-  },
-  apollo: {
+    apollo: {
     categories: gql`
       query Categories {
         categories {
@@ -84,7 +81,15 @@ export default {
         }
       }
     `
-  }
+  },
+  components: {
+    logo
+  },
+ 
+  mounted(){
+    stick()
+  },
+
 };
 
 function stick (){
