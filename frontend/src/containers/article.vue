@@ -87,7 +87,6 @@ export default {
 @import "@/scss/_variables.scss";
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
-@import "@/scss/_globals.scss";
 .single .body {
     padding: 20px;
     max-width: 900px;

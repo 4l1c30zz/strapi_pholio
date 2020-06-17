@@ -76,7 +76,6 @@
 <script>
 
 export default {
-
   data: function() {
 
     return {
@@ -158,10 +157,9 @@ let get_siblings = function(e){
 @import "@/scss/_mixins.scss";
 
 .wrap.blog {
-     @extend %flex-start-between;
+    @extend %flex-start-between;
     text-align: center;
     text-transform: uppercase;
-    
     .wrap {
         padding: 0;
         margin-top: $med_marg;
@@ -180,10 +178,11 @@ let get_siblings = function(e){
         h4 {
             flex-basis: 100%;
 
-            padding: 0 0 5px 0;
+            padding: 0 0 5px;
         }
     }
 }
+
 .blog .i {
     .body {
         @extend %flex-center-center-column;
@@ -320,6 +319,7 @@ let get_siblings = function(e){
         transform: translate(-10%, -20%);
     }
 }
+
 
 </style>
 

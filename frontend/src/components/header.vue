@@ -116,7 +116,7 @@ function body_class_switcher() {
 
   if(window.matchMedia("(min-width:1331px)").matches){
     body.classList.add('desktop');
-    console.log("desktop");
+    //console.log("desktop");
     if(body.classList.contains("mobile")){
      body.classList.remove("mobile");
     }
@@ -133,7 +133,7 @@ function body_class_switcher() {
 
   if(window.matchMedia("(min-width:1025px) and (max-width:1330px)").matches){
     body.classList.add('laptop');
-    console.log("laptop");
+    //console.log("laptop");
     if(body.classList.contains("desktop")){
       body.classList.remove("desktop");
     }
@@ -150,7 +150,7 @@ function body_class_switcher() {
 
   if(window.matchMedia("(min-width:769px) and (max-width:1024px)").matches){
     body.classList.add('tablet');
-    console.log("tablet");
+    //console.log("tablet");
     if(body.classList.contains("desktop")){
       body.classList.remove("desktop");
     }
@@ -167,7 +167,7 @@ function body_class_switcher() {
 
   if(window.matchMedia("(min-width:400px) and (max-width:768px)").matches){
     body.classList.add('mobile');
-    console.log("mobile");
+    //console.log("mobile");
     if(body.classList.contains("desktop")){
     body.classList.remove("desktop");
     }
@@ -184,7 +184,7 @@ function body_class_switcher() {
 
    if(window.matchMedia("(max-width:400px)").matches){
     body.classList.add('tiny','mobile');
-    console.log("tiny");
+    //console.log("tiny");
     if(body.classList.contains("desktop")){
     body.classList.remove("desktop");
     }
@@ -214,6 +214,7 @@ window.onscroll =  function() {
 @import "@/scss/_variables.scss";
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
+@import "@/scss/_globals.scss";
 header {
     position: static;
     background: transparent;

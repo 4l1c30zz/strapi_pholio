@@ -48,9 +48,11 @@ body {
       font-size: font_size(f60);
     }
 
-    .boxed {
-      @extend %flex-center-between;
-      max-width: 90%;
+    .wrap {
+      &.boxed {
+        @extend %flex-center-between;
+        max-width: 90%;
+      }
 
       .col-md-1 {
         flex-basis: 100%;
@@ -75,9 +77,11 @@ body {
       font-size: 50px;
     }
 
-    .boxed {
-      @extend %flex-center-between;
-      max-width: 90%;
+    .wrap {
+      &.boxed {
+        @extend %flex-center-between;
+        max-width: 90%;
+      }
 
       .col-sm-1 {
         flex-basis: 100%;
@@ -90,6 +94,7 @@ body {
       .col-sm-3 {
         flex-basis: calc(33.33% - 25px);
       }
+
     }
   }
 }

@@ -130,7 +130,6 @@ export default {
 @import "@/scss/_variables.scss";
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
-@import "@/scss/_globals.scss";
 .about {
     .glitch-heading {
         font-size: font_size(f120);
