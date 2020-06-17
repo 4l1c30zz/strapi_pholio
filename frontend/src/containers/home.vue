@@ -8,7 +8,7 @@
 
   <div v-if="page" class="blog wrap boxed">
     <h2  class="heading col-1">{{ page.title_n_posts.title }}</h2>
-    <articleSingle :articles="page.title_n_posts.articles || []"></articleSingle>
+    <articleSingle @created="handleCreate" :articles="page.title_n_posts.articles || []"></articleSingle>
   </div>
 
      <div v-if="page" class="gallery wrap boxed">
@@ -43,7 +43,6 @@
 import gql from "graphql-tag";
 import gallerySingle from "../components/gallerySingle";
 import articleSingle from "../components/articleSingle";
-
 
 export default {
 
@@ -120,6 +119,11 @@ export default {
           id: this.routeParam,
         };
       }
+    }
+  },
+   methods: {
+    handleCreate() {
+      console.log('articleList has been created.');
     }
   }
 };

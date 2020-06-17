@@ -22,11 +22,13 @@ export default{
         logo
     }
 };
+
 </script>
 <style lang="scss">
 @import "@/scss/_variables.scss";
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
+
 .site-footer{
     @extend %flex-center-center;
     text-align: center;
