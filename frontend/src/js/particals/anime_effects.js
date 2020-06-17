@@ -8,6 +8,7 @@ export function bck_morph(){
       {value: 'M1-1c-196.2,663.5-110.7,924.1,18,1034c170,145.2,378.2-4,1044,0c581.7,3.5,760.5,119.4,912-12c123.2-106.9,208.8-360.6,6.7-1020.7C1321.4-0.1,661.2-0.6,1-1z'},
     ],
     easing: 'easeInQuad',
+   direction: 'normal',
     duration: 2000,
     loop: false
   });
@@ -21,7 +22,6 @@ export function loader_random() {
     text += char_list.charAt(Math.floor(Math.random() * char_list.length));
 
   }
-  let elem = document.querySelector("#loader .txt");
   return text;
 }
 
