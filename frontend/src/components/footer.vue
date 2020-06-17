@@ -71,7 +71,9 @@ export default{
         background: white;
         z-index: 999;
         top: 0;
-         @extend %flex-center-center;
+            display: none;
+
+         //@extend %flex-center-center;
         flex-direction: column;
         width: 100vw;
         height: 100vh;

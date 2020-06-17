@@ -9,7 +9,7 @@
 <script>
   import headerComponent from "./components/header.vue";
   import footerComponent from "./components/footer.vue";
-  import { loader } from './js/particals/anime_effects';
+ // import { loader } from './js/particals/anime_effects';
   import { loader_random } from './js/particals/anime_effects';
   export default {
     name: "App",
@@ -20,7 +20,7 @@
     mounted: function() {
  console.log(loader_random());
      document.querySelector("#loader .txt").innerHTML = loader_random();
-     loader();
+     //loader();
     },
    methods: {
     footer_attached() {
