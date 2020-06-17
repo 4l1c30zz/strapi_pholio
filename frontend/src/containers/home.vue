@@ -27,10 +27,10 @@
     <h2 class="heading col-1">{{ page.contact.title }}</h2>
     <a class="mail link col-1" :href="page.contact.email">{{page.contact.email}}</a>
     <div class="wrap btn_wrap">
-      <a :href="page.contact.git" class="btn btn-default col-md-2 col-sm-1  col-2">
+      <a :href="page.contact.git" class="btn btn-default col-2">
       GitHub
       </a>
-      <a :href="page.contact.insta" class="btn btn-default col-2 col-md-2 col-sm-1">
+      <a :href="page.contact.insta" class="btn btn-default col-2">
       Instagram
       </a>
     </div>
@@ -131,42 +131,45 @@ export default {
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
 @import "@/scss/_globals.scss";
-#app{
+.about {
+    .glitch-heading {
+        font-size: font_size(f120);
+        text-align: left;
+        line-height: line_height(_minimal);
+    }
+    p {
+        font-weight: font_weight(medium);
+        font-size: font_size(f20);
+        line-height: line_height(_default);
         text-transform: uppercase;
+    }
 }
-.about{
-.glitch-heading{
-    font-size: font_size(f120);
-    text-align: left;
-    line-height: line_height(_minimal);
+
+.blog,
+.contact {
+    text-align: center;
+}
+.mail.link {
+    display: block;
+    padding: 5px 0;
+    font-size: font_size(f20);
+}
+
+body {
+    &.mobile {
+        .glitch-heading {
+            font-size: font_size(f80);
+            margin-bottom: $med-marg;
+        }
+        .about p {
+            font-size: font_size(f18);
+        }
     }
-    p{
-      font-weight: font_weight(medium);
-      font-size: font_size(f20);
-      line-height: line_height(_default);
-      text-transform: uppercase;
-    }
-    }
-  .blog, .contact{
-  text-align:center;
-  }
-  .mail.link{
-  display: block;
-  }
-  body{
-    &.mobile{
-      .glitch-heading{
-        font-size: font_size(f80);
-        margin-bottom: $med-marg;
-    }
-    .about p{
-      font-size: font_size(f18);
-    }
-  }
-  }
-  .contact .btn_wrap{
+}
+.contact .btn_wrap {
     width: 100%;
     max-width: 50%;
     margin: 0 auto;
-  }
+}
+
 </style>
