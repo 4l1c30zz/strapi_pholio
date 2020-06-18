@@ -17,7 +17,7 @@
         v-if="article.title"
         class="heading mark_block_wrap"
         >
-        <span class="word">
+        <span class="word title">
          {{ article.title }}
          </span>
          <span class="mark magenta">
@@ -171,7 +171,6 @@ export default {
         }
         h4 {
             flex-basis: 100%;
-
             padding: 0 0 5px;
         }
     }
@@ -182,7 +181,7 @@ export default {
         @extend %flex-center-center-column;
         position: absolute;
         top: 0;
-        left: -50vw;
+        left: -100vw;
         width: 100%;
         height: 100%;
         transition: $trans-default 0.3s;
@@ -236,6 +235,7 @@ export default {
     overflow: hidden;
     max-height: 54vh;
     border: 5px solid black;
+    width: 100%;
     > a {
         display: block;
         height: 100%;
@@ -246,6 +246,7 @@ export default {
         img {
             object-fit: cover;
             height: 60vh;
+            width: 100%;
         }
         &:after {
             background: url("../assets/whitenoise-400x400-1.jpg");
@@ -267,6 +268,7 @@ export default {
     }
     .heading {
         margin: 0 auto;
+        max-width: 80%;
     }
     .link {
         max-width: 60px;
@@ -313,7 +315,24 @@ export default {
         transform: translate(-10%, -20%);
     }
 }
-
-
+body{
+  &.tablet{
+    .blog .i {
+      &.a {
+        .body {
+        left: 0;
+        }
+      }
+    }
+  }
+  &.mobile{
+    .inner{
+      max-height: 40vh;
+      .media img {
+            height: 41vh;
+        }
+    }
+  }
+}
 </style>
 
