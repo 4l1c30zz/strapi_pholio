@@ -14,7 +14,17 @@
             </div>
         </div>
     </footer>
-
+    <div id="loader" class="a first">
+        <div class="inner">
+            <div id="load">
+             <div id="load_container"></div>
+            </div>
+            <div class="txt_wrap">
+              <p class="txt"></p>
+            </div>
+            <div class="side"> Loading...</div>
+        </div>
+    </div>
 </div>
 </template>
 <script>
