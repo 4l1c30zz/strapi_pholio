@@ -60,13 +60,4 @@ export function loader() {
       borderRadius: ['100%'],
     })
 
-  anime({
-    targets: '#loader p',
-    right: ['0', '1000'],
-    easing: 'easeInOutSine',
-    duration: 9000,
-    direction: 'normal',
-    loop: true,
-
-  });
 }
