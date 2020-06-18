@@ -1,9 +1,8 @@
 <template>
   <div id="main">
-
   <div v-if="page" class="about wrap boxed">
-    <h1 v-if="page.about.title" class="heading col-2 col-md-2 col-sm-1  glitch-heading"><span>{{ page.about.title }}</span></h1>
-    <p v-if="page.about.txt" class="col-2 col-md-2 col-sm-1">{{ page.about.txt }}</p>
+    <h1 v-if="page.about.title" class="heading col-2 col-md-1 col-sm-1  glitch-heading"><span>{{ page.about.title }}</span></h1>
+    <p v-if="page.about.txt" class="col-2 col-md-1 col-sm-1">{{ page.about.txt }}</p>
   </div>
 
   <div v-if="page" class="blog wrap boxed">
@@ -160,6 +159,15 @@ export default {
 }
 
 body {
+   &.tablet {
+        .glitch-heading {
+            font-size: font_size(f100);
+            margin-bottom: $med-marg;
+        }
+        .about p {
+            font-size: font_size(f18);
+        }
+    }
     &.mobile {
         .glitch-heading {
             font-size: font_size(f80);
