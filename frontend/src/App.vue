@@ -71,14 +71,26 @@ export default {
     },
     afterEnter: function () {
       console.log("here afterEnter");
-      let loader_elem = document.querySelector("#loader");
+      let loader_elem = document.querySelector("#loader:not([first])");
+    // if its not firstly insered html remove the loader to stop the animation. didn't figured out a better way to stop/
+      if(loader_elem){
+        console.log("first loaded");
+            setTimeout(function(){ 
+            //  loader_elem.remove();
+              //morph the freshly created svg for the paint effect
+              bck_morph()
+            }, 1000);
+      }
+      else {
+        console.log("rest time loaded");
+        let loader_elem = document.querySelector("#loader");
+            setTimeout(function(){ 
+                      console.log(loader_elem);
 
-      setTimeout(function(){ 
-        //remove the loader to stop the animation. didn't figured out a better way to stop/
-        loader_elem.remove();
-        //morph the freshly created svg for the paint effect
-        bck_morph()
-      }, 1000);
+            //  loader_elem.remove();
+              bck_morph()
+            }, 2000);
+      }
     },
   },
   mounted(){
