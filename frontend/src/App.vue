@@ -8,7 +8,7 @@
   >
     <router-view :key="$route.fullPath"></router-view>
   </transition>
-  <footerComponent @created="footer_attached"/>
+  <footerComponent/>
 </div>
 </template>
 
@@ -27,10 +27,6 @@ export default {
   },
 
   methods: {
-    footer_attached() {
-     console.log('footer_attached');
-    },
-
     enter: function () {
       //check if svg on top of a page existst
       let existing_morph = document.querySelector("#morph");
@@ -64,12 +60,12 @@ export default {
       morph_wrap.innerHTML =  svg_morph;
       //attach to page header
       site_header.after(morph_wrap);
-
+      
     },
+
     afterEnter: function () {
       let loader_elem = document.querySelector("#loader.first");
-    // if its not firstly insered html remove the loader to stop the animation. didn't figured out a better way to stop/
-  
+    // if its not firstly insered html remove the loader to stop the animation. didn't figured out a better way to stop
       if(loader_elem){
             setTimeout(function(){ 
               loader_elem.remove();
@@ -77,18 +73,17 @@ export default {
               bck_morph()
             }, 2500);
       }
+
       else {
         let loader_elem = document.querySelector("#loader:not([first])");
-            setTimeout(function(){ 
-              loader_elem.remove();
-              bck_morph()
-            }, 900);
-      }
-    },
-  },
-  mounted(){
-    console.log("nounted");
-  }
+        setTimeout(function(){ 
+          loader_elem.remove();
+          bck_morph()
+        }, 900);
+       }
+
+     },
+   },
   };
 
 </script>

@@ -29,17 +29,11 @@
 </template>
 <script>
 import logo from "../assets/logo";
-
-
 export default{
     name: "footerComponent",
     components: {
         logo
     },
-    created() {
-    this.$emit('created');
-
-  }
 };
 
 </script>
