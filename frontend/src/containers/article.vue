@@ -3,7 +3,7 @@
     <div
       v-if="article.image"
       id="banner"
-      class="bck-cover bck-fixed single-title"
+      class="bck-cover bck-fixed single-hero"
       :data-src="api_url + article.image.url"
       :style="{ backgroundImage: `url('${api_url + article.image.url}')` }"
     >
@@ -116,6 +116,7 @@ body {
 }
 
 .info_wrap {
+  max-width: 90%;
     h1 {
         padding: $inner_padd;
         background: color(_blue);

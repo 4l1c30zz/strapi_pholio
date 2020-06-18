@@ -111,7 +111,7 @@ function body_class_switcher() {
   let laptop = window.matchMedia( "(min-width:1025px) and (max-width:1330px)" );
   let tablet = window.matchMedia( "(min-width:769px) and (max-width:1024px)" );
   let mobile = window.matchMedia( "(min-width:400px) and (max-width:768px)" );
-  let tiny_mobile = window.matchMedia( "(max-width:400px)" );
+  let tiny_mobile = window.matchMedia( "(max-width:430px)" );
   
 //if resolution matches the body gets the maching class
   if((desktop).matches){

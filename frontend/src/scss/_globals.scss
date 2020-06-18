@@ -73,6 +73,9 @@ body {
   }
 
   &.mobile {
+    .single-hero {
+      min-height: 50vh;
+    }
     h1 {
       font-size: font_size(f60);
     }
@@ -108,6 +111,27 @@ body {
 
     }
   }
+    &.tiny {
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 35px;
+      }
+
+      h3 {
+        font-size: font_size(f18);
+      }
+    .single-hero {
+      min-height: 40vh;
+    }
+      .wrap {
+        .col-tn-1 {
+          flex-basis: 100%;
+        }
+      }
+    }
 }
 
 
@@ -239,7 +263,7 @@ p {
   background-attachment: fixed;
 }
 
-.single-title {
+.single-hero {
   min-height: 60vh;
   @extend %flex-center-center;
 }

@@ -4,7 +4,7 @@
       <div
       v-for="item in items" :key="item.url"
       @click="class_toggle"
-      class="col-3 col-md-3 col-sm-2  col-center i"
+      class="col-3 col-md-3 col-sm-2 col-tn-1  col-center i"
       >
         <img :src="api_url + item.url" class="gallery_image"  />
         <h4 class="heading">{{item.caption}}</h4>
@@ -241,6 +241,35 @@ export default {
                 position: absolute;
                 bottom: 0;
                 left: 0;
+            }
+        }
+    }
+}
+body {
+    &.mobile {
+        .gallery.a .overlay_controllers {
+            .close,
+            .arr {
+                font-size: font_size(f20);
+            }
+        }
+        &.tiny {
+
+            .gallery.a .overlay_controllers {
+                .close,
+                .arr {
+                    font-size: font_size(f18);
+                }
+            }
+            .gallery .i {
+                img {
+                    max-height: 50vw;
+                    height: 50vw;
+                }
+                &.a img {
+                    height: 100%;
+                    max-height: 90vh;
+                }
             }
         }
     }
