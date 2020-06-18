@@ -49,22 +49,22 @@ export default{
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
 
-.site-footer{
+.site-footer {
     @extend %flex-center-center;
     text-align: center;
-    .logo_wrap{
+    .logo_wrap {
         display: block;
     }
-    #logo{
+    #logo {
         max-width: 90px;
-        path{
+        path {
             fill: color(_black);
         }
     }
 }
 #loader {
     display: none;
-    p{
+    p {
         opacity: 0;
         transition: opacity 1s ease 1s;
     }
@@ -73,7 +73,7 @@ export default{
         background: white;
         z-index: 999;
         top: 0;
-         @extend %flex-center-center;
+        @extend %flex-center-center;
         flex-direction: column;
         width: 100vw;
         height: 100vh;
@@ -94,7 +94,7 @@ export default{
             margin: 0 auto;
             flex-basis: 100%;
             max-height: 50vh;
-         @extend %flex-center-center;
+            @extend %flex-center-center;
 
         }
         p {
@@ -121,12 +121,13 @@ export default{
     }
 }
 @keyframes moveRight {
-    0%{
-        right: 0vw;
+    0% {
+        right: 0;
     }
 
-    100%{
+    100% {
         right: 60vw;
     }
 }
+
 </style>
