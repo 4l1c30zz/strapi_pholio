@@ -1,16 +1,16 @@
 <template>
   <div id="main">
-  <div v-if="page" class="about wrap boxed">
+  <div v-if="page" class="about block_wrap wrap boxed">
     <h1 v-if="page.about.title" class="heading col-2 col-md-1 col-sm-1  glitch-heading"><span>{{ page.about.title }}</span></h1>
     <p v-if="page.about.txt" class="col-2 col-md-1 col-sm-1">{{ page.about.txt }}</p>
   </div>
 
-  <div v-if="page" class="blog wrap boxed">
+  <div v-if="page" class="blog block_wrap wrap boxed">
     <h2  class="heading col-1">{{ page.title_n_posts.title }}</h2>
     <articleSingle @created="handleCreate" :articles="page.title_n_posts.articles || []"></articleSingle>
   </div>
 
-     <div v-if="page" class="gallery wrap boxed">
+     <div v-if="page" class="gallery block_wrap wrap boxed">
     <h2
     v-if="page.gallery.title "
      class="heading col-1"
@@ -22,7 +22,7 @@
       :items="page.gallery.items || []"></gallerySingle>
   </div>
 
-  <div v-if="page"  class="contact wrap boxed">
+  <div v-if="page"  class="contact block_wrap wrap boxed">
     <h2 class="heading col-1">{{ page.contact.title }}</h2>
     <a class="mail link col-1" :href="page.contact.email">{{page.contact.email}}</a>
     <div class="wrap btn_wrap">
