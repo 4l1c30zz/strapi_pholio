@@ -3,7 +3,7 @@
 <div id="app">
   <headerComponent />
   <transition
-  v-on:enter="enter"
+  v-on:before-enter="enter"
   v-on:after-enter="afterEnter"
   >
     <router-view :key="$route.fullPath"></router-view>
@@ -44,20 +44,17 @@ export default {
       let firstlyLoadedLoader = document.querySelector("#loader.first");
       //check if its first element from the footer template if yes add random chars
       if (firstlyLoadedLoader){
-      console.log("exists");
-      document.querySelector("#loader .txt").innerHTML = loader_random();
+       document.querySelector("#loader .txt").innerHTML = loader_random();
       }
       // create a new loader if it's not exists for page transition effects
       else{
-        console.log("nope");
-      let tags_wrap = document.createElement('div');
-      let tags = "<div id='loader' class='a'><div class='inner'><div id='load'><div id='load_container'></div></div><div class='txt_wrap'><p class='txt'></p></div><div class='side'> Loading...</div></div></div>";
-      let site_footer = document.querySelector(".site-footer");
-      tags_wrap.innerHTML =  tags;
-      site_footer.after(tags_wrap);
-      document.querySelector("#loader .txt").innerHTML = loader_random();
+        let tags_wrap = document.createElement('div');
+        let tags = "<div id='loader' class='a'><div class='inner'><div id='load'><div id='load_container'></div></div><div class='txt_wrap'><p class='txt'></p></div><div class='side'> Loading...</div></div></div>";
+        let site_footer = document.querySelector(".site-footer");
+        tags_wrap.innerHTML =  tags;
+        site_footer.after(tags_wrap);
+        document.querySelector("#loader .txt").innerHTML = loader_random();
       }
-
       //call the circle morphing + character movement function that was made with a help from anime.js
       loader();
       //create an morphing svg
@@ -70,26 +67,22 @@ export default {
 
     },
     afterEnter: function () {
-      console.log("here afterEnter");
-      let loader_elem = document.querySelector("#loader:not([first])");
+      let loader_elem = document.querySelector("#loader.first");
     // if its not firstly insered html remove the loader to stop the animation. didn't figured out a better way to stop/
+  
       if(loader_elem){
-        console.log("first loaded");
             setTimeout(function(){ 
-            //  loader_elem.remove();
+              loader_elem.remove();
               //morph the freshly created svg for the paint effect
               bck_morph()
-            }, 1000);
+            }, 2500);
       }
       else {
-        console.log("rest time loaded");
-        let loader_elem = document.querySelector("#loader");
+        let loader_elem = document.querySelector("#loader:not([first])");
             setTimeout(function(){ 
-                      console.log(loader_elem);
-
-            //  loader_elem.remove();
+              loader_elem.remove();
               bck_morph()
-            }, 2000);
+            }, 900);
       }
     },
   },
