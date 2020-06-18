@@ -16,7 +16,7 @@ export function bck_morph(){
 export function loader_random() {
   
   let text = "";
-  let len = 100;
+  let len = 50;
   let char_list = "!{}@#/$}%>^&*<~?";
   for (var i = 0; i < len; i++) {
     text += char_list.charAt(Math.floor(Math.random() * char_list.length));
@@ -59,5 +59,4 @@ export function loader() {
       rotate: 10,
       borderRadius: ['100%'],
     })
-
 }

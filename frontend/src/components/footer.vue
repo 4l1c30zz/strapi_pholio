@@ -64,6 +64,10 @@ export default{
 }
 #loader {
     display: none;
+    p{
+        opacity: 0;
+        transition: opacity 1s ease 1s;
+    }
     &.a {
         position: fixed;
         background: white;
@@ -89,19 +93,22 @@ export default{
             overflow: hidden;
             margin: 0 auto;
             flex-basis: 100%;
+            max-height: 50vh;
          @extend %flex-center-center;
 
         }
         p {
             white-space: nowrap;
-            font: font_weight(bold) font_size(f100) font(base_font);
+            font: font_weight(boldest) font_size(f100) font(lined_font);
             padding: 10px;
             text-transform: uppercase;
             position: relative;
-            right: 0;
+            right: -100vw;
+            opacity: 1;
+            animation: moveRight cubic-bezier(0.250, 0.250, 0.750, 0.750) 12s alternate infinite 0.3s;
         }
         .side {
-            font: font_weight(bold) font_size(f60) font(base_font);
+            font: font_weight(boldest) font_size(f60) font(base_font);
             text-transform: uppercase;
             text-align: center;
             z-index: 1;
@@ -111,6 +118,15 @@ export default{
         .txt_wrap {
             max-width: 70vw;
         }
+    }
+}
+@keyframes moveRight {
+    0%{
+        right: 0vw;
+    }
+
+    100%{
+        right: 60vw;
     }
 }
 </style>
