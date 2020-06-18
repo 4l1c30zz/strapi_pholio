@@ -84,14 +84,16 @@ export default {
   },
  
   mounted(){
+  //callback on mounting to check the first position to avoid vier appearence on reload in the middle of the page
     stick()
   },
 
 };
-
+//sticky header function
 function stick (){
   let head = document.getElementById("site-header");
   let elem_height = head.offsetHeight;
+  //if scrolled part is higher than header add class
   if( window.pageYOffset >= elem_height ) {
       head.classList.add("a");
     } else{
@@ -100,103 +102,50 @@ function stick (){
 }
 
 function body_class_switcher() {
+
   let body = document.querySelector("body");
-
-  if(window.matchMedia("(min-width:1331px)").matches){
+  //reset body class every time that function runs to avoid resize bugs
+  body.className = '';
+  //set default screen sizes for future media queries
+  let desktop = window.matchMedia( "(min-width: 1331px)" );
+  let laptop = window.matchMedia( "(min-width:1025px) and (max-width:1330px)" );
+  let tablet = window.matchMedia( "(min-width:769px) and (max-width:1024px)" );
+  let mobile = window.matchMedia( "(min-width:400px) and (max-width:768px)" );
+  let tiny_mobile = window.matchMedia( "(max-width:400px)" );
+//if resolution matches the body gets the maching class
+  if((desktop).matches){
     body.classList.add('desktop');
-    //console.log("desktop");
-    if(body.classList.contains("mobile")){
-     body.classList.remove("mobile");
-    }
-    if(body.classList.contains("tablet")){
-      body.classList.remove("tablet");
-    }
-    if(body.classList.contains("laptop")){
-      body.classList.remove("laptop");
-    }
-     if(body.classList.contains("tiny")){
-    body.classList.remove("tiny");
-    }
   } 
 
-  if(window.matchMedia("(min-width:1025px) and (max-width:1330px)").matches){
+  if((laptop).matches){
     body.classList.add('laptop');
-    //console.log("laptop");
-    if(body.classList.contains("desktop")){
-      body.classList.remove("desktop");
-    }
-    if(body.classList.contains("tablet")){
-      body.classList.remove("tablet");
-    }
-    if(body.classList.contains("mobile")){
-      body.classList.remove("mobile");
-    }
-    if(body.classList.contains("tiny")){
-    body.classList.remove("tiny");
-    }
   } 
 
-  if(window.matchMedia("(min-width:769px) and (max-width:1024px)").matches){
+  if((tablet).matches){
     body.classList.add('tablet');
-    //console.log("tablet");
-    if(body.classList.contains("desktop")){
-      body.classList.remove("desktop");
-    }
-    if(body.classList.contains("laptop")){
-     body.classList.remove("laptop");
-    }
-    if(body.classList.contains("mobile")){
-     body.classList.remove("mobile");
-    }
-     if(body.classList.contains("tiny")){
-    body.classList.remove("tiny");
-    }
   } 
 
-  if(window.matchMedia("(min-width:400px) and (max-width:768px)").matches){
+  if((mobile).matches){
     body.classList.add('mobile');
-    //console.log("mobile");
-    if(body.classList.contains("desktop")){
-    body.classList.remove("desktop");
-    }
-    if(body.classList.contains("laptop")){
-      body.classList.remove("laptop");
-    }
-    if(body.classList.contains("tablet")){
-    body.classList.remove("tablet");
-    }
-     if(body.classList.contains("tiny")){
-    body.classList.remove("tiny");
-    }
   } 
-
-   if(window.matchMedia("(max-width:400px)").matches){
+   if((tiny_mobile).matches){
     body.classList.add('tiny','mobile');
-    //console.log("tiny");
-    if(body.classList.contains("desktop")){
-    body.classList.remove("desktop");
-    }
-    if(body.classList.contains("laptop")){
-      body.classList.remove("laptop");
-    }
-    if(body.classList.contains("tablet")){
-    body.classList.remove("tablet");
-    }
-
   } 
-}
 
+}
+//check the resolution oload
 window.onload = function() {
   body_class_switcher();
 }
-
+//check the resolution on resize
 window.onresize = function() {
   body_class_switcher();
 }
-
+//stick the header onscroll
 window.onscroll =  function() {
   stick()
 };
+
 </script>
 <style lang="scss">
 @import "@/scss/_reset.scss";
