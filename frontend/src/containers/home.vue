@@ -20,7 +20,7 @@
 
     <div v-if="page.contact" class="contact block_wrap wrap boxed">
       <h2 class="heading col-1">{{ page.contact.title }}</h2>
-      <a class="mail link col-1" :href="page.contact.email">{{page.contact.email}}</a>
+      <a class="mail link col-1" :href="['mailto:' + page.contact.email]">{{page.contact.email}}</a>
       <div class="wrap btn_wrap">
         <a :href="page.contact.git" class="btn btn-default col-2">
           GitHub
