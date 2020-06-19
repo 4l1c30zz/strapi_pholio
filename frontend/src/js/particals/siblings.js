@@ -1,4 +1,3 @@
-
 export function get_siblings(e) {
     let siblings = [];
     if (!e.parentNode) {
