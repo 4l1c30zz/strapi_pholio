@@ -1,10 +1,9 @@
 <template>
   <div>
-
-        <h1 class="heading">{{ category.name }}</h1>
-
-        <articleSingle :articles="category.articles || []"></articleSingle>
-
+    <h1 class="heading">{{ category.name }}</h1>
+    <div class="block_wrap">
+     <articleSingle :articles="category.articles || []"></articleSingle>
+    </div>
   </div>
 </template>
 
@@ -53,10 +52,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "@/scss/_reset.scss";
-@import "@/scss/_variables.scss";
-@import "@/scss/_functions.scss";
-@import "@/scss/_mixins.scss";
-@import "@/scss/_globals.scss";
-</style>
+

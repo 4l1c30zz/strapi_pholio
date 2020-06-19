@@ -97,6 +97,16 @@ export default {
 }
 
 body {
+  &.desktop{
+    .info_wrap {
+      max-width: $cont_width;
+    }
+  }
+  &.laptop{
+    .info_wrap {
+      max-width: 90%;
+    }
+  }
     &.tablet {
         .body {
             max-width: 70%;
@@ -104,6 +114,9 @@ body {
         .btn_wrap {
             max-width: 100%;
         }
+      .info_wrap {
+        max-width: 90%;
+      }
     }
     &.mobile {
         .body {
@@ -112,22 +125,29 @@ body {
         .btn_wrap {
             max-width: 100%;
         }
+      .info_wrap {
+        max-width: 90%;
+      }
     }
 }
 
 .info_wrap {
-  max-width: 90%;
+  text-align: center;
     h1 {
         padding: $inner_padd;
         background: color(_blue);
     }
     .tech {
         background: color(_yellow);
-        margin-top: $bigger_marg;
         font-size: font_size(f18);
         text-align: center;
         font-weight: font_weight(bold);
         padding: $inner-padd;
+        display: inline;
+        line-height: 3em;
+    }
+    .btn_wrap{
+      margin-top: -10px;
     }
 }
 

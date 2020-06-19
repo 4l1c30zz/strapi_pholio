@@ -1,10 +1,9 @@
 <template>
-  <div class="main">
-
-        <h1 class="heading">blog</h1>
-
-        <articleSingle :articles="articles"></articleSingle>
-
+  <div>
+    <h1 class="heading">blog</h1>
+    <div class="block_wrap">
+     <articleSingle :articles="articles"></articleSingle>
+    </div>
   </div>
 </template>
 
@@ -44,5 +43,4 @@ export default {
   }
 };
 </script>
-
 

@@ -14,9 +14,7 @@
           </div>
 
         <ul class="nav">
-          
         <li>
-
        <router-link
           to="/"
          
@@ -26,8 +24,6 @@
             >{{ route.name }}</a
           >
         </router-link>-
-        
- 
         </li>
 
         <li class="mark_block_wrap">
@@ -85,12 +81,12 @@ export default {
  
   mounted(){
   //callback on mounting to check the first position to avoid vier appearence on reload in the middle of the page
-    stick()
+    sticky()
   },
 
 };
 //sticky header function
-function stick (){
+function sticky (){
   let head = document.getElementById("site-header");
   let elem_height = head.offsetHeight;
   //if scrolled part is higher than header add class
@@ -144,7 +140,7 @@ window.onresize = function() {
 }
 //stick the header onscroll
 window.onscroll =  function() {
-  stick()
+  sticky()
 };
 
 </script>

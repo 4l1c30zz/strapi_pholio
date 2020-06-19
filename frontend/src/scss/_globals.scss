@@ -206,6 +206,7 @@ p {
   margin: $med_marg;
   transform: scale(1) rotate(0deg);
   transition: $trans_default;
+  flex-grow: 1;
 }
 
 .btn_wrap {
