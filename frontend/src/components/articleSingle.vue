@@ -163,7 +163,7 @@ export default {
       margin: 0;
 
       &:hover {
-        transform: scale(0.9) translateY(10px) rotate(10deg);
+        transform: scale(0.9) translateY(10px) rotate(5deg);
       }
 
     }
@@ -175,7 +175,8 @@ export default {
   }
 }
 
-.blog .i {
+#app .blog .i {
+  margin: 15px 10px;
   .body {
     @extend %flex-center-center-column;
     position: absolute;
@@ -310,7 +311,9 @@ export default {
 
 body {
   &.tablet {
-    .blog .i {
+   #app .blog .i {
+        margin: 20px 10px;
+
       &.a {
         .body {
           left: 0;
@@ -320,6 +323,9 @@ body {
   }
 
   &.mobile {
+        #app .blog .i {
+        margin: 10px 10px 25px;
+        }
     .inner {
       max-height: 40vh;
 
