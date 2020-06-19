@@ -26,7 +26,7 @@
         <p  
         v-if="article.tech"
         :inner-html.prop="article.tech  | wrap"
-        class="tech medium normal"
+        class="tech mark_block_wrap medium normal"
         >
         </p>
         <router-link

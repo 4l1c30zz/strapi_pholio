@@ -14,7 +14,7 @@
            <span @click="menuShowHide" class="menu_toggler heading">menu </span>
           <div class="nav_inner_i_wrap">
 
-          <li class="mark_block_wrap">
+          <li class="mark_block_wrap default">
             <router-link
              to="/blog" v-slot="{ isActive, href, route, navigate }"
              class="word"
@@ -27,7 +27,7 @@
             <div class="mark yellow"></div>
           </li>
 
-          <li  class="mark_block_wrap"
+          <li  class="mark_block_wrap default"
            v-for="category in categories"
            v-bind:key="category.id">
             <router-link

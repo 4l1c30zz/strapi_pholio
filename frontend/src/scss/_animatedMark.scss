@@ -1,40 +1,43 @@
+.mark_block_wrap {
+    padding: 5px;
+    margin: 5px;
+    position: relative;
 
-  
-  .mark_block_wrap {
-        padding: 5px;
-        margin: 5px;
+    .word {
         position: relative;
-
-        .word {
-            position: relative;
-            z-index: 1;
-        }
-
-        .mark {
-            width: 0;
-            display: block;
-            position: absolute;
-            height: 100%;
-            top: 0;
-            left: 0;
-            transition: $trans-default;
-        }
-
-        &.heading .mark {
-            transition: all 0.1s ease-in-out 0.6s;
-        }
-
-        &.tech .mark {
-            transition: all 0.15s cubic-bezier(0.550, 0.055, 0.675, 0.190) 0.8s;
-        }
-
-        &.link .mark {
-            transition: all 0.3s ease 0.95s;
-        }
+        z-index: 1;
     }
 
-   .blog .i.a , .nav .mark_block_wrap:hover{
-        .mark {
-            width: 100%;
-        }
+    .mark {
+        width: 0;
+        display: block;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+
     }
+
+    &.default .mark {
+        transition: $trans-default;
+    }
+
+    &.heading .mark {
+        transition: all 0.1s ease-in-out 0.6s;
+    }
+
+    &.tech .mark {
+        transition: all 0.15s cubic-bezier(0.550, 0.055, 0.675, 0.190) 0.8s;
+    }
+
+    &.link .mark {
+        transition: all 0.3s ease 0.95s;
+    }
+}
+
+.blog .i.a,
+.nav .mark_block_wrap:hover {
+    .mark {
+        width: 100%;
+    }
+}
