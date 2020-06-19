@@ -37,9 +37,8 @@
 
 <script>
 import { get_siblings } from '../js/particals/siblings';
-
 export default {
-  data: function() {
+  data: function () {
     return {
       api_url: process.env.VUE_APP_STRAPI_API_URL
     };
@@ -54,44 +53,42 @@ export default {
       siblings.forEach((sib) => {
         sib.classList.remove('a');
       });
-   },
+    },
 
-   class_remove: function(){
-     document.querySelector(".gal").classList.remove("a");
-     let gal_items = document.querySelectorAll(".gal .i");
-     gal_items.forEach((gal_item) => {
-        if(gal_item.classList.contains('a')){
+    class_remove: function () {
+      document.querySelector(".gal").classList.remove("a");
+      let gal_items = document.querySelectorAll(".gal .i");
+      gal_items.forEach((gal_item) => {
+        if (gal_item.classList.contains('a')) {
           gal_item.classList.remove('a');
         }
-     });
-   },
+      });
+    },
 
-  move_left: function(){
-    let current_i = document.querySelector('.gal .i.a');
-    let left_sib = current_i.previousSibling;
-    if(typeof(left_sib) != 'undefined' && left_sib != null){
-      current_i.classList.remove('a');
-      left_sib.classList.add('a');
-    }
-    else{
-       current_i.classList.remove('a');
-       document.querySelector('.gal .i:last-child').classList.add("a");
-    }
-  },
+    move_left: function () {
+      let current_i = document.querySelector('.gal .i.a');
+      let left_sib = current_i.previousSibling;
+      if (typeof (left_sib) != 'undefined' && left_sib != null) {
+        current_i.classList.remove('a');
+        left_sib.classList.add('a');
+      } else {
+        current_i.classList.remove('a');
+        document.querySelector('.gal .i:last-child').classList.add("a");
+      }
+    },
 
-    move_right: function(){
+    move_right: function () {
       let current_i = document.querySelector('.gal .i.a');
       let right_sib = current_i.nextSibling;
-      if(typeof(right_sib) != 'undefined' && right_sib != null){
+      if (typeof (right_sib) != 'undefined' && right_sib != null) {
         current_i.classList.remove('a');
         right_sib.classList.add('a');
-      }
-      else{
-       current_i.classList.remove('a');
-       document.querySelector('.gal .i:first-child').classList.add("a");
+      } else {
+        current_i.classList.remove('a');
+        document.querySelector('.gal .i:first-child').classList.add("a");
       }
     }
- },
+  },
   props: {
     items: Array
   },
@@ -110,169 +107,210 @@ export default {
 @import "@/scss/_variables.scss";
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
- .gallery {
-    width: 100%;
+
+.gallery {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  .overlay {
+    background: transparent;
+    width: 0;
+    height: 0;
     overflow: hidden;
-    position: relative;
-    .overlay {
-        background: transparent;
-        width: 0;
-        height: 0;
-        overflow: hidden;
-        position: static;
-        z-index: 0;
-        transition: width 0.5s ease;
+    position: static;
+    z-index: 0;
+    transition: width 0.5s ease;
+  }
+
+  .overlay_controllers {
+    .close {
+      position: static;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      padding: 0;
+      font-size: 0;
+      transition: all 0.4s ease 0.4s;
     }
+
+    .arr {
+      width: 0;
+      height: 0;
+      padding: 0;
+      font-size: 0;
+      position: static;
+
+      &.left {
+        transition: all 0.3s ease 0.1s;
+      }
+
+      &.right {
+        transition: all 0.2s ease 0.2s;
+      }
+    }
+  }
+
+  &.a {
+    width: 100%;
+
+    .overlay {
+      background: white;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 15;
+    }
+
     .overlay_controllers {
-        .close {
-            position: static;
-            width: 0;
-            height: 0;
-            overflow: hidden;
-            padding: 0;
-            font-size: 0;
-            transition: all 0.4s ease 0.4s;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 35;
+
+      .close {
+        background: color(_yellow);
+        padding: $inner_padd;
+        font-size: font_size(f30);
+        color: color(_black);
+        width: auto;
+        height: auto;
+        display: block;
+        position: fixed;
+        top: 5%;
+        right: 0;
+        z-index: 25;
+        cursor: pointer;
+        transition: all 0.3s ease 0.2s;
+
+        &:hover {
+          transform: scale(0.9) rotate(90deg);
+          background: color(_magenta);
         }
-        .arr {
-            width: 0;
-            height: 0;
-            padding: 0;
-            font-size: 0;
-            position: static;
-            &.left {
-                transition: all 0.3s ease 0.1s;
-            }
-            &.right {
-                transition: all 0.2s ease 0.2s;
-            }
+      }
+
+      .arr {
+        padding: $inner_padd;
+        font-size: font_size(f30);
+        position: fixed;
+        top: 50%;
+        display: block;
+        width: auto;
+        height: auto;
+        color: color(_black);
+        background: color(_yellow);
+        cursor: pointer;
+        z-index: 55;
+        transition: all 0.3s ease 0.2s;
+
+        &:hover {
+          background: color(_blue);
         }
+
+        &.left {
+          left: 0;
+
+          &:hover {
+            transform: scale(1.1) rotate(5deg);
+          }
+        }
+
+        &.right {
+          right: 0;
+
+          &:hover {
+            transform: scale(1.1) rotate(-5deg);
+          }
+        }
+      }
+    }
+  }
+
+  h4 {
+    background: color(_black);
+    color: white;
+    width: 100%;
+    padding: 5px 10px;
+    text-align: left;
+    position: relative;
+  }
+
+  .i {
+    position: relative;
+    background: transparent;
+
+    img {
+      width: 100%;
+      max-height: 30vw;
+      min-height: 30vw;
+      height: 30vw;
+      object-fit: cover;
+      object-position: center top;
     }
 
     &.a {
-        width: 100%;
-        .overlay {
-            background: white;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 15;
-        }
-        
-        .overlay_controllers {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 35;
-            .close {
-                background: color(_yellow);
-                padding: $inner_padd;
-                font-size: font_size(f30);
-                color: color(_black);
-                width: auto;
-                height: auto;
-                display: block;
-                position: fixed;
-                top: 5%;
-                right: 0;
-                z-index: 25;
-                cursor: pointer;
-            }
-            .arr {
-                padding: $inner_padd;
-                font-size: font_size(f30);
-                position: fixed;
-                top: 50%;
-                display: block;
-                width: auto;
-                height: auto;
-                color: color(_black);
-                background: color(_yellow);
-                cursor: pointer;
-                z-index: 55;
-                &.left {
-                    left: 0;
-                }
-                &.right {
-                    right: 0;
-                }
-            }
-        }
-    }
+      position: fixed;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 20;
 
-    h4 {
-        background: color(_black);
-        color: white;
-        width: 100%;
-        padding: 5px 10px;
-        text-align: left;
-        position: relative;
+      img {
+        height: 100%;
+        max-height: 90vh;
+        object-fit: scale-down;
+        object-position: center center;
+      }
+
+      h4 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
     }
-    .i {
-        position: relative;
-        background: transparent;
-        img {
-            width: 100%;
-            max-height: 30vw;
-            min-height: 30vw;
-            height: 30vw;
-            object-fit: cover;
-            object-position: center top;
-        }
-        &.a {
-            position: fixed;
-            top: 0;
-            left: 0;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: 20;
-            img {
-                height: 100%;
-                max-height: 90vh;
-                object-fit: scale-down;
-                object-position: center center;
-            }
-            h4 {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-            }
-        }
-    }
+  }
 }
-body {
-    &.mobile {
-        .gallery.a .overlay_controllers {
-            .close,
-            .arr {
-                font-size: font_size(f20);
-            }
-        }
-        &.tiny {
 
-            .gallery.a .overlay_controllers {
-                .close,
-                .arr {
-                    font-size: font_size(f18);
-                }
-            }
-            .gallery .i {
-                img {
-                    max-height: 50vw;
-                    height: 50vw;
-                }
-                &.a img {
-                    height: 100%;
-                    max-height: 90vh;
-                }
-            }
-        }
+body {
+  &.mobile {
+    .gallery.a .overlay_controllers {
+
+      .close,
+      .arr {
+        font-size: font_size(f20);
+      }
     }
+
+    &.tiny {
+
+      .gallery.a .overlay_controllers {
+
+        .close,
+        .arr {
+          font-size: font_size(f18);
+        }
+      }
+
+      .gallery .i {
+        img {
+          max-height: 50vw;
+          height: 50vw;
+        }
+
+        &.a img {
+          height: 100%;
+          max-height: 90vh;
+        }
+      }
+    }
+  }
 }
 
 </style>
