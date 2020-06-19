@@ -13,17 +13,6 @@
         <ul class="nav">
            <span @click="menuShowHide" class="menu_toggler heading">menu </span>
           <div class="nav_inner_i_wrap">
-          <li>
-            <router-link
-             to="/"
-             v-slot="{ isActive, href, route, navigate }"
-             >
-              <a
-              :class="[isActive ? ' router-link-active' : '']"
-              :href="href"
-             @click="navigate">{{ route.name }}</a>
-            </router-link>-
-          </li>
 
           <li class="mark_block_wrap">
             <router-link
@@ -82,15 +71,13 @@ export default {
     //callback on mounting to check the first position to avoid vier appearence on reload in the middle of the page
     sticky()
   },
-   methods: {
-     menuShowHide: function(){
-       let mobileNavigation = document.querySelector(".nav_inner_i_wrap");
-       mobileNavigation.classList.toggle("a");
-       console.log("menuShowHide function happened");
-     },
+  methods: {
+    menuShowHide: function () {
+      let mobileNavtogglerItems = document.querySelectorAll('.nav_inner_i_wrap, .menu_toggler');
+      mobileNavtogglerItems.forEach(mobileNavtogglerItem => mobileNavtogglerItem.classList.toggle("a"));
+    },
 
-
-   }
+  }
 
 };
 //sticky header function
@@ -209,6 +196,11 @@ header {
 
     a {
       font-size: font_size(f20);
+      transition: $trans-default;
+      background: transparent;
+      &.router-link-active{
+        background: color(_yellow);
+      }
     }
   }
 
@@ -245,12 +237,42 @@ body {
   &.mobile {
     #site-header {
       .nav {
+        li{
+          
+        }
         .menu_toggler {
           display: block;
           right: 0;
           top: 5%;
           padding: $inner_padd;
           z-index: 25;
+          &:before , &:after{
+            content: "";
+            display: block;
+            background: color(_black);
+            width: 4px;
+            height: 0px;
+            position: absolute;
+            top: -20vh;
+            transition: $trans-default;
+          }
+          &:before{
+            transform: rotate(40deg);
+          }
+          &:after{
+             transform: rotate(-40deg);
+          }
+          &.a{
+            font-size: 0;
+            right: 3%;
+            &:hover{
+              transform: rotate(180deg) scale(1.3);
+            }
+             &:before , &:after{
+               height: 25px;
+                top: 0;
+             }
+          }
         }
 
         .nav_inner_i_wrap {
