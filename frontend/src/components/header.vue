@@ -11,6 +11,8 @@
         </div>
 
         <ul class="nav">
+           <span @click="menuShowHide" class="menu_toggler heading">menu </span>
+          <div class="nav_inner_i_wrap">
           <li>
             <router-link to="/" v-slot="{ href, route, navigate }">
               <a :href="href" @click="navigate">{{ route.name }}</a>
@@ -35,6 +37,7 @@
               {{ category.name }}
             </router-link>
           </li>
+          </div>
         </ul>
       </div>
     </header>
@@ -66,11 +69,17 @@ export default {
   components: {
     logo
   },
-
   mounted() {
     //callback on mounting to check the first position to avoid vier appearence on reload in the middle of the page
     sticky()
   },
+   methods: {
+     menuShowHide: function(){
+       let mobileNavigation = document.querySelector(".nav_inner_i_wrap");
+       mobileNavigation.classList.toggle("a");
+       console.log("menuShowHide function happened");
+     }
+   }
 
 };
 //sticky header function
@@ -138,6 +147,7 @@ window.onscroll = function () {
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
 @import "@/scss/_globals.scss";
+
 header {
   position: static;
   background: transparent;
@@ -170,7 +180,17 @@ header {
 
   .nav {
     flex-basis: 70%;
-    @extend %flex-center-end;
+
+    .nav_inner_i_wrap {
+      @extend %flex-center-end;
+    }
+
+    .menu_toggler {
+      display: none;
+      position: absolute;
+      top: -5%;
+      transition: $trans_default;
+    }
 
     li {
       margin: $med_marg;
@@ -207,4 +227,38 @@ header {
   }
 }
 
+
+body {
+
+  &.tablet,
+  &.mobile {
+    #site-header {
+      .nav {
+        .menu_toggler {
+          display: block;
+          right: 0;
+          top: 5%;
+          padding: $inner_padd;
+          z-index: 25;
+        }
+
+        .nav_inner_i_wrap {
+          @extend %flex-center-center-column;
+          position: fixed;
+          height: 100%;
+          top: 0;
+          right: -50vw;
+          z-index: 20;
+          background: color(_magenta);
+          padding: 0 20px;
+          transition: $trans-default;
+
+          &.a {
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}
 </style>
