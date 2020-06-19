@@ -3,7 +3,7 @@
     <header id="site-header">
       <div class="wrap boxed">
         <div class="logo">
-          <router-link to="/" v-slot="{ href, route, navigate }">
+          <router-link to="/" v-slot="{ isActive,href, route, navigate }">
             <a :href="href" @click="navigate">
               <logo></logo>
             </a>
@@ -14,17 +14,26 @@
            <span @click="menuShowHide" class="menu_toggler heading">menu </span>
           <div class="nav_inner_i_wrap">
           <li>
-            <router-link to="/" v-slot="{ href, route, navigate }">
-              <a :href="href" @click="navigate">{{ route.name }}</a>
+            <router-link
+             to="/"
+             v-slot="{ isActive, href, route, navigate }"
+             >
+              <a
+              :class="[isActive ? ' router-link-active' : '']"
+              :href="href"
+             @click="navigate">{{ route.name }}</a>
             </router-link>-
           </li>
 
           <li class="mark_block_wrap">
             <router-link
-             to="/blog" v-slot="{ href, route, navigate }"
+             to="/blog" v-slot="{ isActive, href, route, navigate }"
              class="word"
              >
-              <a :href="href" @click="navigate">{{ route.name }}</a>
+              <a
+               :class="[isActive ? ' router-link-active' : '']"
+               :href="href"
+                @click="navigate">{{ route.name }}</a>
             </router-link>
             <div class="mark yellow"></div>
           </li>
@@ -78,7 +87,9 @@ export default {
        let mobileNavigation = document.querySelector(".nav_inner_i_wrap");
        mobileNavigation.classList.toggle("a");
        console.log("menuShowHide function happened");
-     }
+     },
+
+
    }
 
 };
