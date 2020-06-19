@@ -27,13 +27,17 @@
             <div class="mark yellow"></div>
           </li>
 
-          <li v-for="category in categories" v-bind:key="category.id">
+          <li  class="mark_block_wrap"
+           v-for="category in categories"
+           v-bind:key="category.id">
             <router-link
              :to="{ path: '/category/' + category.id }"
              :key="category.id"
+             class="word"
              >
               {{ category.name }}
             </router-link>
+             <div class="mark yellow"></div>
           </li>
           </div>
         </ul>
@@ -145,7 +149,7 @@ window.onscroll = function () {
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
 @import "@/scss/_globals.scss";
-
+@import "@/scss/_animatedMark.scss";
 header {
   position: static;
   background: transparent;
@@ -185,8 +189,8 @@ header {
 
     .menu_toggler {
       display: none;
-      position: absolute;
       top: -5%;
+      text-align: right;
       transition: $trans_default;
     }
 
@@ -198,8 +202,14 @@ header {
       font-size: font_size(f20);
       transition: $trans-default;
       background: transparent;
-      &.router-link-active{
+      padding: 5px 0;
+
+      &.router-link-active {
         background: color(_yellow);
+
+        &:hover {
+          background: transparent;
+        }
       }
     }
   }
@@ -237,16 +247,17 @@ body {
   &.mobile {
     #site-header {
       .nav {
-        li{
-          
-        }
         .menu_toggler {
           display: block;
           right: 0;
           top: 5%;
           padding: $inner_padd;
           z-index: 25;
-          &:before , &:after{
+          font-size: font_size(f20);
+          position: relative;
+
+          &:before,
+          &:after {
             content: "";
             display: block;
             background: color(_black);
@@ -256,22 +267,29 @@ body {
             top: -20vh;
             transition: $trans-default;
           }
-          &:before{
+
+          &:before {
             transform: rotate(40deg);
           }
-          &:after{
-             transform: rotate(-40deg);
+
+          &:after {
+            transform: rotate(-40deg);
           }
-          &.a{
+
+          &.a {
             font-size: 0;
             right: 3%;
-            &:hover{
+            position: absolute;
+
+            &:hover {
               transform: rotate(180deg) scale(1.3);
             }
-             &:before , &:after{
-               height: 25px;
-                top: 0;
-             }
+
+            &:before,
+            &:after {
+              height: 25px;
+              top: 0;
+            }
           }
         }
 

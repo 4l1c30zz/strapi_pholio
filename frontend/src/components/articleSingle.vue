@@ -150,185 +150,186 @@ export default {
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
 
-.wrap.blog {
-    @extend %flex-start-between;
-    text-align: center;
-    text-transform: uppercase;
-    .wrap {
-        padding: 0;
-        margin-top: $med_marg;
-        width: 100%;
-        > .btn {
-            flex-basis: calc(50% - 30px);
-            width: 100%;
-            margin: 0;
-            &:hover {
-                transform: scale(0.9) translateY(10px) rotate(10deg);
-            }
 
-        }
-        h4 {
-            flex-basis: 100%;
-            padding: 0 0 5px;
-        }
+.wrap.blog {
+  @extend %flex-start-between;
+  text-align: center;
+  text-transform: uppercase;
+
+  .wrap {
+    padding: 0;
+    margin-top: $med_marg;
+    width: 100%;
+
+    >.btn {
+      flex-basis: calc(50% - 30px);
+      width: 100%;
+      margin: 0;
+
+      &:hover {
+        transform: scale(0.9) translateY(10px) rotate(10deg);
+      }
+
     }
+
+    h4 {
+      flex-basis: 100%;
+      padding: 0 0 5px;
+    }
+  }
 }
 
 .blog .i {
+  .body {
+    @extend %flex-center-center-column;
+    position: absolute;
+    top: 0;
+    left: -100vw;
+    width: 100%;
+    height: 100%;
+    transition: $trans-default 0.3s;
+  }
+
+
+
+  &.a {
     .body {
-        @extend %flex-center-center-column;
-        position: absolute;
-        top: 0;
-        left: -100vw;
-        width: 100%;
-        height: 100%;
-        transition: $trans-default 0.3s;
+      left: 0;
     }
-    .mark_block_wrap {
-        padding: 5px;
-        margin: 5px;
-        position: relative;
+
+    .media:after {
+      position: absolute;
+      top: -100%;
+      width: 300%;
+      opacity: 0.5;
+      animation: grain 8s steps(10) infinite 0.3s;
     }
-    .word {
-        position: relative;
-        z-index: 1;
-    }
-    .mark {
-        width: 0;
-        display: block;
-        position: absolute;
-        height: 100%;
-        top: 0;
-        left: 0;
-    }
-    .heading .mark {
-        transition: all 0.1s ease-in-out 0.6s;
-    }
-    .tech .mark {
-        transition: all 0.15s cubic-bezier(0.550, 0.055, 0.675, 0.190) 0.75s;
-    }
-    .link .mark {
-        transition: all 0.3s ease 0.95s;
-    }
-    &.a {
-        .mark {
-            width: 100%;
-        }
-        .body {
-            left: 0;
-        }
-        .media:after {
-            position: absolute;
-            top: -100%;
-            width: 300%;
-            opacity: 0.5;
-            animation: grain 8s steps(10) infinite 0.3s;
-        }
-    }
+  }
 }
 
 .blog .inner {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  max-height: 54vh;
+  border: 5px solid black;
+  width: 100%;
+
+  >a {
+    display: block;
     height: 100%;
-    position: relative;
+  }
+
+  .media {
     overflow: hidden;
-    max-height: 54vh;
-    border: 5px solid black;
-    width: 100%;
-    > a {
-        display: block;
-        height: 100%;
+    max-height: 55vh;
+
+    img {
+      object-fit: cover;
+      height: 60vh;
+      width: 100%;
     }
-    .media {
-        overflow: hidden;
-        max-height: 55vh;
-        img {
-            object-fit: cover;
-            height: 60vh;
-            width: 100%;
-        }
-        &:after {
-            background: url("../assets/whitenoise-400x400-1.jpg");
-            opacity: 0.7;
-            content: "";
-            height: 300%;
-            left: -50%;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
+
+    &:after {
+      background: url("../assets/whitenoise-400x400-1.jpg");
+      opacity: 0.7;
+      content: "";
+      height: 300%;
+      left: -50%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
     }
-    p {
-        z-index: 2;
-        position: relative;
-        padding: $inner_padd;
-        margin-bottom: 0;
-        line-height: 1em;
-        @extend %flex-center-center;
+  }
+
+  p {
+    z-index: 2;
+    position: relative;
+    padding: $inner_padd;
+    margin-bottom: 0;
+    line-height: 1em;
+    @extend %flex-center-center;
+  }
+
+  .heading {
+    margin: 0 auto;
+    max-width: 80%;
+  }
+
+  .link {
+    max-width: 60px;
+    margin: 0 auto;
+    padding: 5px;
+    transform: scale(1) rotate(0deg);
+    transition: $trans-default;
+
+    &:hover {
+      transform: rotate(180deg) scale(1.4);
     }
-    .heading {
-        margin: 0 auto;
-        max-width: 80%;
-    }
-    .link {
-        max-width: 60px;
-        margin: 0 auto;
-        padding: 5px;
-        transform: scale(1) rotate(0deg);
-        transition: $trans-default;
-        &:hover {
-            transform: rotate(180deg) scale(1.4);
-        }
-    }
+  }
 }
 
 @keyframes grain {
-    0%,
-    100% {
-        transform: translate(-5%, -10%);
-    }
-    10% {
-        transform: translate(0%, -5%);
-    }
-    20% {
-        transform: translate(-10%, -15%);
-    }
-    30% {
-        transform: translate(-20%, -0%);
-    }
-    40% {
-        transform: translate(-25%, -10%);
-    }
-    50% {
-        transform: translate(0%, -5%);
-    }
-    60% {
-        transform: translate(-10%, 0%);
-    }
-    70% {
-        transform: translate(-20%, -5%);
-    }
-    80% {
-        transform: translate(0%, -15%);
-    }
-    90% {
-        transform: translate(-10%, -20%);
-    }
+
+  0%,
+  100% {
+    transform: translate(-5%, -10%);
+  }
+
+  10% {
+    transform: translate(0%, -5%);
+  }
+
+  20% {
+    transform: translate(-10%, -15%);
+  }
+
+  30% {
+    transform: translate(-20%, -0%);
+  }
+
+  40% {
+    transform: translate(-25%, -10%);
+  }
+
+  50% {
+    transform: translate(0%, -5%);
+  }
+
+  60% {
+    transform: translate(-10%, 0%);
+  }
+
+  70% {
+    transform: translate(-20%, -5%);
+  }
+
+  80% {
+    transform: translate(0%, -15%);
+  }
+
+  90% {
+    transform: translate(-10%, -20%);
+  }
 }
-body{
-  &.tablet{
+
+body {
+  &.tablet {
     .blog .i {
       &.a {
         .body {
-        left: 0;
+          left: 0;
         }
       }
     }
   }
-  &.mobile{
-    .inner{
+
+  &.mobile {
+    .inner {
       max-height: 40vh;
+
       .media img {
-            height: 41vh;
-        }
+        height: 41vh;
+      }
     }
   }
 }
