@@ -82,13 +82,30 @@ export default {
 body {
   &.desktop {
     .info_wrap {
-      max-width: 1000px;
+      max-width: $cont_width;
+
+      .tech {
+        max-width: 700px;
+      }
+
+      .btn_wrap {
+        max-width: 500px;
+      }
+
     }
   }
 
   &.laptop {
     .info_wrap {
       max-width: 90%;
+
+      .tech {
+        max-width: 600px;
+      }
+
+      .btn_wrap {
+        max-width: 450px;
+      }
     }
   }
 
@@ -103,6 +120,14 @@ body {
 
     .info_wrap {
       max-width: 90%;
+
+      .tech {
+        max-width: 90%;
+      }
+
+      .btn_wrap {
+        max-width: 80%;
+      }
     }
   }
 
@@ -118,6 +143,14 @@ body {
 
     .info_wrap {
       max-width: 90%;
+
+      .tech {
+        max-width: 85%;
+      }
+
+      .btn_wrap {
+        max-width: 75%;
+      }
 
       .btn {
         font-size: font_size(f18);
@@ -135,13 +168,17 @@ body {
   }
 
   .tech {
-    margin-top: $med_marg;
+    margin: 15px auto 0;
     background: color(_yellow);
     font-size: font_size(f18);
     text-align: center;
     font-weight: font_weight(bold);
     padding: $inner-padd;
     line-height: line_height(_default);
+  }
+
+  .btn_wrap {
+    margin: 0 auto;
   }
 
   .btn {

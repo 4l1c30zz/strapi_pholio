@@ -75,13 +75,13 @@ export default {
 };
 //sticky header function
 function sticky() {
-  let head = document.getElementById("site-header");
-  let elem_height = head.offsetHeight;
+  let siteHeader = document.getElementById("site-header");
+  let siteHeaderHeight = siteHeader.offsetHeight;
   //if scrolled part is higher than header add class
-  if (window.pageYOffset >= elem_height) {
-    head.classList.add("a");
+  if (window.pageYOffset >= siteHeaderHeight) {
+    siteHeader.classList.add("a");
   } else {
-    head.classList.remove("a");
+    siteHeader.classList.remove("a");
   }
 }
 
