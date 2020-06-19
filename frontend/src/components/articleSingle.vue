@@ -165,9 +165,7 @@ export default {
             &:hover {
                 transform: scale(0.9) translateY(10px) rotate(10deg);
             }
-            &:first-child {
-                margin: 0 5px 0 0;
-            }
+
         }
         h4 {
             flex-basis: 100%;
