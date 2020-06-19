@@ -1,39 +1,35 @@
 <template>
   <div id="main">
-  <div v-if="page" class="about block_wrap wrap boxed">
-    <h1 v-if="page.about.title" class="heading col-2 col-md-1 col-sm-1  glitch-heading"><span>{{ page.about.title }}</span></h1>
-    <p v-if="page.about.txt" class="col-2 col-md-1 col-sm-1">{{ page.about.txt }}</p>
-  </div>
-
-  <div v-if="page" class="blog block_wrap wrap boxed">
-    <h2  class="heading col-1">{{ page.title_n_posts.title }}</h2>
-    <articleSingle @created="handleCreate" :articles="page.title_n_posts.articles || []"></articleSingle>
-  </div>
-
-     <div v-if="page" class="gallery block_wrap wrap boxed">
-    <h2
-    v-if="page.gallery.title "
-     class="heading col-1"
-     >
-     {{ page.gallery.title }}
-     </h2>
-      <gallerySingle 
-      v-if="page.gallery.items "
-      :items="page.gallery.items || []"></gallerySingle>
-  </div>
-
-  <div v-if="page"  class="contact block_wrap wrap boxed">
-    <h2 class="heading col-1">{{ page.contact.title }}</h2>
-    <a class="mail link col-1" :href="page.contact.email">{{page.contact.email}}</a>
-    <div class="wrap btn_wrap">
-      <a :href="page.contact.git" class="btn btn-default col-2">
-      GitHub
-      </a>
-      <a :href="page.contact.insta" class="btn btn-default col-2">
-      Instagram
-      </a>
+    <div v-if="page.about" class="about block_wrap wrap boxed">
+      <h1 v-if="page.about.title" class="heading col-2 col-md-1 col-sm-1  glitch-heading">
+        <span>{{ page.about.title }}</span></h1>
+      <p v-if="page.about.txt" class="col-2 col-md-1 col-sm-1">{{ page.about.txt }}</p>
     </div>
-  </div>
+
+    <div v-if="page.title_n_posts" class="blog block_wrap wrap boxed">
+      <h2 class="heading col-1">{{ page.title_n_posts.title }}</h2>
+      <articleSingle @created="handleCreate" :articles="page.title_n_posts.articles || []"></articleSingle>
+    </div>
+
+    <div v-if="page.gallery" class="gallery block_wrap wrap boxed">
+      <h2 v-if="page.gallery.title " class="heading col-1">
+        {{ page.gallery.title }}
+      </h2>
+      <gallerySingle v-if="page.gallery.items " :items="page.gallery.items || []"></gallerySingle>
+    </div>
+
+    <div v-if="page.contact" class="contact block_wrap wrap boxed">
+      <h2 class="heading col-1">{{ page.contact.title }}</h2>
+      <a class="mail link col-1" :href="page.contact.email">{{page.contact.email}}</a>
+      <div class="wrap btn_wrap">
+        <a :href="page.contact.git" class="btn btn-default col-2">
+          GitHub
+        </a>
+        <a :href="page.contact.insta" class="btn btn-default col-2">
+          Instagram
+        </a>
+      </div>
+    </div>
 
   </div>
 </template>
@@ -48,20 +44,20 @@ export default {
   data() {
     return {
       page: {
-        about: { 
-          title: null 
+        about: {
+          title: null
         },
-        gallery: { 
-          title: null 
+        gallery: {
+          title: null
         },
-        title_n_posts: { 
-          title: null 
+        title_n_posts: {
+          title: null
         },
-        contact: { 
-          title: null 
-        } 
-    }, 
-      
+        contact: {
+          title: null
+        }
+      },
+
       api_url: process.env.VUE_APP_STRAPI_API_URL,
       routeParam: this.$route.params.id
     };
@@ -72,7 +68,7 @@ export default {
   },
   apollo: {
     page: {
-      query: gql`
+      query: gql `
         query Pages($id: ID = 1) {
           page(id: $id) {
             id
@@ -120,12 +116,12 @@ export default {
       }
     }
   },
-   methods: {
+  methods: {
     handleCreate() {
       console.log('articleList has been created.');
     }
   },
-  
+
 };
 
 </script>
@@ -135,53 +131,59 @@ export default {
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
 .about {
-    .glitch-heading {
-        font-size: font_size(f120);
-        text-align: left;
-        line-height: line_height(_minimal);
-    }
-    p {
-        font-weight: font_weight(medium);
-        font-size: font_size(f20);
-        line-height: line_height(_default);
-        text-transform: uppercase;
-    }
+  .glitch-heading {
+    font-size: font_size(f120);
+    text-align: left;
+    line-height: line_height(_minimal);
+  }
+
+  p {
+    font-weight: font_weight(medium);
+    font-size: font_size(f20);
+    line-height: line_height(_default);
+    text-transform: uppercase;
+  }
 }
 
 .blog,
 .contact {
-    text-align: center;
+  text-align: center;
 }
+
 .mail.link {
-    display: block;
-    padding: 5px 0;
-    font-size: font_size(f20);
+  display: block;
+  padding: 5px 0;
+  font-size: font_size(f20);
 }
 
 body {
-   &.tablet {
-        .glitch-heading {
-            font-size: font_size(f100);
-            margin-bottom: $med-marg;
-        }
-        .about p {
-            font-size: font_size(f18);
-        }
+  &.tablet {
+    .glitch-heading {
+      font-size: font_size(f100);
+      margin-bottom: $med-marg;
     }
-    &.mobile {
-        .glitch-heading {
-            font-size: font_size(f80);
-            margin-bottom: $med-marg;
-        }
-        .about p {
-            font-size: font_size(f18);
-        }
+
+    .about p {
+      font-size: font_size(f18);
     }
+  }
+
+  &.mobile {
+    .glitch-heading {
+      font-size: font_size(f80);
+      margin-bottom: $med-marg;
+    }
+
+    .about p {
+      font-size: font_size(f18);
+    }
+  }
 }
+
 .contact .btn_wrap {
-    width: 100%;
-    max-width: 50%;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 50%;
+  margin: 0 auto;
 }
 
 </style>

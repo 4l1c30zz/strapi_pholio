@@ -4,6 +4,7 @@
 @import "_variables";
 @import "_functions";
 @import "_mixins";
+
 body {
   font: font_weight(regular) font_size(f16) font(base_font);
   color: color(_gray);
@@ -47,17 +48,21 @@ body {
     h2 {
       font-size: font_size(f60);
     }
-    .blog .i{
+
+    .blog .i {
       margin: 20px 10px;
     }
+
     .wrap {
       &.boxed {
         @extend %flex-center-between;
         max-width: 90%;
       }
+
       &.block_wrap {
         padding: $block_padding_tablet;
       }
+
       .col-md-1 {
         flex-basis: 100%;
       }
@@ -76,6 +81,7 @@ body {
     .single-hero {
       min-height: 50vh;
     }
+
     h1 {
       font-size: font_size(f60);
     }
@@ -83,20 +89,25 @@ body {
     h2 {
       font-size: 50px;
     }
-        h3 {
-          font-size: font_size(f20);
-        }
+
+    h3 {
+      font-size: font_size(f20);
+    }
+
     .blog .i {
       margin: 15px 10px;
     }
+
     .wrap {
       &.boxed {
         @extend %flex-center-between;
         max-width: 90%;
       }
+
       &.block_wrap {
         padding: $block_padding_mobile;
       }
+
       .col-sm-1 {
         flex-basis: 100%;
       }
@@ -111,39 +122,43 @@ body {
 
     }
   }
-    &.tiny {
-      h1 {
-        font-size: 40px;
-      }
 
-      h2 {
-        font-size: 35px;
-      }
+  &.tiny {
+    h1 {
+      font-size: 40px;
+    }
 
-      h3 {
-        font-size: font_size(f18);
-      }
+    h2 {
+      font-size: 35px;
+    }
+
+    h3 {
+      font-size: font_size(f18);
+    }
+
     .single-hero {
       min-height: 40vh;
     }
-      .wrap {
-        .col-tn-1 {
-          flex-basis: 100%;
-        }
+
+    .wrap {
+      .col-tn-1 {
+        flex-basis: 100%;
       }
     }
+  }
 }
 
 
 .wrap {
   @extend %flex-center-between;
-&:not(.block_wrap .btn_wrap) {
-  padding: $inner_padd;
-}
 
-&.block_wrap {
-  padding: $block_padding_desk;
-}
+  &:not(.block_wrap .btn_wrap) {
+    padding: $inner_padd;
+  }
+
+  &.block_wrap {
+    padding: $block_padding_desk;
+  }
 
   &.boxed {
     @include cont_width;

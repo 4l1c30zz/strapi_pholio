@@ -1,41 +1,23 @@
 <template>
   <div class="single">
     <div
-      v-if="article.image"
+     v-if="article.image"
       id="banner"
-      class="bck-cover bck-fixed single-hero"
-      :data-src="api_url + article.image.url"
-      :style="{ backgroundImage: `url('${api_url + article.image.url}')` }"
-    >
-    <!-- <img :src="api_url + article.image.url" /> -->
-    <div class="info_wrap">
-      <h1 class="heading" >{{ article.title }}</h1>
-      <div
-      v-if="article.tech"
-       class="tech"> 
-        {{article.tech}}
+       class="bck-cover bck-fixed single-hero"
+     :style="{ backgroundImage: `url('${api_url + article.image.url}')` }"
+      >
+      <div class="info_wrap">
+        <h1 class="heading">{{ article.title }}</h1>
+        <div v-if="article.tech" class="tech">
+          {{article.tech}}
+        </div>
+        <div class="btn_wrap wrap">
+          <a v-if="article.live" class="btn col-2" :href="article.live" target="_blank">live </a>
+          <a v-if="article.git" :href="article.git" target="_blank" class="btn col-2"> git </a>
+        </div>
       </div>
-      <div class="btn_wrap wrap">
-        <a
-          v-if="article.live"
-         class="btn col-2"
-          :href="article.live"
-          target="_blank"
-          >live  </a>
-        <a  
-        v-if="article.git"
-        :href="article.git"
-        target="_blank"
-          class="btn col-2"
-           > git  </a>
-      </div>
-   </div>
     </div>
-        <vue-markdown-it
-          v-if="article.content"
-          :source="article.content"
-          class="body"
-        />
+    <vue-markdown-it v-if="article.content" :source="article.content" class="body" />
   </div>
 </template>
 
@@ -56,7 +38,7 @@ export default {
   },
   apollo: {
     article: {
-      query: gql`
+      query: gql `
       query Articles($id: ID!) {
         article(id: $id) {
           id
@@ -87,68 +69,84 @@ export default {
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
 .single .body {
-    padding: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    p {
-        line-height: line_height(_bigger);
-        margin-bottom: $med_marg;
-    }
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+
+  p {
+    line-height: line_height(_bigger);
+    margin-bottom: $med_marg;
+  }
 }
 
 body {
-  &.desktop{
+  &.desktop {
     .info_wrap {
-      max-width: $cont_width;
+      max-width: 1000px;
     }
   }
-  &.laptop{
+
+  &.laptop {
     .info_wrap {
       max-width: 90%;
     }
   }
-    &.tablet {
-        .body {
-            max-width: 70%;
-        }
-        .btn_wrap {
-            max-width: 100%;
-        }
-      .info_wrap {
-        max-width: 90%;
+
+  &.tablet {
+    .body {
+      max-width: 70%;
+    }
+
+    .btn_wrap {
+      max-width: 100%;
+    }
+
+    .info_wrap {
+      max-width: 90%;
+    }
+  }
+
+  &.mobile {
+    .body {
+      max-width: 80%;
+    }
+
+    .btn_wrap {
+      max-width: 100%;
+
+    }
+
+    .info_wrap {
+      max-width: 90%;
+
+      .btn {
+        font-size: font_size(f18);
       }
     }
-    &.mobile {
-        .body {
-            max-width: 80%;
-        }
-        .btn_wrap {
-            max-width: 100%;
-        }
-      .info_wrap {
-        max-width: 90%;
-      }
-    }
+  }
 }
 
 .info_wrap {
   text-align: center;
-    h1 {
-        padding: $inner_padd;
-        background: color(_blue);
-    }
-    .tech {
-        background: color(_yellow);
-        font-size: font_size(f18);
-        text-align: center;
-        font-weight: font_weight(bold);
-        padding: $inner-padd;
-        display: inline;
-        line-height: 3em;
-    }
-    .btn_wrap{
-      margin-top: -10px;
-    }
+
+  h1 {
+    padding: $inner_padd;
+    background: color(_blue);
+  }
+
+  .tech {
+    margin-top: $med_marg;
+    background: color(_yellow);
+    font-size: font_size(f18);
+    text-align: center;
+    font-weight: font_weight(bold);
+    padding: $inner-padd;
+    line-height: line_height(_default);
+  }
+
+  .btn {
+    font-size: font_size(f20);
+  }
 }
 
 </style>
