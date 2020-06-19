@@ -218,7 +218,7 @@ p {
   padding: $inner_padd;
   background: color(_black);
   color: white;
-  margin: $med_marg;
+  //margin: $med_marg;
   transform: scale(1) rotate(0deg);
   transition: $trans_default;
   flex-grow: 1;
@@ -238,7 +238,7 @@ p {
     }
 
     &:first-child {
-      margin-right: 5px;
+      //margin-right: 5px;
 
       &:hover {
         transform: scale(0.9) rotate(-10deg);
