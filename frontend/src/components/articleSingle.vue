@@ -136,10 +136,6 @@ export default {
     }
   },
 
-    created() {
-    this.$emit('created');
-  }
-
 };
 
 

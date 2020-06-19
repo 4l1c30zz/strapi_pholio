@@ -69,9 +69,10 @@ export default {
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
 .single .body {
-  padding: 20px;
+  padding: $block_padding_desk;
   max-width: 900px;
   margin: 0 auto;
+  min-height: 35vh;
 
   p {
     line-height: line_height(_bigger);

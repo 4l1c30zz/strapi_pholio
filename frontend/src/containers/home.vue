@@ -3,12 +3,12 @@
     <div v-if="page.about" class="about block_wrap wrap boxed">
       <h1 v-if="page.about.title" class="heading col-2 col-md-1 col-sm-1  glitch-heading">
         <span>{{ page.about.title }}</span></h1>
-      <p v-if="page.about.txt" class="col-2 col-md-1 col-sm-1">{{ page.about.txt }}</p>
+      <vue-markdown-it  v-if="page.about.txt" :source="page.about.txt" class="col-2 col-md-1 col-sm-1"/>
     </div>
 
     <div v-if="page.title_n_posts" class="blog block_wrap wrap boxed">
       <h2 class="heading col-1">{{ page.title_n_posts.title }}</h2>
-      <articleSingle @created="handleCreate" :articles="page.title_n_posts.articles || []"></articleSingle>
+      <articleSingle :articles="page.title_n_posts.articles || []"></articleSingle>
     </div>
 
     <div v-if="page.gallery" class="gallery block_wrap wrap boxed">
@@ -38,6 +38,7 @@
 import gql from "graphql-tag";
 import gallerySingle from "../components/gallerySingle";
 import articleSingle from "../components/articleSingle";
+import VueMarkdownIt from "vue-markdown-it";
 
 export default {
 
@@ -64,7 +65,8 @@ export default {
   },
   components: {
     gallerySingle,
-    articleSingle
+    articleSingle,
+    VueMarkdownIt
   },
   apollo: {
     page: {
@@ -114,11 +116,6 @@ export default {
           id: this.routeParam,
         };
       }
-    }
-  },
-  methods: {
-    handleCreate() {
-      console.log('articleList has been created.');
     }
   },
 

@@ -12,6 +12,7 @@
                             <logo></logo>
                         </a>
                     </router-link>
+                          <a class="mail link col-1" href="4l1c30zz@gmail.com">4l1c30zz@gmail.com</a>
                 </div>
             </div>
         </footer>
