@@ -15,7 +15,7 @@
                 </div>
             </div>
         </footer>
-        
+
         <div id="loader" class="a first">
             <div class="inner">
                 <div id="load">
@@ -138,4 +138,26 @@ export default {
     }
 }
 
+
+//media query for loader only to avoid any jumpings
+@media screen and( max-width:1024px){
+#app #loader {
+        p{
+        font-size: font_size(f80);
+        }
+        .side{
+        font-size: 50px;
+        }
+    }
+}
+@media screen and( max-width:450px){
+#app #loader {
+        p{
+        font-size: 50px;
+        }
+        .side{
+        font-size: font_size(f30);
+        }
+    }
+}
 </style>
