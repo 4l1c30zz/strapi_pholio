@@ -29,6 +29,14 @@ export default {
 
   methods: {
     enter: function () {
+      //check if menu is active to avoid sticking on side 4ever
+      let mobileNavtogglerItems = document.querySelectorAll('.nav_inner_i_wrap, .menu_toggler');
+      mobileNavtogglerItems.forEach((mobileNavtogglerItem) => {
+        if (mobileNavtogglerItem.classList.contains("a")) {
+          mobileNavtogglerItem.classList.remove("a")
+        }
+      });
+
       //check if svg on top of a page existst
       let existing_morph = document.querySelector("#morph");
 
