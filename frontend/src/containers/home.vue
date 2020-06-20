@@ -41,7 +41,11 @@ import articleSingle from "../components/articleSingle";
 import VueMarkdownIt from "vue-markdown-it";
 
 export default {
-
+  name: 'Home',
+  metaInfo: {
+    title: 'Home',
+    titleTemplate: '%s | 4l1c30zz Portfolio App'
+  },
   data() {
     return {
       page: {

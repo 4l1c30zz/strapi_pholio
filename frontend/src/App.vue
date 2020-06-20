@@ -22,6 +22,11 @@ import { loader_random } from './js/particals/anime_effects';
 
 export default {
   name: "App",
+
+  metaInfo: {
+    title: '4l1c30zz',
+    titleTemplate: '%s | 4l1c30zz Portfolio App'
+  },
   components: {
     headerComponent,
     footerComponent

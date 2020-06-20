@@ -12,6 +12,11 @@ import articleSingle from "../components/articleSingle";
 import gql from "graphql-tag";
 
 export default {
+  name: 'Category',
+  metaInfo: {
+    title: 'Category',
+    titleTemplate: '%s | 4l1c30zz Portfolio App'
+  },
   data() {
     return {
       category: [],

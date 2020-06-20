@@ -26,6 +26,11 @@ import VueMarkdownIt from "vue-markdown-it";
 import gql from "graphql-tag";
 
 export default {
+  name: 'Post',
+  metaInfo: {
+    title: 'Post',
+    titleTemplate: '%s | 4l1c30zz Portfolio App'
+  },
   data() {
     return {
       article: {},
