@@ -183,6 +183,7 @@ export default {
     top: 0;
     left: -100vw;
     width: 100%;
+    max-width: 100%;
     height: 100%;
     transition: $trans-default 0.3s;
   }
