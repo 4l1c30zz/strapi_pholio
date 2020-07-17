@@ -9,10 +9,10 @@
                     </router-link>
                     <a class="mail link col-1" href="mailto:4l1c30zz@gmail.com">4l1c30zz@gmail.com</a>
                     <div class="wrap btn_wrap col-1">
-                        <a href="hithublink" target="_blank" class=" git btn btn-default col-2 col-sm-1 ">
+                        <a href="hithublink" target="_blank" class=" git btn btn-default col-2  ">
                             GitHub
                         </a>
-                        <a href="hi" target="_blank" class="btn btn-default col-2 col-sm-1">
+                        <a href="hi" target="_blank" class="btn btn-default col-2 ">
                             Instagram
                         </a>
                     </div>

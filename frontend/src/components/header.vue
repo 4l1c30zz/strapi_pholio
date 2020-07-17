@@ -96,50 +96,9 @@ function sticky() {
   }
 }
 
-function body_class_switcher() {
-
-  let body = document.querySelector("body");
-  //reset body class every time that function runs to avoid resize bugs
-  body.className = '';
-  //set default screen sizes for future media queries
-  let desktop = window.matchMedia("(min-width: 1331px)");
-  let laptop = window.matchMedia("(min-width:1025px) and (max-width:1330px)");
-  let tablet = window.matchMedia("(min-width:769px) and (max-width:1024px)");
-  let mobile = window.matchMedia("(min-width:400px) and (max-width:768px)");
-  let tiny_mobile = window.matchMedia("(max-width:430px)");
-
-  //if resolution matches the body gets the maching class
-  if ((desktop).matches) {
-    body.classList.add('desktop');
-  }
-
-  if ((laptop).matches) {
-    body.classList.add('laptop');
-  }
-
-  if ((tablet).matches) {
-    body.classList.add('tablet');
-  }
-
-  if ((mobile).matches) {
-    body.classList.add('mobile');
-  }
-  if ((tiny_mobile).matches) {
-    body.classList.add('tiny', 'mobile');
-  }
-
-}
-//check the resolution oload
-window.onload = function () {
-  body_class_switcher();
-}
-//check the resolution on resize
-window.onresize = function () {
-  body_class_switcher();
-}
 //stick the header onscroll
 window.onscroll = function () {
-  sticky()
+  sticky();
 };
 
 </script>
@@ -241,10 +200,7 @@ header {
 }
 
 
-body {
-
-  &.tablet,
-  &.mobile {
+ @media screen and (max-width:1024px) {
     #site-header {
       .nav {
         .menu_toggler {
@@ -311,5 +267,4 @@ body {
       }
     }
   }
-}
 </style>
