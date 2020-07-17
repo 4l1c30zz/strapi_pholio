@@ -1,31 +1,38 @@
-$fonts: ("base_font": "Montserrat",
+$fonts: (
+  "base_font": "Montserrat",
   "lined_font": "Montserrat Subrayada"
 );
 
-$font_sizes: ("f14": 14px,
+$font_sizes: (
+  "f14": 14px,
   "f16": 16px,
   "f18" : 18px,
   "f20": 20px,
   "f25": 25px,
   "f30": 30px,
+  "f40": 40px,
+  "f50": 50px,
   "f60": 60px,
   "f80": 80px,
   "f100": 100px,
   "f120": 120px,
 );
 
-$font_weights: ("light" : 300,
+$font_weights: (
+  "light" : 300,
   "regular" : 400,
   "medium" : 500,
   "bold": 600,
   "bolder": 700,
   "boldest": 900,
 );
-$line_heights: ("_minimal": 1em,
+$line_heights: (
+  "_minimal": 1em,
   "_default": 1.2em,
   "_bigger": 1.3em,
 );
-$colors: ("_gray": #1a181b,
+$colors: (
+  "_gray": #1a181b,
   "_black": #000300,
   "_magenta": #EC008C,
   "_yellow": #faff00,

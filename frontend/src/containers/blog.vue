@@ -1,9 +1,7 @@
 <template>
   <div>
     <h1 class="heading">blog</h1>
-    <div class="block_wrap">
      <articleSingle :articles="articles"></articleSingle>
-    </div>
   </div>
 </template>
 

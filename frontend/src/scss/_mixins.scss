@@ -3,37 +3,38 @@
   width: auto;
   margin: 0 auto;
 }
-%flex-center-between{
+@mixin flex-center-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
-%flex-start-between{
+
+@mixin flex-start-between {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
 }
-%flex-center-center{
+@mixin flex-center-center {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
-%flex-center-end{
+@mixin flex-center-end {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-wrap: wrap;
 }
-%flex-center-column{
+@mixin flex-center-column {
   display: flex;
   align-content:  center;
   flex-direction: column;
 }
 
-%flex-center-center-column {
+@mixin flex-center-center-column {
   display: flex;
   align-content: center;
   flex-direction: column;

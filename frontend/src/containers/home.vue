@@ -17,20 +17,6 @@
       </h2>
       <gallerySingle v-if="page.gallery.items " :items="page.gallery.items || []"></gallerySingle>
     </div>
-
-    <div v-if="page.contact" class="contact block_wrap wrap boxed">
-      <h2 class="heading col-1">{{ page.contact.title }}</h2>
-      <a class="mail link col-1" :href="['mailto:' + page.contact.email]">{{page.contact.email}}</a>
-      <div class="wrap btn_wrap">
-        <a :href="page.contact.git" class=" git btn btn-default col-2 col-sm-1 ">
-          GitHub
-        </a>
-        <a :href="page.contact.insta" class="btn btn-default col-2 col-sm-1">
-          Instagram
-        </a>
-      </div>
-    </div>
-
   </div>
 </template>
 
@@ -146,48 +132,30 @@ export default {
   }
 }
 
-.blog,
-.contact {
-  text-align: center;
-}
-
-.mail.link {
-  display: block;
-  padding: 5px 0;
-  font-size: font_size(f20);
-}
-
-body {
-  &.tablet {
-    .glitch-heading {
-      font-size: font_size(f100);
-      margin-bottom: $med-marg;
-    }
-
-    .about p {
-      font-size: font_size(f18);
-    }
+@media screen and (max-width:1024px) {
+  .glitch-heading {
+    font-size: font_size(f100);
+    margin-bottom: $med-marg;
   }
 
-  &.mobile {
-    .glitch-heading {
-      font-size: font_size(f80);
-      margin-bottom: $med-marg;
-    }
-
-    .about p {
-      font-size: font_size(f18);
-    }
-    .contact .git{
-      margin-bottom: 20px;
-    }
+  .about p {
+    font-size: font_size(f18);
   }
 }
 
-.contact .btn_wrap {
-  width: 100%;
-  max-width: 50%;
-  margin: 0 auto;
+@media screen and (max-width:750px) {
+  .glitch-heading {
+    font-size: font_size(f80);
+    margin-bottom: $med-marg;
+  }
+
+  .about p {
+    font-size: font_size(f18);
+  }
+
+  .contact .git {
+    margin-bottom: 20px;
+  }
 }
 
 </style>

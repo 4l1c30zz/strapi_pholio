@@ -1,9 +1,7 @@
 <template>
   <div>
     <h1 class="heading">{{ category.name }}</h1>
-    <div class="block_wrap">
      <articleSingle :articles="category.articles || []"></articleSingle>
-    </div>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
 
-<div class="wrap blog">
+<div class="wrap blog min-height-full wrap boxed">
   <div
   v-for="article in Articles"
   @mouseover="class_add"
@@ -146,9 +146,8 @@ export default {
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
 
-
 .wrap.blog {
-  @extend %flex-start-between;
+  @include flex-start-between;
   text-align: center;
   text-transform: uppercase;
 
@@ -165,7 +164,6 @@ export default {
       &:hover {
         transform: scale(0.9) translateY(10px) rotate(5deg);
       }
-
     }
 
     h4 {
@@ -177,8 +175,9 @@ export default {
 
 #app .blog .i {
   margin: 15px 10px;
+
   .body {
-    @extend %flex-center-center-column;
+    @include flex-center-center-column;
     position: absolute;
     top: 0;
     left: -100vw;
@@ -187,8 +186,6 @@ export default {
     height: 100%;
     transition: $trans-default 0.3s;
   }
-
-
 
   &.a {
     .body {
@@ -245,7 +242,7 @@ export default {
     padding: $inner_padd;
     margin-bottom: 0;
     line-height: 1em;
-    @extend %flex-center-center;
+    @include flex-center-center;
   }
 
   .heading {
@@ -310,31 +307,31 @@ export default {
   }
 }
 
-body {
-  &.tablet {
-   #app .blog .i {
-        margin: 20px 10px;
+@media screen and (max-width:1024px) {
+  #app .blog .i {
+    margin: 20px 10px;
 
-      &.a {
-        .body {
-          left: 0;
-        }
-      }
-    }
-  }
-
-  &.mobile {
-        #app .blog .i {
-        margin: 10px 10px 25px;
-        }
-    .inner {
-      max-height: 40vh;
-
-      .media img {
-        height: 41vh;
+    &.a {
+      .body {
+        left: 0;
       }
     }
   }
 }
+
+@media screen and (max-width:750px) {
+  #app .blog .i {
+    margin: 10px 10px 25px;
+  }
+
+  .inner {
+    max-height: 40vh;
+
+    .media img {
+      height: 41vh;
+    }
+  }
+}
+
 </style>
 

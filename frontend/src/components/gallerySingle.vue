@@ -6,7 +6,10 @@
       @click="class_toggle"
       class="col-3 col-md-3 col-sm-2 col-tn-1  col-center i"
       >
-        <img :src="api_url + item.url" class="gallery_image"  />
+      <picture>
+        <source :srcset="api_url + item.url" type="image/webp">
+        <img :src="api_url + item.url" class="gallery_image" />
+      </picture>
         <h4 class="heading">{{item.caption}}</h4>
       </div>
     </div>
@@ -278,37 +281,36 @@ export default {
   }
 }
 
-body {
-  &.mobile {
-    .gallery.a .overlay_controllers {
 
-      .close,
-      .arr {
-        font-size: font_size(f20);
-      }
+@media screen and (max-width:750px) {
+  .gallery.a .overlay_controllers {
+
+    .close,
+    .arr {
+      font-size: font_size(f20);
+    }
+  }
+}
+
+@media screen and (max-width:400px) {
+
+  .gallery.a .overlay_controllers {
+
+    .close,
+    .arr {
+      font-size: font_size(f18);
+    }
+  }
+
+  .gallery .i {
+    img {
+      max-height: 50vw;
+      height: 50vw;
     }
 
-    &.tiny {
-
-      .gallery.a .overlay_controllers {
-
-        .close,
-        .arr {
-          font-size: font_size(f18);
-        }
-      }
-
-      .gallery .i {
-        img {
-          max-height: 50vw;
-          height: 50vw;
-        }
-
-        &.a img {
-          height: 100%;
-          max-height: 90vh;
-        }
-      }
+    &.a img {
+      height: 100%;
+      max-height: 90vh;
     }
   }
 }

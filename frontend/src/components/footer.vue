@@ -1,19 +1,21 @@
 <template>
     <div>
         <footer class="site-footer">
-            <div class="wrap">
-                <div class="logo">
-                    <router-link
-                     to="/" v-slot="{ href, route, navigate }"
-                     >
-                        <a class="logo_wrap"
-                         :href="href"
-                          @click="navigate">
+            <div class="block_wrap wrap boxed">
+                    <router-link to="/" v-slot="{ href, route, navigate }">
+                        <a class="logo_wrap col-1" :href="href" @click="navigate">
                             <logo></logo>
                         </a>
                     </router-link>
-                          <a class="mail link col-1" href="mailto:4l1c30zz@gmail.com">4l1c30zz@gmail.com</a>
-                </div>
+                    <a class="mail link col-1" href="mailto:4l1c30zz@gmail.com">4l1c30zz@gmail.com</a>
+                    <div class="wrap btn_wrap col-1">
+                        <a href="hithublink" target="_blank" class=" git btn btn-default col-2 col-sm-1 ">
+                            GitHub
+                        </a>
+                        <a href="hi" target="_blank" class="btn btn-default col-2 col-sm-1">
+                            Instagram
+                        </a>
+                    </div>
             </div>
         </footer>
 
@@ -47,7 +49,7 @@ export default {
 @import "@/scss/_mixins.scss";
 
 .site-footer {
-    @extend %flex-center-center;
+    @include flex-center-center;
     text-align: center;
 
     .logo_wrap {
@@ -76,7 +78,7 @@ export default {
         background: white;
         z-index: 999;
         top: 0;
-        @extend %flex-center-center;
+        @include flex-center-center;
         flex-direction: column;
         width: 100vw;
         height: 100vh;
@@ -99,7 +101,7 @@ export default {
             margin: 0 auto;
             flex-basis: 100%;
             max-height: 50vh;
-            @extend %flex-center-center;
+            @include flex-center-center;
 
         }
 

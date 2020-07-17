@@ -184,7 +184,7 @@ header {
     flex-basis: 70%;
 
     .nav_inner_i_wrap {
-      @extend %flex-center-end;
+      @include flex-center-end;
     }
 
     .menu_toggler {
@@ -236,7 +236,7 @@ header {
   z-index: -1;
 
   path {
-    fill: color(_magenta);
+    fill: color(_blue);
   }
 }
 
@@ -294,7 +294,7 @@ body {
         }
 
         .nav_inner_i_wrap {
-          @extend %flex-center-center-column;
+          @include flex-center-center-column;
           position: fixed;
           height: 100%;
           top: 0;
