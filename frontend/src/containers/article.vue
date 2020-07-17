@@ -202,5 +202,9 @@ export default {
         font-size: font_size(f18);
       }
     }
+            .single{
+  margin-top: 5vh;
+}
   }
+
 </style>

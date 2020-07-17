@@ -9,8 +9,11 @@ body {
   font: font_weight(regular) font_size(f16) font(base_font);
   color: color(_gray);
   text-transform: uppercase;
+  overflow-x: hidden;
 }
-
+body *{
+  box-sizing: border-box;
+}
 h1 {
   font-size: font_size(f100);
 }
@@ -251,11 +254,11 @@ p {
 @media screen and (max-width:750px)  {
 
   h1 {
-    font-size: font_size(f50);
+    font-size: font_size(f40);
   }
 
  h2 {
-   font-size: font_size(f40);
+   font-size: font_size(f30);
  }
 
  h3 {
@@ -288,15 +291,18 @@ p {
     }
 
   }
+  #banner{
+    min-height: 50vh;
+  }
 }
 
 @media screen and (max-width:400px) {
   h1 {
-    font-size: 40px;
+    font-size: font_size(f30);
   }
 
   h2 {
-    font-size: 35px;
+    font-size: font_size(f20);
   }
 
   h3 {

@@ -1,7 +1,7 @@
 <template>
     <div>
         <footer class="site-footer">
-            <div class="block_wrap wrap boxed">
+            <div class="block_wrap wrap boxed col-1">
                     <router-link to="/" v-slot="{ href, route, navigate }">
                         <a class="logo_wrap col-1" :href="href" @click="navigate">
                             <logo></logo>
@@ -9,13 +9,16 @@
                     </router-link>
                     <a class="mail link col-1" href="mailto:4l1c30zz@gmail.com">4l1c30zz@gmail.com</a>
                     <div class="wrap btn_wrap col-1">
-                        <a href="hithublink" target="_blank" class=" git btn btn-default col-2  ">
+                        <a href="github.com/4l1c30zz/" target="_blank" class=" git btn btn-default col-2  ">
                             GitHub
                         </a>
-                        <a href="hi" target="_blank" class="btn btn-default col-2 ">
+                        <a href="https://www.instagram.com/4l1c30zz/" target="_blank" class="btn btn-default col-2 ">
                             Instagram
                         </a>
                     </div>
+            </div>
+                        <div class="magenta deco heading col-1">
+                {!%@#”/~%&?}
             </div>
         </footer>
 
@@ -47,10 +50,16 @@ export default {
 @import "@/scss/_variables.scss";
 @import "@/scss/_functions.scss";
 @import "@/scss/_mixins.scss";
+.deco{
+    padding: 2.5vh 10vw;
+    font-size: font_size(f30);
+    width: 100%;
 
+}
 .site-footer {
     @include flex-center-center;
     text-align: center;
+    flex-wrap: wrap;
 
     .logo_wrap {
         display: block;

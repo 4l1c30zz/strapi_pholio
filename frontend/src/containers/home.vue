@@ -133,7 +133,7 @@ export default {
 }
 
 @media screen and (max-width:1024px) {
-  .glitch-heading {
+  .about .glitch-heading {
     font-size: font_size(f100);
     margin-bottom: $med-marg;
   }
@@ -144,7 +144,7 @@ export default {
 }
 
 @media screen and (max-width:750px) {
-  .glitch-heading {
+ .about .glitch-heading {
     font-size: font_size(f80);
     margin-bottom: $med-marg;
   }
@@ -155,6 +155,11 @@ export default {
 
   .contact .git {
     margin-bottom: 20px;
+  }
+}
+@media screen and (max-width:450px) {
+ .about .glitch-heading {
+    font-size: font_size(f60);
   }
 }
 

@@ -199,7 +199,6 @@ header {
   }
 }
 
-
  @media screen and (max-width:1024px) {
     #site-header {
       .nav {
@@ -254,7 +253,7 @@ header {
           position: fixed;
           height: 100%;
           top: 0;
-          right: -50vw;
+          right: -100vw;
           z-index: 20;
           background: color(_magenta);
           padding: 0 20px;
