@@ -10,7 +10,10 @@
   >
     <div class="inner">
       <div class="media">
-       <img :src="api_url + article.image.url" />
+        <picture>
+          <source :srcset=" article.image.url|imageWebp" type="image/webp">
+          <img :src="api_url + article.image.url" class="gallery_image" />
+        </picture>
       </div>
       <div class="body">
         <h3
@@ -133,6 +136,13 @@ export default {
       html += '<span class="mark_block_wrap"><span class="word">' + post_tech_items[i] + '</span><span class="mark yellow"></span></span>'
     }
       return html
+    },
+    imageWebp: function(value , ){
+      let splittedVal = value.split('_')[0];
+      let imageUrl = splittedVal + ".webp";
+      let api_url = process.env.VUE_APP_STRAPI_API_URL;
+      let fullUrl = api_url + imageUrl;
+      return fullUrl;
     }
   },
 

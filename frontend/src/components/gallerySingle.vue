@@ -7,7 +7,7 @@
       class="col-3 col-md-3 col-sm-2 col-tn-1  col-center i"
       >
       <picture>
-        <source :srcset="api_url + item.url" type="image/webp">
+        <source :srcset="item.url|imageWebp" type="image/webp">
         <img :src="api_url + item.url" class="gallery_image" />
       </picture>
         <h4 class="heading">{{item.caption}}</h4>
@@ -102,6 +102,16 @@ export default {
     Items() {
       return this.items.slice(0);
     },
+  },
+  filters: {
+    imageWebp: function(value , ){
+      let splittedVal = value.split('_')[0];
+      let imageUrl = splittedVal + ".webp";
+      let api_url = process.env.VUE_APP_STRAPI_API_URL;
+      let fullUrl = api_url + imageUrl;
+      return fullUrl;
+
+    }
   }
 };
 
