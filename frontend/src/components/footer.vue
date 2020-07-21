@@ -9,11 +9,14 @@
                     </router-link>
                     <a class="mail link col-1" href="mailto:4l1c30zz@gmail.com">4l1c30zz@gmail.com</a>
                     <div class="wrap btn_wrap col-1">
-                        <a href="https://github.com/4l1c30zz/" target="_blank" class=" git btn btn-default col-2  ">
+                        <a href="https://github.com/4l1c30zz/" target="_blank" class=" git btn btn-default col-3  ">
                             GitHub
                         </a>
-                        <a href="https://www.instagram.com/4l1c30zz/" target="_blank" class="btn btn-default col-2 ">
+                        <a href="https://www.instagram.com/4l1c30zz/" target="_blank" class="btn btn-default col-3 ">
                             Instagram
+                        </a>
+                         <a href="https://www.behance.net/4l1c30zz/" target="_blank" class="btn btn-default col-3 ">
+                            Behance
                         </a>
                     </div>
             </div>

@@ -258,10 +258,9 @@ export default {
 
     img {
       width: 100%;
-      max-height: 30vw;
-      min-height: 30vw;
-      height: 30vw;
-      object-fit: cover;
+      max-height: 35vh;
+      height: 35vh;
+      object-fit: scale-down;
       object-position: center top;
     }
 
@@ -291,7 +290,11 @@ export default {
   }
 }
 
-
+@media screen and (max-width:1024px) {
+.gallery .i img{
+  object-fit: cover;
+}
+}
 @media screen and (max-width:750px) {
   .gallery.a .overlay_controllers {
 
@@ -300,6 +303,10 @@ export default {
       font-size: font_size(f20);
     }
   }
+  .gallery .i img{
+  max-height: 30vh;
+  height: 30vh;
+}
 }
 
 @media screen and (max-width:400px) {

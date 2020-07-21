@@ -334,11 +334,11 @@ export default {
     margin: 10px 10px 25px;
   }
 
-  .inner {
-    max-height: 40vh;
+ .blog .inner {
+    max-height: 45vh;
 
     .media img {
-      height: 41vh;
+      height: 46vh;
     }
   }
 }
